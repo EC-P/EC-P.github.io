@@ -104,7 +104,7 @@ pre{margin-top:0;margin-bottom:0;font:12px Consolas,"Liberation Mono",Menlo,Cour
 .markdown-body blockquote>:last-child{margin-bottom:0}
 .markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all;empty-cells:hide}
 .markdown-body table th{font-weight:bold;text-align: center !important;background: rgba(158,188,226,0.2); /*背景色*/}
-.markdown-body table th,.markdown-body table td{padding:6px 13px;border:1px solid #ddd}
+.markdown-body table th,.markdown-body table td{padding:6px 6px;border:1px solid #ddd}
 .markdown-body table tr{background-color:#a1afc9;border-top:1px solid #ccc}
 .markdown-body table tr:nth-child(2n){background-color:#f0fcff}
 .markdown-body table tr:hover {background: #d6ecf0}
