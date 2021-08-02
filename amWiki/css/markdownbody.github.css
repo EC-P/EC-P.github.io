@@ -1,4 +1,4 @@
-html{font-family:sans-serif;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html{font-family:'DroidSansFallback';-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0}
 article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}
 audio,canvas,progress,video{display:inline-block;vertical-align:baseline}
@@ -20,7 +20,7 @@ svg:not(:root){overflow:hidden}
 figure{margin:1em 40px}
 hr{box-sizing:content-box;height:0}
 pre{overflow:auto}
-code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}
+code,kbd,pre,samp{font-family:'DroidSansFallback',monospace,monospace;font-size:1em}
 button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}
 button{overflow:visible}
 button,select{text-transform:none}
@@ -36,7 +36,7 @@ fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}
 legend{border:0;padding:0}
 textarea{overflow:auto}
 optgroup{font-weight:bold}
-table{border-collapse:collapse;border-spacing:0}
+table{border-collapse:separate;border-spacing:0}
 td,th{padding:0}
 *{box-sizing:border-box}
 input,select,textarea,button{font:13px / 1.4 Helvetica,arial,nimbussansl,liberationsans,freesans,clean,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"}
@@ -62,9 +62,9 @@ ul,ol{padding-left:0;margin-top:0;margin-bottom:0}
 ol ol,ul ol{list-style-type:lower-roman}
 ul ul ol,ul ol ol,ol ul ol,ol ol ol{list-style-type:lower-alpha}
 dd{margin-left:0}
-tt,code{font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;font-size:12px}
+tt,code{font-family:'DroidSansFallback',Consolas,"Liberation Mono",Menlo,Courier,monospace;font-size:12px}
 pre{margin-top:0;margin-bottom:0;font:12px Consolas,"Liberation Mono",Menlo,Courier,monospace}
-.markdown-body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:16px;line-height:1.6;word-wrap:break-word}
+.markdown-body{font-family:'DroidSansFallback',"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:16px;line-height:1.6;word-wrap:break-word}
 .markdown-body:before{display:table;content:""}
 .markdown-body:after{display:table;clear:both;content:""}
 .markdown-body>*:first-child{margin-top:0 !important}
@@ -102,7 +102,7 @@ pre{margin-top:0;margin-bottom:0;font:12px Consolas,"Liberation Mono",Menlo,Cour
 .markdown-body blockquote{padding:0 15px;color:#777;border-left:4px solid #ddd}
 .markdown-body blockquote>:first-child{margin-top:0}
 .markdown-body blockquote>:last-child{margin-bottom:0}
-.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all;}
+.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all;empty-cells:hide}
 .markdown-body table th{font-weight:bold;text-align: center !important;background: rgba(158,188,226,0.2); /*背景色*/}
 .markdown-body table th,.markdown-body table td{padding:6px 13px;border:1px solid #ddd}
 .markdown-body table tr{background-color:#a1afc9;border-top:1px solid #ccc}
