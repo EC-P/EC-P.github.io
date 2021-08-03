@@ -1,29 +1,7 @@
 a{
   color:#478cdc;
 }
-/*头部*/
-.header{
-  background-color: #242424;
-  border-top:none;
-}
-.header .logo {
-  padding-top: 5px;
-}
 
-.header .logo img {
-  max-height: 108px;
-}
-
-
-.header .logo i {
-  display:none;
-}
-
-.header .logo b {
-  height: 108px;
-  color:#f2f2f2;
-  line-height:59px;
-}
 /*主体背景*/
 .container{
   background-color:#f1f5f8;
