@@ -132,30 +132,3 @@ line-height:2.0;
 .markdown-body pre code {
     font-size:14px;color:#e3f9fd;
 }
-
-@media screen and (max-width: 720px){
-  .header .logo img{
-    display:none;
-  }
-  .header .logo b {
-      line-height:49px;
-      height:49px;
-  }
-  .header .logo {
-    padding-top: 0;
-  }
-  .container{
-    background-color:#f1f5f8;
-    border: none;
-    border-radius: none;
-    box-shadow: none;
-    box-sizing: border-box;
-    overflow:hidden;
-  }
-  .container .nav{
-    background: #242424;
-  }
-  .menu-filter{
-    width:100%;
-  }
-}
