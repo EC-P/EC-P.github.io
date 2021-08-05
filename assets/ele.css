@@ -111,6 +111,14 @@ aside .back-top{
 .markdown-body h3 {
   font-size: 22px;
 }
+.markdown-body blockquote{
+  padding:12px 12px;
+  background-color:#f0fcff;
+  border-radius:3px;
+  font-size: 14px;
+  color:#41555d;
+}
+
 .markdown-body code, .markdown-body tt {
 padding: 0;
 font-size:14px;

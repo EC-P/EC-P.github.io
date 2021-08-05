@@ -8,7 +8,7 @@
 .markdown-body h2 + h3{margin-top:24px;}
 .markdown-body p,.markdown-body blockquote,.markdown-body ul,.markdown-body ol,.markdown-body dl,.markdown-body table,.markdown-body pre{margin-bottom:12px;}
 .markdown-body .anchor{margin-left:-24px;}
-.markdown-body blockquote{padding:12px 12px;background-color:#f0fcff;;border-radius:3px}
+.markdown-body blockquote{padding:12px 12px;background-color:#f0fcff;border-radius:3px;}
 .markdown-body .anchor{padding-top:10px;margin-top:-10px;}
 .markdown-body .anchor svg{visibility:hidden;width:20px;height:20px;color:#828282;}
 .markdown-body h3 .anchor{position:relative;top:2px;}
