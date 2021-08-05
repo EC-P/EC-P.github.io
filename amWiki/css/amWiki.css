@@ -1,19 +1,5 @@
 @charset "utf-8";
 
-/*调用Honoka字体*/
-@font-face {
-    font-family: HonokaGothic;
-		src: url('https://huiji-public.huijistatic.com/xyy/uploads/3/3c/HonokaGothicMoe2.ttf');
-		src: url('assets/sourcehansanselements-webfont.woff2') format('woff2'),
-         url('assets/sourcehansanselements-webfont.woff') format('woff'),
-				 url('assets/SourceHanSansElements.ttf') format('turetype');
-		font-weight: normal;
-    font-style: normal;
-}
-html, body, .comment-body textarea, .comment-preview, .comment-submit, #firstHeading {
-    font-family: HonokaGothic, "Helvetica Neue", Tahoma, Arial, "Source Han Sans SC", "Source Han Sans CN", "PingFang SC", "Microsoft YaHei", 微软雅黑, "Hiragino Sans GB", "WenQuanYi Micro Hei";
-}
-
 /* ---------- markdown custom ---------- */
 .markdown-body{font-size:14px;}
 .markdown-body h1{margin-top:50px;font-size:38px;border-bottom:#d5d5d5 1px solid;}
