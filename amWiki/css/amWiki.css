@@ -202,7 +202,7 @@ footer .signature{position:absolute;right:20px;bottom:8px;color:#999;}
     .markdown-body pre code{word-wrap:normal;white-space:pre;}
 
 	/* ---------- header ---------- */
-	.header{position:fixed;left:0;top:0;z-index:9999;height:50px;border-top:#177cb0 3px solid;}
+	.header{position:fixed;left:0;top:0;z-index:9999;height:50px;border-top:#000000 3px solid;}
 	.header .header-inner{height:50px;}
 	.header .logo{width:100%;padding-top:13px;}
 	.header .logo img{height:18px;}
