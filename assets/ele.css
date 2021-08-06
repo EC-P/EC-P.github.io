@@ -2,15 +2,15 @@
 @font-face {
     font-family: HonokaGothic;
 		src: url('https://huiji-public.huijistatic.com/xyy/uploads/3/3c/HonokaGothicMoe2.ttf');
-		src: url('./sourcehansanselements-webfont.woff2') format('woff2'),
-         url('./sourcehansanselements-webfont.woff') format('woff'),
-         url('./SourceHanSansElements.svg') format('svg'),
-				 url('./SourceHanSansElements.ttf') format('turetype');
+		src: url('/assets/sourcehansanselements-webfont.woff2') format('woff2'),
+         url('/assets/sourcehansanselements-webfont.woff') format('woff'),
+         url('/assets/SourceHanSansElements.svg') format('svg'),
+				 url('/assets/SourceHanSansElements.ttf') format('turetype');
 		font-weight: normal;
     font-style: normal;
 }
 aside .contents,.markdown-contents,aside .back-text,.search-box,.header, .container{
-    font-family: Microsoft YaHei,STXihei,STHeiti,Verdana,Arial,Helvetica,sans-serif,HonokaGothic;
+    font-family: Microsoft YaHei,HonokaGothic,STXihei,STHeiti,Verdana,Arial,Helvetica,sans-serif;
 }
 
 /*搜索功能*/
