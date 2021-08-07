@@ -1,6 +1,6 @@
 /*调用Honoka字体*/
 @font-face{
-	font-family: HonokaGothic;
+	font-family: SourceHanSansElements;
 	src: url('SourceHanSansElements.eot');
 	src: url('SourceHanSansElements.eot?#iefix') format('embedded-opentype'),
 	     url('sourcehansanselements-webfont.woff') format('woff'),
@@ -10,7 +10,7 @@
   font-style: normal;
 }
 aside .contents,.markdown-contents,aside .back-text,.search-box,.header, .container{
-    font-family: Microsoft YaHei,HonokaGothic,STXihei,STHeiti,Verdana,Arial,Helvetica,sans-serif;
+    font-family: Microsoft YaHei,SourceHanSansElements,STXihei,STHeiti,Verdana,Arial,Helvetica,sans-serif;
 }
 
 /* 模板:半折叠 */
