@@ -1,16 +1,48 @@
 /*调用Honoka字体*/
-@font-face {
-    font-family: HonokaGothic;
-		src: url('https://huiji-public.huijistatic.com/xyy/uploads/3/3c/HonokaGothicMoe2.ttf');
-		src: url('/assets/sourcehansanselements-webfont.woff2') format('woff2'),
-         url('/assets/sourcehansanselements-webfont.woff') format('woff'),
-         url('/assets/SourceHanSansElements.svg') format('svg'),
-				 url('/assets/SourceHanSansElements.ttf') format('turetype');
-		font-weight: normal;
-    font-style: normal;
+@font-face{
+	font-family: HonokaGothic;
+	src: url('SourceHanSansElements.eot');
+	src: url('SourceHanSansElements.eot?#iefix') format('embedded-opentype'),
+	     url('sourcehansanselements-webfont.woff') format('woff'),
+	     url('SourceHanSansElements.ttf') format('truetype'),
+	     url('SourceHanSansElements.svg#SourceHanSansElements') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 aside .contents,.markdown-contents,aside .back-text,.search-box,.header, .container{
     font-family: Microsoft YaHei,HonokaGothic,STXihei,STHeiti,Verdana,Arial,Helvetica,sans-serif;
+}
+
+/* 模板:半折叠 */
+.template-semicollapse {
+  display: inline-block;
+}
+
+.template-semicollapse-content {
+  overflow-y: hidden;
+  max-height: 400px;
+  padding: 1px;
+  -webkit-mask-image: linear-gradient(black 80%, transparent);
+  mask-image: linear-gradient(black 80%, transparent);
+}
+
+.template-semicollapse-button {
+  display: block;
+  width: 200px;
+  margin: auto;
+  margin-top: 8px;
+  border-radius: 4px;
+  background-color: #4487DF;
+  color: white;
+  text-align: center;
+  padding: 4px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.template-semicollapse-button:hover {
+  background: #85C1F7;
+  text-decoration: none;
 }
 
 /*搜索功能*/
