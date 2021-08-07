@@ -62,9 +62,9 @@ ul,ol{padding-left:0;margin-top:0;margin-bottom:0}
 ol ol,ul ol{list-style-type:lower-roman}
 ul ul ol,ul ol ol,ol ul ol,ol ol ol{list-style-type:lower-alpha}
 dd{margin-left:0}
-tt,code{font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace,SourceHanSansElements;font-size:12px}
+tt,code{font-family:Consolas,"Liberation Mono",Menlo,SourceHanSansElements,Courier,monospace;font-size:12px}
 pre{margin-top:0;margin-bottom:0;font:12px Consolas,"Liberation Mono",Menlo,Courier,monospace}
-.markdown-body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol",SourceHanSansElements;font-size:16px;line-height:1.6;word-wrap:break-word}
+.markdown-body{font-family:"Helvetica Neue",SourceHanSansElements,Helvetica,"Segoe UI",Arial,freesans,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:16px;line-height:1.6;word-wrap:break-word}
 .markdown-body:before{display:table;content:""}
 .markdown-body:after{display:table;clear:both;content:""}
 .markdown-body>*:first-child{margin-top:0 !important}
