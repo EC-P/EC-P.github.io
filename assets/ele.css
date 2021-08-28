@@ -45,6 +45,56 @@ aside .contents,.markdown-contents,aside .back-text,.search-box,.header, .contai
   text-decoration: none;
 }
 
+*{
+    margin:0;
+    padding:0;
+
+}
+html,body{
+    width:100%;
+    height:100%;
+}
+.container{
+    width:80%;
+    height:400px;
+    margin:0 auto;
+    margin-top:30px;
+    border:1px solid #dddddd;
+    border-radius:1px;
+}
+input{
+    display:none;
+}
+label{
+    display:block;
+    background-color: #F5F5F5;
+    width:99%;
+    height:40px;
+    margin:0 auto;
+    border:1px solid #dddddd;
+    border-radius:2px;
+    margin-top:5px;
+    line-height: 40px;
+}
+.context{
+    width:99%;
+    height:0px;
+    margin:0 auto;
+    border:1px solid #dddddd;
+    border-radius:2px;
+    visibility: hidden;
+    transition:height 0.5s linear;
+    -webkit-transition:height 0.5s linear;
+    -moz-transition:height 0.5s linear;
+    -ms-transition:height 0.5s linear;
+}
+input:checked + label + .context{
+    visibility: visible;
+    height:150px;
+}
+
+/*折叠功能*/
+
 /*搜索功能*/
 .search-update input {
   background-color: #eee;
