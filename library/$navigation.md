@@ -176,4 +176,4 @@
 - [愚者之箔](?file=005-论外存储/04-愚者之箔 "愚者之箔")
 - [万圣节万圣节万圣节万圣节](?file=005-论外存储/05-万圣节万圣节万圣节万圣节 "万圣节万圣节万圣节万圣节")
 - [辰砂之赤](?file=005-论外存储/06-辰砂之赤 "辰砂之赤")
-- [hide and seek](?file=005-论外存储/07-hide and seek "hide and seek")
+- [Hide And Seek](?file=005-论外存储/07-Hide And Seek "Hide And Seek")
