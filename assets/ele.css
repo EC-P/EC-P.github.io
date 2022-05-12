@@ -159,7 +159,7 @@ line-height:2.0;
     height: 300px;
     overflow: hidden;
 		float:right;
-		margin: auto;
+		margin: 4%;
     background-color: var(--border-color);
     border-radius: 20px;
     display: flex;
@@ -271,3 +271,85 @@ t3 {
 /*注音（字号）*/
 ruby{font-size:16px;}
 rt{font-size:12px;}
+
+/*tabs*/
+.tabs {
+    position: relative;
+	margin: 40px auto;
+	max-width: 800px;
+}
+
+.tabs input {
+	position: absolute;
+	z-index: 200;
+	width: 55px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+	opacity: 0;
+	cursor: pointer;
+}
+.tabs input#tab-2{left: 55px;}
+.tabs input#tab-3{left: 110px;}
+.tabs input#tab-4{left: 165px;}
+.tabs input#tab-5{left: 220px;}
+.tabs input#tab-6{left: 275px;}
+
+.tabs label {
+	background: #F0F8FF;
+	font-size: 15px;
+	line-height: 40px;
+	height: 40px;
+	position: relative;
+	padding: 0 20px;
+    float: left;
+	display: block;
+	width: 55px;
+	color: #778899;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
+    border-radius: 3px 3px 0 0;
+    box-shadow: 2px 0 2px rgba(0,0,0,0.1), -2px 0 2px rgba(0,0,0,0.1);
+}
+
+.tabs label:after {
+    content: '';
+	background: #fff;
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	display: block;
+}
+.tabs input:hover + label {background: #B0C4DE;}
+.tabs input:checked + label { background: #fff;z-index: 8;}
+.clear-shadow {clear: both;}
+
+.content div {
+	background: #fff;
+  position: relative;
+	padding: 20px 40px;
+	z-index: 1;
+  line-height: 2;
+		width: 100%;
+    box-shadow: 0 -2px 3px -2px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.1);
+    border-radius: 0 3px 3px 3px;
+		display: none;
+}
+
+.tabs input.tab-selector-1:checked ~ .content .content-1,
+.tabs input.tab-selector-2:checked ~ .content .content-2,
+.tabs input.tab-selector-3:checked ~ .content .content-3,
+.tabs input.tab-selector-4:checked ~ .content .content-4,
+.tabs input.tab-selector-5:checked ~ .content .content-5,
+.tabs input.tab-selector-6:checked ~ .content .content-6{display: block;}
+
+/*基础信息表格*/
+#chara {border-collapse: collapse;max-width: 500px;}
+#chara td, #chara th {border: 1px solid #ddd;padding: 6px;text-align: center;}
+#chara th {background-color: #000066;color: white;}
+#chara td {background: white}
