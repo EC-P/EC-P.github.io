@@ -1,0 +1,7 @@
+{
+    "name": "ELECODE",
+    "ver": "v0.1",
+     "logo": "/assets/logo.png",
+     "colour": "#fff",
+     "imports": "assets/ele.css"
+}
