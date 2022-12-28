@@ -1,0 +1,22 @@
+<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="3.496726" width="3.496726" y="-1" x="-1"/>
+ </g>
+
+ <g>
+  <title>Layer 1</title>
+  <path stroke="null" id="svg_1" d="m28.93,10.63l0,0a14,14 0 0 0 -23,-4.29a1,1 0 1 0 1.41,1.35a12,12 0 0 1 16.57,-0.69a12.05,12.05 0 0 1 4.09,9a11.77,11.77 0 0 1 -1.11,5a12,12 0 0 1 -22.19,-1a12,12 0 0 1 -0.7,-4a12.26,12.26 0 0 1 1.35,-5.54a1,1 0 1 0 -1.77,-0.92a14,14 0 1 0 25.35,1.09z"/>
+  <path stroke="null" id="svg_8" d="m8.527938,24.674098" opacity="0.5" fill-opacity="null" stroke-opacity="null" stroke-width="null" fill="null"/>
+  <path stroke="null" id="svg_9" d="m12.671324,25.232757" opacity="0.5" fill-opacity="null" stroke-opacity="null" stroke-width="null" fill="null"/>
+  <path id="svg_10" d="m8.74602,25.850219" opacity="0.5" fill-opacity="null" stroke-opacity="null" stroke-width="null" stroke="null" fill="null"/>
+  <path id="svg_11" d="m11.668059,19.084897c-0.034795,0 -1.704941,-0.243563 -1.716772,-0.26096" opacity="0.5" fill-opacity="null" stroke-opacity="null" stroke-width="null" stroke="null" fill="null"/>
+  <g id="flower">
+   <path d="m17,29.659748l6.37,-8.12a4.47,4.47 0 1 0 -7.23,-5.23l-0.14,0.2l-0.14,-0.2a4.47,4.47 0 1 0 -7.23,5.23l1.08,1.39a1,1 0 1 0 1.58,-1.24l-1.09,-1.38a2.47,2.47 0 0 1 1.94,-4a2.47,2.47 0 0 1 2.06,1.1l1,1.45a1,1 0 0 0 1.66,0l1,-1.45a2.47,2.47 0 0 1 2,-1.1a2.47,2.47 0 0 1 1.94,4l-5.8,7.38l-2.21,-2.82a1,1 0 0 0 -1.58,1.24l2.79,3.55l2,0z" id="svg_2"/>
+  </g>
+  <path id="svg_4" d="m8.623293,25.597817a1,1 0 0 0 0,-2l-2,0a1,1 0 0 0 0,2l2,0z"/>
+  <path stroke="null" id="svg_6" d="m25.329391,12.944494l-1,0a1,1 0 0 0 0,2l1,0a1,1 0 0 0 0,-2z"/>
+  <path id="svg_12" d="m28.141038,19.364877a1,1 0 0 0 0,-2l-2,0a1,1 0 0 0 0,2l2,0z"/>
+  <path id="svg_3" d="m28.93,10.63l0,0a12.05,12.05 0 0 1 -0.93,5.37a11.77,11.77 0 0 1 -1.11,5l-3.945,0l-2.2625,2l5.0475,0a12,12 0 0 1 -21.03,-3l4.15,0l-0.26,-2l-4.41,0a12.26,12.26 0 0 1 1.17,-7.54a1,1 0 1 0 -1.77,-0.92a14,14 0 1 0 25.35,1.09z"/>
+ </g>
+</svg>

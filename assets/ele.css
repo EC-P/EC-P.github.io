@@ -352,3 +352,27 @@ rt{font-size:12px;}
 #chara td, #chara th {border: 1px solid #ddd;padding: 6px;text-align: center;}
 #chara th {background-color: #000066;color: white;}
 #chara td {background: white}
+
+/*外来图片的元素周期表*/
+.ptable{
+  flex-shrink: 0;
+  flex-grow: 0;
+  position: relative;
+  height: 575px;
+  overflow: auto;
+}
+
+.pelement{width: 900px;
+height: 475px;
+position: relative;
+left:25px;
+top:50px;
+font-size:0}
+.pelement#laac{width: 750px;
+height: 100px;
+position: relative;
+left: 150px;
+top:25px}
+.pelement img{width: 50px;
+height: 50px;position: relative;
+display: inline-block}
