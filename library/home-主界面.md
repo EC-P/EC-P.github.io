@@ -12,15 +12,15 @@
 
 善用导航栏、搜索和目录是不错的选择。
 
+<font size=4><center>**~~意义不明~~**</center></font>
+<font size=4><center>**要是发现了什么bug或是写到一半的句子，肯定都是铬的错。**</center></font>
+<font size=4><center>**所以有这样的发现麻烦去提醒他一下，拜托了。**</center></font>
+
 ```
 这么简陋也是没有办法的事情啦。
 反正也没有什么好展示的。
 绝对不是我懒得完善的缘故。
 ```
-
-<font size=4><center>**~~意义不明~~**</center></font>
-
-<br>
 
 ## 档案指引
 
