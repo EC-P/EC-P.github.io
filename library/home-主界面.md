@@ -1,5 +1,57 @@
 # ELEMENT CODE PROJECT
 
+<div class="scrollDiv">
+	<p id="elenews"></p>
+</div>
+<script>
+(function () {
+  function init() {
+    var a=['你收到了碳的一次点赞，但代价是什么……你并不知道。',
+    '铜的头发是铁亲自拿刀砍短的，第一过渡系的某位信誓旦旦道。',
+    '嘿，那儿的你！知道吗，一个铀饼所含的热量就相当于一个铀饼。',
+    '24号，是过渡金属。身高是169公分，体重是52公斤。',
+    'ᴇʟᴇᴍᴇɴᴛ ᴄᴏᴅᴇ ᴘʀᴏᴊᴇᴄᴛ',
+    '放射性，放射性的事情，能叫辣眼睛吗……！',
+    '严正声明：砷没有在本栏投稿任何内容。砷不对任何诋毁其他元素的行为负责。',
+    '严正声明：本栏没有设立审稿机制。',
+    '喜报：ELECODE档案界面升级为118CHAT ROOM分部！',
+    '<a href="?file=002-档案陈列/06-第六周期/072-第三过渡系/080-Hg"  title="帽子和猫">🎩🐈</a>',
+    '↑ ↑ ↑ ↑ ↑ ↑',
+    '气也是氧，水也是氧，火也是氧，土……土也是氧，真本领！（赞赏）',
+    '【广告位招租中-联系人：<a href="?file=002-档案陈列/02-第二周期/010-Ne"  title="路过的广告商" style="color:white;text-decoration: none">氖</a>】',
+    '→ → →<a href="#"  title="你-被-骗-了"  style="color:white;text-decoration: none">点-这-里</a>← ← ←',
+    '『铈哥救命啊——救救我——』远方传来了这样的声音。',
+    '氮头上是真花吗：真的。在氮发呆面无表情时可以观察花了解情况。不太准，聊胜于无。',
+    '铜和锌因前者坚持抽烟喝酒烫头爆发了矛盾。不知道是谁的造谣，总之先把锅扣在砷身上吧。',
+    '『Q：水玻璃作为饮品是安全的吗？』『A：是的，是安全的。有着清洁感。』'];
+    var s = ''
+    var s = ''
+    let t = 0
+    const a1 = []
+    let index
+    do {
+		  index = Math.floor(Math.random() * a.length)
+		  a1.push(a[index])
+		  a.splice(index, 1)
+    } while (a.length !== 0)
+    for (let i = 0; i < a1.length; i++) {
+		  s += ''     //可以有<img src=".png">
+		  s += a1[i]
+		  t += (a1[i].length * 0.2 + 2.1)
+		  s += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+    }
+    document.getElementById('elenews').innerHTML = s
+    document.getElementById('elenews').style.animation = (`marquee ${t}s linear infinite`)
+    document.getElementById('elenews').style.color = 'white'
+	  }
+
+	  if (document.readyState === 'loading')
+    document.addEventListener('DOMContentLoaded', init)
+	  else
+    init()
+})()
+</script>
+
 <br>
 
 <font size=5 color=#003371>***欢迎来到目前尚未完善的元素编码计划（ELEMENT CODE PROJECT）界面。***</font>
