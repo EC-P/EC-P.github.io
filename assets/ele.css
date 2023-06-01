@@ -280,7 +280,7 @@ rt{font-size:12px;}
 
 .tabs input {
 	position: absolute;
-	z-index: 200;
+	z-index: 1;
 	width: 50px;
 	height: 40px;
 	left: 0px;
@@ -325,14 +325,14 @@ rt{font-size:12px;}
 	display: block;
 }
 .tabs input:hover + label {background: #B0C4DE;}
-.tabs input:checked + label { background: #fff;z-index: 8;}
+.tabs input:checked + label { background: #fff;z-index: 0;}
 .clear-shadow {clear: both;}
 
 .content div {
 	background: #fff;
   position: relative;
 	padding: 20px 20px 20px 30px;
-	z-index: 1;
+	z-index: 0;
   line-height: 2;
 		width: 100%;
     box-shadow: 0 -2px 3px -2px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.1);
@@ -402,4 +402,50 @@ display: inline-block}
 @keyframes marquee {
 	0% { transform: translateX(440px); }
 	100% { transform: translateX(-100%); }
+}
+
+
+.printing:hover  {
+    animation-play-state: running;
+}
+
+printing {
+    position: relative;
+    width: 26ch;
+    color: #000;
+    font-size: 48px;
+    animation: typing 3s steps(15, end);
+    animation-fill-mode: both;
+    animation-play-state: paused;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 4px;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        animation: blink .8s infinite;
+    }
+}
+
+@keyframes blink {
+    0%, 50% {
+        border-right: 4px solid transparent;
+    }
+    50%, 100% {
+        border-right: 4px solid #000;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 11ch;
+    }
+    to {
+        width: 26ch;
+    }
 }
