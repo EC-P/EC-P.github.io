@@ -72,7 +72,7 @@
 
 <br>
 
-<font size=5 color=#003371>***欢迎来到目前尚未完善的元素编码计划（ELEMENT CODE PROJECT）界面。***</font>
+<span class="c014"><font size=4>***欢迎来到目前尚未完善的元素编码计划（ELEMENT CODE PROJECT）界面。***</font></span>
 
 <br>
 
@@ -82,6 +82,11 @@
 
 善用导航栏、搜索和目录是不错的选择。
 
+<span class="c014">——档案整理员设色柔和化策略及特殊显示方式启用。</span>
+
+```
+启用完成。
+```
 <font size=4><center>**~~意义不明~~**</center></font>
 <font size=4><center>**要是发现了什么bug或是写到一半的句子，肯定都是铬的错。**</center></font>
 <font size=4><center>**所以有这样的发现麻烦去提醒他一下，拜托了。**</center></font>

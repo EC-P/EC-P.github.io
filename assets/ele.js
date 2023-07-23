@@ -159,3 +159,43 @@
 
   }
 }());
+
+// emoji问答
+// 问题数组
+var questions = [
+	'💧🌌',
+	'🎈☀️',
+	'🔋⚛️',
+	'🍬🛩️',
+	'🌵🪂',
+	'💎🌳',
+	'🌱⚡️',
+	'🔥💦'
+];
+
+// 答案数组
+var answers = [
+	'氢',
+	'氦',
+	'锂',
+	'铍',
+	'硼',
+	'碳',
+	'氮',
+	'氧'
+];
+
+function showRandomQuestion() {
+	var randomIndex = Math.floor(Math.random() * questions.length);
+	document.getElementById("question").innerHTML = questions[randomIndex];
+}
+
+function showAnswer() {
+	var questionText = document.getElementById("question").innerText;
+	var questionIndex = questions.indexOf(questionText);
+	if (questionIndex !== -1) {
+			alert("是"+answers[questionIndex]+"元素经过了吧。");
+	} else {
+		alert("至少先进行一次观测吧？");
+	}
+}
