@@ -1,0 +1,132 @@
+html{
+  font-family:Microsoft YaHei,STXihei,Verdana,Arial,Helvetica,sans-serif,HonokaGothic;
+  -webkit-text-size-adjust:100%;text-size-adjust:100%}
+
+BODY {
+	background-color: white;
+	color: #40826d;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+}
+
+.daytitle {
+	background-color: #40826d;
+	color: white;
+	font-weight: bold;
+  height: 40px;
+}
+
+.daybody {
+	font-size: small;​
+}
+
+td{white-space: pre-wrap;}
+
+a {
+  color: #40826d;text-decoration: none;
+}
+a:hover {
+  font-weight: bold;
+}
+.ecdlink {
+  color: #40826d;font-size: 12px; text-decoration: none;
+}
+
+/*目录*/
+.menu{
+	color: #40826d;
+	font-weight: bold;
+  height: 40px;
+  border: 3px solid #40826d;
+}
+.menu th{
+  background-color: #40826d;
+  color: white;
+  padding:3px;
+}
+.menu td{
+  padding:1px 5px;
+}
+
+@media screen and (min-width: 0px) and (max-device-width: 550px) {
+	table.log { width: 100%; }
+}
+@media screen and (min-width: 551px) {
+	table.log { width: 550px; }
+}
+a { text-decoration:none;color: #40826d; }
+
+
+/*加载旋转原子图案*/
+.atom-spinner, .atom-spinner * {
+      box-sizing: border-box;
+    }
+
+    .atom-spinner {
+      height: 60px;
+      width: 60px;
+      overflow: hidden;
+    }
+
+    .atom-spinner .spinner-inner {
+      position: relative;
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+
+    .atom-spinner .spinner-circle {
+      display: block;
+      position: absolute;
+      color: #40826d;
+      font-size: calc(60px * 0.24);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .atom-spinner .spinner-line {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      animation-duration: 1s;
+      border-left-width: calc(60px / 25);
+      border-top-width: calc(60px / 25);
+      border-left-color: #40826d;
+      border-left-style: solid;
+      border-top-style: solid;
+      border-top-color: transparent;
+    }
+
+    .atom-spinner .spinner-line:nth-child(1) {
+      animation: atom-spinner-animation-1 1s linear infinite;
+      transform: rotateZ(120deg) rotateX(66deg) rotateZ(0deg);
+    }
+
+    .atom-spinner .spinner-line:nth-child(2) {
+      animation: atom-spinner-animation-2 1s linear infinite;
+      transform: rotateZ(240deg) rotateX(66deg) rotateZ(0deg);
+    }
+
+    .atom-spinner .spinner-line:nth-child(3) {
+      animation: atom-spinner-animation-3 1s linear infinite;
+      transform: rotateZ(360deg) rotateX(66deg) rotateZ(0deg);
+    }
+
+    @keyframes atom-spinner-animation-1 {
+      100% {
+        transform: rotateZ(120deg) rotateX(66deg) rotateZ(360deg);
+      }
+    }
+
+    @keyframes atom-spinner-animation-2 {
+      100% {
+        transform: rotateZ(240deg) rotateX(66deg) rotateZ(360deg);
+      }
+    }
+
+    @keyframes atom-spinner-animation-3 {
+      100% {
+        transform: rotateZ(360deg) rotateX(66deg) rotateZ(360deg);
+      }
+    }
