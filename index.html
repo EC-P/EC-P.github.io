@@ -10,6 +10,8 @@
         <link rel="stylesheet" type="text/css" href="amWiki/css/markdownbody.github.css" />
         <link rel="stylesheet" type="text/css" href="amWiki/css/lhjs.github-gist.css" />
         <link rel="stylesheet" type="text/css" href="amWiki/css/amWiki.css" />
+        <link href="assets/fonts/css/fontawesome.min.css" rel="stylesheet">
+        <link href="assets/fonts/css/solid.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="assets/ele.css" charset="utf-8" />
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
         <style>
@@ -69,7 +71,7 @@
                     <article class="markdown-body scroller-content" id="view"></article>
                     <script id="template:footnote" type="text/html">
                         <sup><a href="#fn:foot{{index}}" name="fn:note{{index}}" title="{{title}}">[{{index}}]</a></sup>
-                        <ol class="footnote"><i>[参考资料]：</i>{{list}}</ol>
+                        <ol class="footnote"><i>[注释]：</i>{{list}}</ol>
                         <li id="fn:foot{{index}}">{{content}} {{back}}</li>
                         <li class="footnote-none" data-msg="匹配缺失">{{content}}</li>
                         <a href="#fn:note{{index}}">

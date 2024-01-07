@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELECODE Elements</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: auto;
+    }
+
+    body {
+      font-family: "Arial Narrow", "Microsoft YaHei", STXihei, STHeiti, Verdana, Arial, Helvetica, sans-serif;
+      text-align: center;
+      transition: background-color 0.5s ease;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      font-weight: bold;
+    }
+    svg{
+      position: absolute;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transition: stroke 0.5s ease;
+      z-index: 1;
+    }
+
+    img {
+      -webkit-user-drag: none;
+      -moz-user-drag: none;
+      -ms-user-drag: none;
+      user-drag: none;
+    }
+    .svg-container{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      margin: 0;
+     padding: 0;
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+    }
+
+    #elecode-elecode {
+      position: absolute;
+      transform: rotate(-90deg);
+      right: -254px;
+      top: 222px;
+      font-size: 110px;
+      text-shadow: 0 -1px 1px white;
+    }
+
+    #elecode-container {
+      margin: 0 50px;
+      position: relative;
+      height: 570px;
+      overflow: hidden;
+    }
+
+    #elecode-img,
+    #elecode-bg,
+    #elecode-symbol,
+    #elecode-latin,#elecode-emo
+      {
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    #elecode-img {
+      position: relative;
+      max-width: 570px;
+      max-height: 570px;
+    }
+
+    #elecode-bg {
+      position: absolute;
+      height: 1200px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-470px, -500px);
+    }
+
+    #elecode-emo{
+      position: absolute;
+      opacity: 0;
+      top: 354px;
+      left: -4px;
+      height: 120px;
+      z-index: 5;
+    }
+    #elecode-emo:hover{
+      opacity: 1;
+    }
+
+    .code {
+      position: absolute;
+      top: -34px;
+      right: 76px;
+      font-size: 90px;
+      font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+    }
+
+    #elecode-code {
+      font-size: 120px;
+    }
+
+    #elecode-symbol {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(90px, -200px);
+      font-size: 200px;
+      text-shadow: 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white,
+        0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white;
+
+    }
+
+    #elecode-latin {
+      position: absolute;
+      bottom: -22px;
+      left: -8px;
+      font-size: 100px;
+      text-shadow: 1px -1px 1px white;
+    }
+
+    #elecode-cn {
+      position: absolute;
+      top: 330px;
+      left: -4px;
+      font-size: 120px;
+    }
+
+    #elecode-jp {
+      position: absolute;
+      top: 405px;
+      left: 150px;
+      font-size: 60px;
+      font-family: Meiryo;
+      white-space: nowrap;
+    }
+
+    #elecode-buttons {
+      position: relative;
+      margin-top: 10px;
+      white-space: nowrap;
+      max-width: 80%;
+      overflow-x: scroll;
+      display: block;
+      z-index: 9;
+    }
+
+    .elecode-button {
+      cursor: pointer;
+      margin: 0 5px;
+      border: 2px solid transparent;
+      border-radius: 3px;
+      transition: border-color 0.3s ease-in-out;
+      display: inline-block;
+      background-color: #00ced1;
+      color: #191970;
+    }
+
+    .elecode-button:hover,
+    .elecode-button.active:hover {
+      background-color: #00ffff;
+    }
+
+    .elecode-button.active {
+      background-color: #f0f8ff;
+    }
+
+    .elecode-file1,
+    .elecode-file2 {
+      font-family: "Microsoft YaHei";
+      text-shadow: 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white,
+        0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white;
+    }
+
+    .elecode-file1 {
+      font-size: 24px;
+      position: absolute;
+      top: 0;
+      left: 56px;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .elecode-file1 span {
+      font-size: 18px;
+    }
+
+    #elecode-f0,
+    #elecode-f1,
+    #elecode-f2,
+    #elecode-f3,
+    #elecode-f4,
+    #elecode-f5 {
+      font-weight: normal;
+      font-family: Arial;
+      text-shadow: 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black,
+        0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black,
+        0 0 1px white, 0 0 1px white, 0 0 1px white, 0 0 1px white,
+          0 0 1px white, 0 0 1px white, 0 0 1px white, 0 0 1px white, 0 0 1px white, 0 0 1px white;
+
+    }
+
+    .elecode-file2 {
+      position: absolute;
+      top: 290px;
+      right: 130px;
+      max-width: 240px;
+      font-size: 60px;
+      text-align: left;
+      line-height: 0.5;
+    }
+
+    #elecode-f0 {
+      font-size: 20px;
+      line-height: normal;
+    }
+
+    #elecode-left,
+    #elecode-right {
+      z-index: 10;
+      position: fixed;
+      width: 50px;
+      height: 100%;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      font-size: 50px;
+      top: 50%;
+      transform: translate(0, -50px);
+      text-shadow: 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white,
+        0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white;
+    }
+
+    #elecode-left {
+      left: 0;
+    }
+
+    #elecode-right {
+      right: 0;
+    }
+
+    #para-left,
+    #para-right {
+      /* 背景裁切平行四边形的外侧*/
+      position: absolute;
+      width: 4000px;
+      height: 4000px;
+      background-color: white;
+      top: 50%;
+      left: 50%;
+    }
+
+    #para-left {
+      transform: translate(420px, -2000px) rotate(60deg);
+    }
+
+    #para-right {
+      transform: translate(-4420px, -2000px) rotate(60deg);
+    }
+
+    @media only screen and (max-width: 820px) {
+      #elecode-latin {
+        bottom: -3vw;
+        left: -1vw;
+        font-size: 11vw;
+      }
+
+      #elecode-container {
+        margin: 0;
+      }
+
+      .code {
+        font-size: 10vw;
+        top: -4vw;
+      }
+
+      #elecode-code {
+        font-size: 14vw;
+      }
+
+      #elecode-jp {
+        top: 418px;
+        font-size: 48px;
+        left: 150px;
+      }
+
+      #elecode-symbol {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(90px, -200px);
+        font-size: 24vw;
+      }
+
+      .elecode-file1 {
+        position: relative;
+        display: block;
+        float: left;
+        width: 240px;
+        top: 30px;
+        left: 40px;
+        font-size: 20px;
+        border-radius: 5px;
+        background-color: white;
+        text-align: center;
+      }
+
+      .elecode-file1 span {
+        font-size: 14px;
+      }
+
+      .elecode-file2 {
+        position: relative;
+        display: block;
+        float: right;
+        margin: 30px;
+        top: 10px;
+        right: 10px;
+        width: 240px;
+      }
+
+      #elecode-f0 {
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px
+      }
+
+    }
+
+    @media only screen and (max-width: 600px) {
+      #elecode-elecode {
+        display: none;
+      }
+
+      #elecode-jp {
+        top: auto;
+        bottom: 6vw;
+        font-size: 8vw;
+        left: 0;
+      }
+
+      .code {
+        right: -0.5vw;
+      }
+
+      .elecode-file1 {
+        max-width: 240px;
+        left: auto;
+        margin: auto;
+        float: none;
+      }
+
+      .elecode-file2 {
+        right: auto;
+        top: 60px;
+        margin: auto;
+        float: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="elecode-buttons">
+    <span class="elecode-button active" onclick="showelecode(0)" data-index="1">001</span>
+    <span class="elecode-button" onclick="showelecode(1)" data-index="2">002</span>
+    <span class="elecode-button" onclick="showelecode(2)" data-index="3">003</span>
+    <span class="elecode-button" onclick="showelecode(3)" data-index="4">004</span>
+    <span class="elecode-button" onclick="showelecode(4)" data-index="5">005</span>
+    <span class="elecode-button" onclick="showelecode(5)" data-index="6">006</span>
+    <span class="elecode-button" onclick="showelecode(6)" data-index="7">007</span>
+    <span class="elecode-button" onclick="showelecode(7)" data-index="8">008</span>
+    <span class="elecode-button" onclick="showelecode(8)" data-index="9">009</span>
+    <span class="elecode-button" onclick="showelecode(9)" data-index="10">010</span>
+    <span class="elecode-button" onclick="showelecode(10)" data-index="11">011</span>
+    <span class="elecode-button" onclick="showelecode(11)" data-index="12">012</span>
+    <span class="elecode-button" onclick="showelecode(12)" data-index="13">013</span>
+    <span class="elecode-button" onclick="showelecode(13)" data-index="14">014</span>
+    <span class="elecode-button" onclick="showelecode(14)" data-index="15">015</span>
+    <span class="elecode-button" onclick="showelecode(15)" data-index="16">016</span>
+    <span class="elecode-button" onclick="showelecode(16)" data-index="17">017</span>
+    <span class="elecode-button" onclick="showelecode(17)" data-index="18">018</span>
+    <span class="elecode-button" onclick="showelecode(18)" data-index="19">019</span>
+    <span class="elecode-button" onclick="showelecode(19)" data-index="20">020</span>
+    <span class="elecode-button" onclick="showelecode(20)" data-index="21">021</span>
+    <span class="elecode-button" onclick="showelecode(21)" data-index="22">022</span>
+    <span class="elecode-button" onclick="showelecode(22)" data-index="23">023</span>
+    <span class="elecode-button" onclick="showelecode(23)" data-index="24">024</span>
+    <span class="elecode-button" onclick="showelecode(24)" data-index="25">025</span>
+    <span class="elecode-button" onclick="showelecode(25)" data-index="26">026</span>
+    <span class="elecode-button" onclick="showelecode(26)" data-index="27">027</span>
+    <span class="elecode-button" onclick="showelecode(27)" data-index="28">028</span>
+    <span class="elecode-button" onclick="showelecode(28)" data-index="29">029</span>
+    <span class="elecode-button" onclick="showelecode(29)" data-index="30">030</span>
+    <span class="elecode-button" onclick="showelecode(30)" data-index="31">031</span>
+    <span class="elecode-button" onclick="showelecode(31)" data-index="32">032</span>
+    <span class="elecode-button" onclick="showelecode(32)" data-index="33">033</span>
+    <span class="elecode-button" onclick="showelecode(33)" data-index="34">034</span>
+    <span class="elecode-button" onclick="showelecode(34)" data-index="35">035</span>
+    <span class="elecode-button" onclick="showelecode(35)" data-index="36">036</span>
+    <span class="elecode-button" onclick="showelecode(36)" data-index="37">037</span>
+    <span class="elecode-button" onclick="showelecode(37)" data-index="38">038</span>
+    <span class="elecode-button" onclick="showelecode(38)" data-index="39">039</span>
+    <span class="elecode-button" onclick="showelecode(39)" data-index="40">040</span>
+    <span class="elecode-button" onclick="showelecode(40)" data-index="41">041</span>
+    <span class="elecode-button" onclick="showelecode(41)" data-index="42">042</span>
+    <span class="elecode-button" onclick="showelecode(42)" data-index="43">043</span>
+    <span class="elecode-button" onclick="showelecode(43)" data-index="44">044</span>
+    <span class="elecode-button" onclick="showelecode(44)" data-index="45">045</span>
+    <span class="elecode-button" onclick="showelecode(45)" data-index="46">046</span>
+    <span class="elecode-button" onclick="showelecode(46)" data-index="47">047</span>
+    <span class="elecode-button" onclick="showelecode(47)" data-index="48">048</span>
+    <span class="elecode-button" onclick="showelecode(48)" data-index="49">049</span>
+    <span class="elecode-button" onclick="showelecode(49)" data-index="50">050</span>
+    <span class="elecode-button" onclick="showelecode(50)" data-index="51">051</span>
+    <span class="elecode-button" onclick="showelecode(51)" data-index="52">052</span>
+    <span class="elecode-button" onclick="showelecode(52)" data-index="53">053</span>
+    <span class="elecode-button" onclick="showelecode(53)" data-index="54">054</span>
+    <span class="elecode-button" onclick="showelecode(54)" data-index="55">055</span>
+    <span class="elecode-button" onclick="showelecode(55)" data-index="56">056</span>
+    <span class="elecode-button" onclick="showelecode(56)" data-index="57">057</span>
+    <span class="elecode-button" onclick="showelecode(57)" data-index="58">058</span>
+    <span class="elecode-button" onclick="showelecode(58)" data-index="59">059</span>
+    <span class="elecode-button" onclick="showelecode(59)" data-index="60">060</span>
+    <span class="elecode-button" onclick="showelecode(60)" data-index="61">061</span>
+    <span class="elecode-button" onclick="showelecode(61)" data-index="62">062</span>
+    <span class="elecode-button" onclick="showelecode(62)" data-index="63">063</span>
+    <span class="elecode-button" onclick="showelecode(63)" data-index="64">064</span>
+    <span class="elecode-button" onclick="showelecode(64)" data-index="65">065</span>
+    <span class="elecode-button" onclick="showelecode(65)" data-index="66">066</span>
+    <span class="elecode-button" onclick="showelecode(66)" data-index="67">067</span>
+    <span class="elecode-button" onclick="showelecode(67)" data-index="68">068</span>
+    <span class="elecode-button" onclick="showelecode(68)" data-index="69">069</span>
+    <span class="elecode-button" onclick="showelecode(69)" data-index="70">070</span>
+    <span class="elecode-button" onclick="showelecode(70)" data-index="71">071</span>
+    <span class="elecode-button" onclick="showelecode(71)" data-index="72">072</span>
+    <span class="elecode-button" onclick="showelecode(72)" data-index="73">073</span>
+    <span class="elecode-button" onclick="showelecode(73)" data-index="74">074</span>
+    <span class="elecode-button" onclick="showelecode(74)" data-index="75">075</span>
+    <span class="elecode-button" onclick="showelecode(75)" data-index="76">076</span>
+    <span class="elecode-button" onclick="showelecode(76)" data-index="77">077</span>
+    <span class="elecode-button" onclick="showelecode(77)" data-index="78">078</span>
+    <span class="elecode-button" onclick="showelecode(78)" data-index="79">079</span>
+    <span class="elecode-button" onclick="showelecode(79)" data-index="80">080</span>
+    <span class="elecode-button" onclick="showelecode(80)" data-index="81">081</span>
+    <span class="elecode-button" onclick="showelecode(81)" data-index="82">082</span>
+    <span class="elecode-button" onclick="showelecode(82)" data-index="83">083</span>
+    <span class="elecode-button" onclick="showelecode(83)" data-index="84">084</span>
+    <span class="elecode-button" onclick="showelecode(84)" data-index="85">085</span>
+    <span class="elecode-button" onclick="showelecode(85)" data-index="86">086</span>
+    <span class="elecode-button" onclick="showelecode(86)" data-index="87">087</span>
+    <span class="elecode-button" onclick="showelecode(87)" data-index="88">088</span>
+    <span class="elecode-button" onclick="showelecode(88)" data-index="89">089</span>
+    <span class="elecode-button" onclick="showelecode(89)" data-index="90">090</span>
+    <span class="elecode-button" onclick="showelecode(90)" data-index="91">091</span>
+    <span class="elecode-button" onclick="showelecode(91)" data-index="92">092</span>
+    <span class="elecode-button" onclick="showelecode(92)" data-index="93">093</span>
+    <span class="elecode-button" onclick="showelecode(93)" data-index="94">094</span>
+    <span class="elecode-button" onclick="showelecode(94)" data-index="95">095</span>
+    <span class="elecode-button" onclick="showelecode(95)" data-index="96">096</span>
+    <span class="elecode-button" onclick="showelecode(96)" data-index="97">097</span>
+    <span class="elecode-button" onclick="showelecode(97)" data-index="98">098</span>
+    <span class="elecode-button" onclick="showelecode(98)" data-index="99">099</span>
+    <span class="elecode-button" onclick="showelecode(99)" data-index="100">100</span>
+    <span class="elecode-button" onclick="showelecode(100)" data-index="101">101</span>
+    <span class="elecode-button" onclick="showelecode(101)" data-index="102">102</span>
+    <span class="elecode-button" onclick="showelecode(102)" data-index="103">103</span>
+    <span class="elecode-button" onclick="showelecode(103)" data-index="104">104</span>
+    <span class="elecode-button" onclick="showelecode(104)" data-index="105">105</span>
+    <span class="elecode-button" onclick="showelecode(105)" data-index="106">106</span>
+    <span class="elecode-button" onclick="showelecode(106)" data-index="107">107</span>
+    <span class="elecode-button" onclick="showelecode(107)" data-index="108">108</span>
+    <span class="elecode-button" onclick="showelecode(108)" data-index="109">109</span>
+    <span class="elecode-button" onclick="showelecode(109)" data-index="110">110</span>
+    <span class="elecode-button" onclick="showelecode(110)" data-index="111">111</span>
+    <span class="elecode-button" onclick="showelecode(111)" data-index="112">112</span>
+    <span class="elecode-button" onclick="showelecode(112)" data-index="113">113</span>
+    <span class="elecode-button" onclick="showelecode(113)" data-index="114">114</span>
+    <span class="elecode-button" onclick="showelecode(114)" data-index="115">115</span>
+    <span class="elecode-button" onclick="showelecode(115)" data-index="116">116</span>
+    <span class="elecode-button" onclick="showelecode(116)" data-index="117">117</span>
+    <span class="elecode-button" onclick="showelecode(117)" data-index="118">118</span>
+
+  </div>
+  <div id="elecode-left" onclick="prevElecode()">&lt;</div>
+  <div id="elecode-right" onclick="nextElecode()">&gt;</div>
+  <div style="position: relative;">
+    <div id="elecode-container">
+      <img id="elecode-bg" src="001.png" alt="元素编码">
+      <div id="para-left"></div>
+      <div id="para-right"></div>
+      <div id="elecode-elecode">E L E C O D E</div>
+      <div class="code">No.<span id="elecode-code">001</span></div>
+      <div id="elecode-cn">氢</div>
+      <div id="elecode-jp">水素</div>
+      <div id="elecode-symbol">H</div>
+      <div id="elecode-latin">HYDROGEN</div>
+      <img id="elecode-emo" src="e_001.png" alt="元素编码">
+
+      <div class="svg-container">
+      <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+        <path d="M967.062 200L952.628 175L967.062 150L995.929 150L1010.36 175L995.929 200L967.062 200Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 250L952.628 225L967.062 200L995.929 200L1010.36 225L995.929 250L967.062 250Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 275L909.327 250L923.76 225L952.628 225L967.062 250L952.628 275L923.76 275Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 300L952.628 275L967.062 250L995.929 250L1010.36 275L995.929 300L967.062 300Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 325L909.327 300L923.76 275L952.628 275L967.062 300L952.628 325L923.76 325Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 350L952.628 325L967.062 300L995.929 300L1010.36 325L995.929 350L967.062 350Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 350L866.025 325L880.459 300L909.327 300L923.76 325L909.327 350L880.459 350Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 375L909.327 350L923.76 325L952.628 325L967.062 350L952.628 375L923.76 375Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 400L952.628 375L967.062 350L995.929 350L1010.36 375L995.929 400L967.062 400Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 400L866.025 375L880.459 350L909.327 350L923.76 375L909.327 400L880.459 400Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 425L909.327 400L923.76 375L952.628 375L967.062 400L952.628 425L923.76 425Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 450L952.628 425L967.062 400L995.929 400L1010.36 425L995.929 450L967.062 450Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 425L822.724 400L837.158 375L866.025 375L880.459 400L866.025 425L837.158 425Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 450L866.025 425L880.459 400L909.327 400L923.76 425L909.327 450L880.459 450Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 475L909.327 450L923.76 425L952.628 425L967.062 450L952.628 475L923.76 475Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 500L952.628 475L967.062 450L995.929 450L1010.36 475L995.929 500L967.062 500Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 475L822.724 450L837.158 425L866.025 425L880.459 450L866.025 475L837.158 475Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 500L866.025 475L880.459 450L909.327 450L923.76 475L909.327 500L880.459 500Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 525L909.327 500L923.76 475L952.628 475L967.062 500L952.628 525L923.76 525Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 550L952.628 525L967.062 500L995.929 500L1010.36 525L995.929 550L967.062 550Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 500L779.423 475L793.857 450L822.724 450L837.158 475L822.724 500L793.857 500Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 525L822.724 500L837.158 475L866.025 475L880.459 500L866.025 525L837.158 525Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 550L866.025 525L880.459 500L909.327 500L923.76 525L909.327 550L880.459 550Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 575L909.327 550L923.76 525L952.628 525L967.062 550L952.628 575L923.76 575Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 600L952.628 575L967.062 550L995.929 550L1010.36 575L995.929 600L967.062 600Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 550L779.423 525L793.857 500L822.724 500L837.158 525L822.724 550L793.857 550Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 575L822.724 550L837.158 525L866.025 525L880.459 550L866.025 575L837.158 575Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 600L866.025 575L880.459 550L909.327 550L923.76 575L909.327 600L880.459 600Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 625L909.327 600L923.76 575L952.628 575L967.062 600L952.628 625L923.76 625Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 650L952.628 625L967.062 600L995.929 600L1010.36 625L995.929 650L967.062 650Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 575L736.122 550L750.555 525L779.423 525L793.857 550L779.423 575L750.555 575Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 600L779.423 575L793.857 550L822.724 550L837.158 575L822.724 600L793.857 600Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 625L822.724 600L837.158 575L866.025 575L880.459 600L866.025 625L837.158 625Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 650L866.025 625L880.459 600L909.327 600L923.76 625L909.327 650L880.459 650Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 675L909.327 650L923.76 625L952.628 625L967.062 650L952.628 675L923.76 675Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 700L952.628 675L967.062 650L995.929 650L1010.36 675L995.929 700L967.062 700Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 625L736.122 600L750.555 575L779.423 575L793.857 600L779.423 625L750.555 625Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 650L779.423 625L793.857 600L822.724 600L837.158 625L822.724 650L793.857 650Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 675L822.724 650L837.158 625L866.025 625L880.459 650L866.025 675L837.158 675Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 700L866.025 675L880.459 650L909.327 650L923.76 675L909.327 700L880.459 700Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 725L909.327 700L923.76 675L952.628 675L967.062 700L952.628 725L923.76 725Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 750L952.628 725L967.062 700L995.929 700L1010.36 725L995.929 750L967.062 750Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 650L692.82 625L707.254 600L736.122 600L750.555 625L736.122 650L707.254 650Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 675L736.122 650L750.555 625L779.423 625L793.857 650L779.423 675L750.555 675Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 700L779.423 675L793.857 650L822.724 650L837.158 675L822.724 700L793.857 700Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 725L822.724 700L837.158 675L866.025 675L880.459 700L866.025 725L837.158 725Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 750L866.025 725L880.459 700L909.327 700L923.76 725L909.327 750L880.459 750Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 775L909.327 750L923.76 725L952.628 725L967.062 750L952.628 775L923.76 775Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 800L952.628 775L967.062 750L995.929 750L1010.36 775L995.929 800L967.062 800Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 700L692.82 675L707.254 650L736.122 650L750.555 675L736.122 700L707.254 700Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 725L736.122 700L750.555 675L779.423 675L793.857 700L779.423 725L750.555 725Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 750L779.423 725L793.857 700L822.724 700L837.158 725L822.724 750L793.857 750Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 775L822.724 750L837.158 725L866.025 725L880.459 750L866.025 775L837.158 775Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 800L866.025 775L880.459 750L909.327 750L923.76 775L909.327 800L880.459 800Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 825L909.327 800L923.76 775L952.628 775L967.062 800L952.628 825L923.76 825Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 850L952.628 825L967.062 800L995.929 800L1010.36 825L995.929 850L967.062 850Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 725L649.519 700L663.953 675L692.82 675L707.254 700L692.82 725L663.953 725Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 750L692.82 725L707.254 700L736.122 700L750.555 725L736.122 750L707.254 750Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 775L736.122 750L750.555 725L779.423 725L793.857 750L779.423 775L750.555 775Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 800L779.423 775L793.857 750L822.724 750L837.158 775L822.724 800L793.857 800Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 825L822.724 800L837.158 775L866.025 775L880.459 800L866.025 825L837.158 825Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 850L866.025 825L880.459 800L909.327 800L923.76 825L909.327 850L880.459 850Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 875L909.327 850L923.76 825L952.628 825L967.062 850L952.628 875L923.76 875Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 900L952.628 875L967.062 850L995.929 850L1010.36 875L995.929 900L967.062 900Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 775L649.519 750L663.953 725L692.82 725L707.254 750L692.82 775L663.953 775Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 800L692.82 775L707.254 750L736.122 750L750.555 775L736.122 800L707.254 800Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 825L736.122 800L750.555 775L779.423 775L793.857 800L779.423 825L750.555 825Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 850L779.423 825L793.857 800L822.724 800L837.158 825L822.724 850L793.857 850Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 875L822.724 850L837.158 825L866.025 825L880.459 850L866.025 875L837.158 875Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 900L866.025 875L880.459 850L909.327 850L923.76 875L909.327 900L880.459 900Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 925L909.327 900L923.76 875L952.628 875L967.062 900L952.628 925L923.76 925Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 950L952.628 925L967.062 900L995.929 900L1010.36 925L995.929 950L967.062 950Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 800L606.218 775L620.652 750L649.519 750L663.953 775L649.519 800L620.652 800Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 825L649.519 800L663.953 775L692.82 775L707.254 800L692.82 825L663.953 825Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 850L692.82 825L707.254 800L736.122 800L750.555 825L736.122 850L707.254 850Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 875L736.122 850L750.555 825L779.423 825L793.857 850L779.423 875L750.555 875Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 900L779.423 875L793.857 850L822.724 850L837.158 875L822.724 900L793.857 900Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 925L822.724 900L837.158 875L866.025 875L880.459 900L866.025 925L837.158 925Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 950L866.025 925L880.459 900L909.327 900L923.76 925L909.327 950L880.459 950Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 975L909.327 950L923.76 925L952.628 925L967.062 950L952.628 975L923.76 975Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 1000L952.628 975L967.062 950L995.929 950L1010.36 975L995.929 1000L967.062 1000Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 850L606.218 825L620.652 800L649.519 800L663.953 825L649.519 850L620.652 850Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 875L649.519 850L663.953 825L692.82 825L707.254 850L692.82 875L663.953 875Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 900L692.82 875L707.254 850L736.122 850L750.555 875L736.122 900L707.254 900Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 925L736.122 900L750.555 875L779.423 875L793.857 900L779.423 925L750.555 925Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 950L779.423 925L793.857 900L822.724 900L837.158 925L822.724 950L793.857 950Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 975L822.724 950L837.158 925L866.025 925L880.459 950L866.025 975L837.158 975Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 1000L866.025 975L880.459 950L909.327 950L923.76 975L909.327 1000L880.459 1000Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 875L562.917 850L577.35 825L606.218 825L620.652 850L606.218 875L577.35 875Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 900L606.218 875L620.652 850L649.519 850L663.953 875L649.519 900L620.652 900Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 925L649.519 900L663.953 875L692.82 875L707.254 900L692.82 925L663.953 925Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 950L692.82 925L707.254 900L736.122 900L750.555 925L736.122 950L707.254 950Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 975L736.122 950L750.555 925L779.423 925L793.857 950L779.423 975L750.555 975Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 1000L779.423 975L793.857 950L822.724 950L837.158 975L822.724 1000L793.857 1000Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 925L562.917 900L577.35 875L606.218 875L620.652 900L606.218 925L577.35 925Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 950L606.218 925L620.652 900L649.519 900L663.953 925L649.519 950L620.652 950Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 975L649.519 950L663.953 925L692.82 925L707.254 950L692.82 975L663.953 975Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 1000L692.82 975L707.254 950L736.122 950L750.555 975L736.122 1000L707.254 1000Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 950L519.615 925L534.049 900L562.917 900L577.35 925L562.917 950L534.049 950Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 975L562.917 950L577.35 925L606.218 925L620.652 950L606.218 975L577.35 975Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 1000L606.218 975L620.652 950L649.519 950L663.953 975L649.519 1000L620.652 1000Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 1000L519.615 975L534.049 950L562.917 950L577.35 975L562.917 1000L534.049 1000Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 50L952.628 25L967.062 1.13687e-13L995.929 0L1010.36 25L995.929 50L967.062 50Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 50L866.025 25L880.459 1.13687e-13L909.327 1.13687e-13L923.76 25L909.327 50L880.459 50Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 75L909.327 50L923.76 25L952.628 25L967.062 50L952.628 75L923.76 75Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 100L952.628 75L967.062 50L995.929 50L1010.36 75L995.929 100L967.062 100Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 50L779.423 25L793.857 1.13687e-13L822.724 1.13687e-13L837.158 25L822.724 50L793.857 50Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 75L822.724 50L837.158 25L866.025 25L880.459 50L866.025 75L837.158 75Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 100L866.025 75L880.459 50L909.327 50L923.76 75L909.327 100L880.459 100Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 125L909.327 100L923.76 75L952.628 75L967.062 100L952.628 125L923.76 125Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M967.062 150L952.628 125L967.062 100L995.929 100L1010.36 125L995.929 150L967.062 150Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 50L692.82 25L707.254 1.13687e-13L736.122 2.27374e-13L750.555 25L736.122 50L707.254 50Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 75L736.122 50L750.555 25L779.423 25L793.857 50L779.423 75L750.555 75Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 100L779.423 75L793.857 50L822.724 50L837.158 75L822.724 100L793.857 100Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 125L822.724 100L837.158 75L866.025 75L880.459 100L866.025 125L837.158 125Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 150L866.025 125L880.459 100L909.327 100L923.76 125L909.327 150L880.459 150Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 175L909.327 150L923.76 125L952.628 125L967.062 150L952.628 175L923.76 175Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 50L606.218 25L620.652 1.13687e-13L649.519 1.13687e-13L663.953 25L649.519 50L620.652 50Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 75L649.519 50L663.953 25L692.82 25L707.254 50L692.82 75L663.953 75Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 100L692.82 75L707.254 50L736.122 50L750.555 75L736.122 100L707.254 100Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 125L736.122 100L750.555 75L779.423 75L793.857 100L779.423 125L750.555 125Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 150L779.423 125L793.857 100L822.724 100L837.158 125L822.724 150L793.857 150Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 175L822.724 150L837.158 125L866.025 125L880.459 150L866.025 175L837.158 175Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 200L866.025 175L880.459 150L909.327 150L923.76 175L909.327 200L880.459 200Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M923.76 225L909.327 200L923.76 175L952.628 175L967.062 200L952.628 225L923.76 225Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 50L519.615 25L534.049 1.13687e-13L562.917 1.13687e-13L577.35 25L562.917 50L534.049 50Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 75L562.917 50L577.35 25L606.218 25L620.652 50L606.218 75L577.35 75Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 100L606.218 75L620.652 50L649.519 50L663.953 75L649.519 100L620.652 100Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 125L649.519 100L663.953 75L692.82 75L707.254 100L692.82 125L663.953 125Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 150L692.82 125L707.254 100L736.122 100L750.555 125L736.122 150L707.254 150Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 175L736.122 150L750.555 125L779.423 125L793.857 150L779.423 175L750.555 175Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 200L779.423 175L793.857 150L822.724 150L837.158 175L822.724 200L793.857 200Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 225L822.724 200L837.158 175L866.025 175L880.459 200L866.025 225L837.158 225Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 250L866.025 225L880.459 200L909.327 200L923.76 225L909.327 250L880.459 250Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 50L433.013 25L447.446 1.13687e-13L476.314 1.13687e-13L490.748 25L476.314 50L447.446 50Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 75L476.314 50L490.748 25L519.615 25L534.049 50L519.615 75L490.748 75Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 100L519.615 75L534.049 50L562.917 50L577.35 75L562.917 100L534.049 100Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 125L562.917 100L577.35 75L606.218 75L620.652 100L606.218 125L577.35 125Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 150L606.218 125L620.652 100L649.519 100L663.953 125L649.519 150L620.652 150Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 175L649.519 150L663.953 125L692.82 125L707.254 150L692.82 175L663.953 175Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 200L692.82 175L707.254 150L736.122 150L750.555 175L736.122 200L707.254 200Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 225L736.122 200L750.555 175L779.423 175L793.857 200L779.423 225L750.555 225Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 250L779.423 225L793.857 200L822.724 200L837.158 225L822.724 250L793.857 250Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 275L822.724 250L837.158 225L866.025 225L880.459 250L866.025 275L837.158 275Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M880.459 300L866.025 275L880.459 250L909.327 250L923.76 275L909.327 300L880.459 300Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 50L346.41 25L360.844 2.27374e-13L389.711 2.27374e-13L404.145 25L389.711 50L360.844 50Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 75L389.711 50L404.145 25L433.013 25L447.446 50L433.013 75L404.145 75Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 100L433.013 75L447.446 50L476.314 50L490.748 75L476.314 100L447.446 100Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 125L476.314 100L490.748 75L519.615 75L534.049 100L519.615 125L490.748 125Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 150L519.615 125L534.049 100L562.917 100L577.35 125L562.917 150L534.049 150Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 175L562.917 150L577.35 125L606.218 125L620.652 150L606.218 175L577.35 175Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 200L606.218 175L620.652 150L649.519 150L663.953 175L649.519 200L620.652 200Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 225L649.519 200L663.953 175L692.82 175L707.254 200L692.82 225L663.953 225Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 250L692.82 225L707.254 200L736.122 200L750.555 225L736.122 250L707.254 250Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 275L736.122 250L750.555 225L779.423 225L793.857 250L779.423 275L750.555 275Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 300L779.423 275L793.857 250L822.724 250L837.158 275L822.724 300L793.857 300Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 325L822.724 300L837.158 275L866.025 275L880.459 300L866.025 325L837.158 325Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 50L259.808 25L274.241 1.13687e-13L303.109 1.13687e-13L317.543 25L303.109 50L274.241 50Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 75L303.109 50L317.543 25L346.41 25L360.844 50L346.41 75L317.543 75Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 100L346.41 75L360.844 50L389.711 50L404.145 75L389.711 100L360.844 100Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 125L389.711 100L404.145 75L433.013 75L447.446 100L433.013 125L404.145 125Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 150L433.013 125L447.446 100L476.314 100L490.748 125L476.314 150L447.446 150Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 175L476.314 150L490.748 125L519.615 125L534.049 150L519.615 175L490.748 175Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 200L519.615 175L534.049 150L562.917 150L577.35 175L562.917 200L534.049 200Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 225L562.917 200L577.35 175L606.218 175L620.652 200L606.218 225L577.35 225Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 250L606.218 225L620.652 200L649.519 200L663.953 225L649.519 250L620.652 250Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 275L649.519 250L663.953 225L692.82 225L707.254 250L692.82 275L663.953 275Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 300L692.82 275L707.254 250L736.122 250L750.555 275L736.122 300L707.254 300Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 325L736.122 300L750.555 275L779.423 275L793.857 300L779.423 325L750.555 325Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 350L779.423 325L793.857 300L822.724 300L837.158 325L822.724 350L793.857 350Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M837.158 375L822.724 350L837.158 325L866.025 325L880.459 350L866.025 375L837.158 375Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 50L173.205 25L187.639 2.27374e-13L216.506 1.13687e-13L230.94 25L216.506 50L187.639 50Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 75L216.506 50L230.94 25L259.808 25L274.241 50L259.808 75L230.94 75Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 100L259.808 75L274.241 50L303.109 50L317.543 75L303.109 100L274.241 100Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 125L303.109 100L317.543 75L346.41 75L360.844 100L346.41 125L317.543 125Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 150L346.41 125L360.844 100L389.711 100L404.145 125L389.711 150L360.844 150Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 175L389.711 150L404.145 125L433.013 125L447.446 150L433.013 175L404.145 175Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 200L433.013 175L447.446 150L476.314 150L490.748 175L476.314 200L447.446 200Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 225L476.314 200L490.748 175L519.615 175L534.049 200L519.615 225L490.748 225Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 250L519.615 225L534.049 200L562.917 200L577.35 225L562.917 250L534.049 250Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 275L562.917 250L577.35 225L606.218 225L620.652 250L606.218 275L577.35 275Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 300L606.218 275L620.652 250L649.519 250L663.953 275L649.519 300L620.652 300Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 325L649.519 300L663.953 275L692.82 275L707.254 300L692.82 325L663.953 325Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 350L692.82 325L707.254 300L736.122 300L750.555 325L736.122 350L707.254 350Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 375L736.122 350L750.555 325L779.423 325L793.857 350L779.423 375L750.555 375Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 400L779.423 375L793.857 350L822.724 350L837.158 375L822.724 400L793.857 400Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 50L86.6025 25L101.036 1.13687e-13L129.904 1.13687e-13L144.338 25L129.904 50L101.036 50Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 75L129.904 50L144.338 25L173.205 25L187.639 50L173.205 75L144.338 75Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 100L173.205 75L187.639 50L216.506 50L230.94 75L216.506 100L187.639 100Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 125L216.506 100L230.94 75L259.808 75L274.241 100L259.808 125L230.94 125Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 150L259.808 125L274.241 100L303.109 100L317.543 125L303.109 150L274.241 150Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 175L303.109 150L317.543 125L346.41 125L360.844 150L346.41 175L317.543 175Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 200L346.41 175L360.844 150L389.711 150L404.145 175L389.711 200L360.844 200Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 225L389.711 200L404.145 175L433.013 175L447.446 200L433.013 225L404.145 225Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 250L433.013 225L447.446 200L476.314 200L490.748 225L476.314 250L447.446 250Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 275L476.314 250L490.748 225L519.615 225L534.049 250L519.615 275L490.748 275Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 300L519.615 275L534.049 250L562.917 250L577.35 275L562.917 300L534.049 300Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 325L562.917 300L577.35 275L606.218 275L620.652 300L606.218 325L577.35 325Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 350L606.218 325L620.652 300L649.519 300L663.953 325L649.519 350L620.652 350Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 375L649.519 350L663.953 325L692.82 325L707.254 350L692.82 375L663.953 375Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 400L692.82 375L707.254 350L736.122 350L750.555 375L736.122 400L707.254 400Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 425L736.122 400L750.555 375L779.423 375L793.857 400L779.423 425L750.555 425Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M793.857 450L779.423 425L793.857 400L822.724 400L837.158 425L822.724 450L793.857 450Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 50L0 25L14.4338 2.27374e-13L43.3013 2.27374e-13L57.735 25L43.3013 50L14.4338 50Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 75L43.3013 50L57.735 25L86.6025 25L101.036 50L86.6025 75L57.735 75Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 100L86.6025 75L101.036 50L129.904 50L144.338 75L129.904 100L101.036 100Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 125L129.904 100L144.338 75L173.205 75L187.639 100L173.205 125L144.338 125Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 150L173.205 125L187.639 100L216.506 100L230.94 125L216.506 150L187.639 150Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 175L216.506 150L230.94 125L259.808 125L274.241 150L259.808 175L230.94 175Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 200L259.808 175L274.241 150L303.109 150L317.543 175L303.109 200L274.241 200Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 225L303.109 200L317.543 175L346.41 175L360.844 200L346.41 225L317.543 225Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 250L346.41 225L360.844 200L389.711 200L404.145 225L389.711 250L360.844 250Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 275L389.711 250L404.145 225L433.013 225L447.446 250L433.013 275L404.145 275Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 300L433.013 275L447.446 250L476.314 250L490.748 275L476.314 300L447.446 300Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 325L476.314 300L490.748 275L519.615 275L534.049 300L519.615 325L490.748 325Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 350L519.615 325L534.049 300L562.917 300L577.35 325L562.917 350L534.049 350Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 375L562.917 350L577.35 325L606.218 325L620.652 350L606.218 375L577.35 375Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 400L606.218 375L620.652 350L649.519 350L663.953 375L649.519 400L620.652 400Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 425L649.519 400L663.953 375L692.82 375L707.254 400L692.82 425L663.953 425Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 450L692.82 425L707.254 400L736.122 400L750.555 425L736.122 450L707.254 450Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 475L736.122 450L750.555 425L779.423 425L793.857 450L779.423 475L750.555 475Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 100L5.68434e-14 75L14.4338 50L43.3013 50L57.735 75L43.3013 100L14.4338 100Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 125L43.3013 100L57.735 75L86.6025 75L101.036 100L86.6025 125L57.735 125Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 150L86.6025 125L101.036 100L129.904 100L144.338 125L129.904 150L101.036 150Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 175L129.904 150L144.338 125L173.205 125L187.639 150L173.205 175L144.338 175Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 200L173.205 175L187.639 150L216.506 150L230.94 175L216.506 200L187.639 200Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 225L216.506 200L230.94 175L259.808 175L274.241 200L259.808 225L230.94 225Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 250L259.808 225L274.241 200L303.109 200L317.543 225L303.109 250L274.241 250Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 275L303.109 250L317.543 225L346.41 225L360.844 250L346.41 275L317.543 275Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 300L346.41 275L360.844 250L389.711 250L404.145 275L389.711 300L360.844 300Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 325L389.711 300L404.145 275L433.013 275L447.446 300L433.013 325L404.145 325Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 350L433.013 325L447.446 300L476.314 300L490.748 325L476.314 350L447.446 350Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 375L476.314 350L490.748 325L519.615 325L534.049 350L519.615 375L490.748 375Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 400L519.615 375L534.049 350L562.917 350L577.35 375L562.917 400L534.049 400Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 425L562.917 400L577.35 375L606.218 375L620.652 400L606.218 425L577.35 425Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 450L606.218 425L620.652 400L649.519 400L663.953 425L649.519 450L620.652 450Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 475L649.519 450L663.953 425L692.82 425L707.254 450L692.82 475L663.953 475Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 500L692.82 475L707.254 450L736.122 450L750.555 475L736.122 500L707.254 500Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M750.555 525L736.122 500L750.555 475L779.423 475L793.857 500L779.423 525L750.555 525Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 150L-5.68434e-14 125L14.4338 100L43.3013 100L57.735 125L43.3013 150L14.4338 150Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 175L43.3013 150L57.735 125L86.6025 125L101.036 150L86.6025 175L57.735 175Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 200L86.6025 175L101.036 150L129.904 150L144.338 175L129.904 200L101.036 200Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 225L129.904 200L144.338 175L173.205 175L187.639 200L173.205 225L144.338 225Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 250L173.205 225L187.639 200L216.506 200L230.94 225L216.506 250L187.639 250Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 275L216.506 250L230.94 225L259.808 225L274.241 250L259.808 275L230.94 275Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 300L259.808 275L274.241 250L303.109 250L317.543 275L303.109 300L274.241 300Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 325L303.109 300L317.543 275L346.41 275L360.844 300L346.41 325L317.543 325Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 350L346.41 325L360.844 300L389.711 300L404.145 325L389.711 350L360.844 350Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 375L389.711 350L404.145 325L433.013 325L447.446 350L433.013 375L404.145 375Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 400L433.013 375L447.446 350L476.314 350L490.748 375L476.314 400L447.446 400Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 425L476.314 400L490.748 375L519.615 375L534.049 400L519.615 425L490.748 425Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 450L519.615 425L534.049 400L562.917 400L577.35 425L562.917 450L534.049 450Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 475L562.917 450L577.35 425L606.218 425L620.652 450L606.218 475L577.35 475Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 500L606.218 475L620.652 450L649.519 450L663.953 475L649.519 500L620.652 500Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 525L649.519 500L663.953 475L692.82 475L707.254 500L692.82 525L663.953 525Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 550L692.82 525L707.254 500L736.122 500L750.555 525L736.122 550L707.254 550Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 200L0 175L14.4338 150L43.3013 150L57.735 175L43.3013 200L14.4338 200Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 225L43.3013 200L57.735 175L86.6025 175L101.036 200L86.6025 225L57.735 225Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 250L86.6025 225L101.036 200L129.904 200L144.338 225L129.904 250L101.036 250Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 275L129.904 250L144.338 225L173.205 225L187.639 250L173.205 275L144.338 275Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 300L173.205 275L187.639 250L216.506 250L230.94 275L216.506 300L187.639 300Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 325L216.506 300L230.94 275L259.808 275L274.241 300L259.808 325L230.94 325Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 350L259.808 325L274.241 300L303.109 300L317.543 325L303.109 350L274.241 350Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 375L303.109 350L317.543 325L346.41 325L360.844 350L346.41 375L317.543 375Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 400L346.41 375L360.844 350L389.711 350L404.145 375L389.711 400L360.844 400Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 425L389.711 400L404.145 375L433.013 375L447.446 400L433.013 425L404.145 425Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 450L433.013 425L447.446 400L476.314 400L490.748 425L476.314 450L447.446 450Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 475L476.314 450L490.748 425L519.615 425L534.049 450L519.615 475L490.748 475Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 500L519.615 475L534.049 450L562.917 450L577.35 475L562.917 500L534.049 500Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 525L562.917 500L577.35 475L606.218 475L620.652 500L606.218 525L577.35 525Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 550L606.218 525L620.652 500L649.519 500L663.953 525L649.519 550L620.652 550Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 575L649.519 550L663.953 525L692.82 525L707.254 550L692.82 575L663.953 575Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M707.254 600L692.82 575L707.254 550L736.122 550L750.555 575L736.122 600L707.254 600Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 250L0 225L14.4338 200L43.3013 200L57.735 225L43.3013 250L14.4338 250Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 275L43.3013 250L57.735 225L86.6025 225L101.036 250L86.6025 275L57.735 275Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 300L86.6025 275L101.036 250L129.904 250L144.338 275L129.904 300L101.036 300Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 325L129.904 300L144.338 275L173.205 275L187.639 300L173.205 325L144.338 325Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 350L173.205 325L187.639 300L216.506 300L230.94 325L216.506 350L187.639 350Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 375L216.506 350L230.94 325L259.808 325L274.241 350L259.808 375L230.94 375Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 400L259.808 375L274.241 350L303.109 350L317.543 375L303.109 400L274.241 400Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 425L303.109 400L317.543 375L346.41 375L360.844 400L346.41 425L317.543 425Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 450L346.41 425L360.844 400L389.711 400L404.145 425L389.711 450L360.844 450Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 475L389.711 450L404.145 425L433.013 425L447.446 450L433.013 475L404.145 475Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 500L433.013 475L447.446 450L476.314 450L490.748 475L476.314 500L447.446 500Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 525L476.314 500L490.748 475L519.615 475L534.049 500L519.615 525L490.748 525Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 550L519.615 525L534.049 500L562.917 500L577.35 525L562.917 550L534.049 550Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 575L562.917 550L577.35 525L606.218 525L620.652 550L606.218 575L577.35 575Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 600L606.218 575L620.652 550L649.519 550L663.953 575L649.519 600L620.652 600Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 625L649.519 600L663.953 575L692.82 575L707.254 600L692.82 625L663.953 625Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 300L0 275L14.4338 250L43.3013 250L57.735 275L43.3013 300L14.4338 300Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 325L43.3013 300L57.735 275L86.6025 275L101.036 300L86.6025 325L57.735 325Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 350L86.6025 325L101.036 300L129.904 300L144.338 325L129.904 350L101.036 350Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 375L129.904 350L144.338 325L173.205 325L187.639 350L173.205 375L144.338 375Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 400L173.205 375L187.639 350L216.506 350L230.94 375L216.506 400L187.639 400Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 425L216.506 400L230.94 375L259.808 375L274.241 400L259.808 425L230.94 425Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 450L259.808 425L274.241 400L303.109 400L317.543 425L303.109 450L274.241 450Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 475L303.109 450L317.543 425L346.41 425L360.844 450L346.41 475L317.543 475Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 500L346.41 475L360.844 450L389.711 450L404.145 475L389.711 500L360.844 500Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 525L389.711 500L404.145 475L433.013 475L447.446 500L433.013 525L404.145 525Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 550L433.013 525L447.446 500L476.314 500L490.748 525L476.314 550L447.446 550Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 575L476.314 550L490.748 525L519.615 525L534.049 550L519.615 575L490.748 575Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 600L519.615 575L534.049 550L562.917 550L577.35 575L562.917 600L534.049 600Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 625L562.917 600L577.35 575L606.218 575L620.652 600L606.218 625L577.35 625Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 650L606.218 625L620.652 600L649.519 600L663.953 625L649.519 650L620.652 650Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M663.953 675L649.519 650L663.953 625L692.82 625L707.254 650L692.82 675L663.953 675Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 350L0 325L14.4338 300L43.3013 300L57.735 325L43.3013 350L14.4338 350Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 375L43.3013 350L57.735 325L86.6025 325L101.036 350L86.6025 375L57.735 375Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 400L86.6025 375L101.036 350L129.904 350L144.338 375L129.904 400L101.036 400Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 425L129.904 400L144.338 375L173.205 375L187.639 400L173.205 425L144.338 425Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 450L173.205 425L187.639 400L216.506 400L230.94 425L216.506 450L187.639 450Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 475L216.506 450L230.94 425L259.808 425L274.241 450L259.808 475L230.94 475Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 500L259.808 475L274.241 450L303.109 450L317.543 475L303.109 500L274.241 500Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 525L303.109 500L317.543 475L346.41 475L360.844 500L346.41 525L317.543 525Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 550L346.41 525L360.844 500L389.711 500L404.145 525L389.711 550L360.844 550Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 575L389.711 550L404.145 525L433.013 525L447.446 550L433.013 575L404.145 575Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 600L433.013 575L447.446 550L476.314 550L490.748 575L476.314 600L447.446 600Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 625L476.314 600L490.748 575L519.615 575L534.049 600L519.615 625L490.748 625Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 650L519.615 625L534.049 600L562.917 600L577.35 625L562.917 650L534.049 650Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 675L562.917 650L577.35 625L606.218 625L620.652 650L606.218 675L577.35 675Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 700L606.218 675L620.652 650L649.519 650L663.953 675L649.519 700L620.652 700Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 400L5.68434e-14 375L14.4338 350L43.3013 350L57.735 375L43.3013 400L14.4338 400Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 425L43.3013 400L57.735 375L86.6025 375L101.036 400L86.6025 425L57.735 425Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 450L86.6025 425L101.036 400L129.904 400L144.338 425L129.904 450L101.036 450Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 475L129.904 450L144.338 425L173.205 425L187.639 450L173.205 475L144.338 475Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 500L173.205 475L187.639 450L216.506 450L230.94 475L216.506 500L187.639 500Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 525L216.506 500L230.94 475L259.808 475L274.241 500L259.808 525L230.94 525Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 550L259.808 525L274.241 500L303.109 500L317.543 525L303.109 550L274.241 550Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 575L303.109 550L317.543 525L346.41 525L360.844 550L346.41 575L317.543 575Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 600L346.41 575L360.844 550L389.711 550L404.145 575L389.711 600L360.844 600Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 625L389.711 600L404.145 575L433.013 575L447.446 600L433.013 625L404.145 625Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 650L433.013 625L447.446 600L476.314 600L490.748 625L476.314 650L447.446 650Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 675L476.314 650L490.748 625L519.615 625L534.049 650L519.615 675L490.748 675Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 700L519.615 675L534.049 650L562.917 650L577.35 675L562.917 700L534.049 700Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 725L562.917 700L577.35 675L606.218 675L620.652 700L606.218 725L577.35 725Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M620.652 750L606.218 725L620.652 700L649.519 700L663.953 725L649.519 750L620.652 750Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 450L-5.68434e-14 425L14.4338 400L43.3013 400L57.735 425L43.3013 450L14.4338 450Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 475L43.3013 450L57.735 425L86.6025 425L101.036 450L86.6025 475L57.735 475Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 500L86.6025 475L101.036 450L129.904 450L144.338 475L129.904 500L101.036 500Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 525L129.904 500L144.338 475L173.205 475L187.639 500L173.205 525L144.338 525Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 550L173.205 525L187.639 500L216.506 500L230.94 525L216.506 550L187.639 550Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 575L216.506 550L230.94 525L259.808 525L274.241 550L259.808 575L230.94 575Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 600L259.808 575L274.241 550L303.109 550L317.543 575L303.109 600L274.241 600Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 625L303.109 600L317.543 575L346.41 575L360.844 600L346.41 625L317.543 625Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 650L346.41 625L360.844 600L389.711 600L404.145 625L389.711 650L360.844 650Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 675L389.711 650L404.145 625L433.013 625L447.446 650L433.013 675L404.145 675Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 700L433.013 675L447.446 650L476.314 650L490.748 675L476.314 700L447.446 700Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 725L476.314 700L490.748 675L519.615 675L534.049 700L519.615 725L490.748 725Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 750L519.615 725L534.049 700L562.917 700L577.35 725L562.917 750L534.049 750Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 775L562.917 750L577.35 725L606.218 725L620.652 750L606.218 775L577.35 775Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 500L0 475L14.4338 450L43.3013 450L57.735 475L43.3013 500L14.4338 500Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 525L43.3013 500L57.735 475L86.6025 475L101.036 500L86.6025 525L57.735 525Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 550L86.6025 525L101.036 500L129.904 500L144.338 525L129.904 550L101.036 550Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 575L129.904 550L144.338 525L173.205 525L187.639 550L173.205 575L144.338 575Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 600L173.205 575L187.639 550L216.506 550L230.94 575L216.506 600L187.639 600Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 625L216.506 600L230.94 575L259.808 575L274.241 600L259.808 625L230.94 625Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 650L259.808 625L274.241 600L303.109 600L317.543 625L303.109 650L274.241 650Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 675L303.109 650L317.543 625L346.41 625L360.844 650L346.41 675L317.543 675Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 700L346.41 675L360.844 650L389.711 650L404.145 675L389.711 700L360.844 700Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 725L389.711 700L404.145 675L433.013 675L447.446 700L433.013 725L404.145 725Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 750L433.013 725L447.446 700L476.314 700L490.748 725L476.314 750L447.446 750Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 775L476.314 750L490.748 725L519.615 725L534.049 750L519.615 775L490.748 775Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 800L519.615 775L534.049 750L562.917 750L577.35 775L562.917 800L534.049 800Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M577.35 825L562.917 800L577.35 775L606.218 775L620.652 800L606.218 825L577.35 825Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 550L0 525L14.4338 500L43.3013 500L57.735 525L43.3013 550L14.4338 550Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 575L43.3013 550L57.735 525L86.6025 525L101.036 550L86.6025 575L57.735 575Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 600L86.6025 575L101.036 550L129.904 550L144.338 575L129.904 600L101.036 600Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 625L129.904 600L144.338 575L173.205 575L187.639 600L173.205 625L144.338 625Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 650L173.205 625L187.639 600L216.506 600L230.94 625L216.506 650L187.639 650Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 675L216.506 650L230.94 625L259.808 625L274.241 650L259.808 675L230.94 675Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 700L259.808 675L274.241 650L303.109 650L317.543 675L303.109 700L274.241 700Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 725L303.109 700L317.543 675L346.41 675L360.844 700L346.41 725L317.543 725Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 750L346.41 725L360.844 700L389.711 700L404.145 725L389.711 750L360.844 750Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 775L389.711 750L404.145 725L433.013 725L447.446 750L433.013 775L404.145 775Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 800L433.013 775L447.446 750L476.314 750L490.748 775L476.314 800L447.446 800Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 825L476.314 800L490.748 775L519.615 775L534.049 800L519.615 825L490.748 825Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 850L519.615 825L534.049 800L562.917 800L577.35 825L562.917 850L534.049 850Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 600L0 575L14.4338 550L43.3013 550L57.735 575L43.3013 600L14.4338 600Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 625L43.3013 600L57.735 575L86.6025 575L101.036 600L86.6025 625L57.735 625Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 650L86.6025 625L101.036 600L129.904 600L144.338 625L129.904 650L101.036 650Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 675L129.904 650L144.338 625L173.205 625L187.639 650L173.205 675L144.338 675Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 700L173.205 675L187.639 650L216.506 650L230.94 675L216.506 700L187.639 700Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 725L216.506 700L230.94 675L259.808 675L274.241 700L259.808 725L230.94 725Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 750L259.808 725L274.241 700L303.109 700L317.543 725L303.109 750L274.241 750Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 775L303.109 750L317.543 725L346.41 725L360.844 750L346.41 775L317.543 775Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 800L346.41 775L360.844 750L389.711 750L404.145 775L389.711 800L360.844 800Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 825L389.711 800L404.145 775L433.013 775L447.446 800L433.013 825L404.145 825Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 850L433.013 825L447.446 800L476.314 800L490.748 825L476.314 850L447.446 850Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 875L476.314 850L490.748 825L519.615 825L534.049 850L519.615 875L490.748 875Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M534.049 900L519.615 875L534.049 850L562.917 850L577.35 875L562.917 900L534.049 900Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 650L1.13687e-13 625L14.4338 600L43.3013 600L57.735 625L43.3013 650L14.4338 650Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 675L43.3013 650L57.735 625L86.6025 625L101.036 650L86.6025 675L57.735 675Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 700L86.6025 675L101.036 650L129.904 650L144.338 675L129.904 700L101.036 700Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 725L129.904 700L144.338 675L173.205 675L187.639 700L173.205 725L144.338 725Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 750L173.205 725L187.639 700L216.506 700L230.94 725L216.506 750L187.639 750Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 775L216.506 750L230.94 725L259.808 725L274.241 750L259.808 775L230.94 775Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 800L259.808 775L274.241 750L303.109 750L317.543 775L303.109 800L274.241 800Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 825L303.109 800L317.543 775L346.41 775L360.844 800L346.41 825L317.543 825Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 850L346.41 825L360.844 800L389.711 800L404.145 825L389.711 850L360.844 850Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 875L389.711 850L404.145 825L433.013 825L447.446 850L433.013 875L404.145 875Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 900L433.013 875L447.446 850L476.314 850L490.748 875L476.314 900L447.446 900Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 925L476.314 900L490.748 875L519.615 875L534.049 900L519.615 925L490.748 925Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 700L1.13687e-13 675L14.4338 650L43.3013 650L57.735 675L43.3013 700L14.4338 700Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 725L43.3013 700L57.735 675L86.6025 675L101.036 700L86.6025 725L57.735 725Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 750L86.6025 725L101.036 700L129.904 700L144.338 725L129.904 750L101.036 750Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 775L129.904 750L144.338 725L173.205 725L187.639 750L173.205 775L144.338 775Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 800L173.205 775L187.639 750L216.506 750L230.94 775L216.506 800L187.639 800Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 825L216.506 800L230.94 775L259.808 775L274.241 800L259.808 825L230.94 825Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 850L259.808 825L274.241 800L303.109 800L317.543 825L303.109 850L274.241 850Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 875L303.109 850L317.543 825L346.41 825L360.844 850L346.41 875L317.543 875Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 900L346.41 875L360.844 850L389.711 850L404.145 875L389.711 900L360.844 900Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 925L389.711 900L404.145 875L433.013 875L447.446 900L433.013 925L404.145 925Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 950L433.013 925L447.446 900L476.314 900L490.748 925L476.314 950L447.446 950Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M490.748 975L476.314 950L490.748 925L519.615 925L534.049 950L519.615 975L490.748 975Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 750L1.13687e-13 725L14.4338 700L43.3013 700L57.735 725L43.3013 750L14.4338 750Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 775L43.3013 750L57.735 725L86.6025 725L101.036 750L86.6025 775L57.735 775Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 800L86.6025 775L101.036 750L129.904 750L144.338 775L129.904 800L101.036 800Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 825L129.904 800L144.338 775L173.205 775L187.639 800L173.205 825L144.338 825Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 850L173.205 825L187.639 800L216.506 800L230.94 825L216.506 850L187.639 850Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 875L216.506 850L230.94 825L259.808 825L274.241 850L259.808 875L230.94 875Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 900L259.808 875L274.241 850L303.109 850L317.543 875L303.109 900L274.241 900Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 925L303.109 900L317.543 875L346.41 875L360.844 900L346.41 925L317.543 925Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 950L346.41 925L360.844 900L389.711 900L404.145 925L389.711 950L360.844 950Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M404.145 975L389.711 950L404.145 925L433.013 925L447.446 950L433.013 975L404.145 975Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M447.446 1000L433.013 975L447.446 950L476.314 950L490.748 975L476.314 1000L447.446 1000Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 800L5.68434e-14 775L14.4338 750L43.3013 750L57.735 775L43.3013 800L14.4338 800Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 825L43.3013 800L57.735 775L86.6025 775L101.036 800L86.6025 825L57.735 825Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 850L86.6025 825L101.036 800L129.904 800L144.338 825L129.904 850L101.036 850Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 875L129.904 850L144.338 825L173.205 825L187.639 850L173.205 875L144.338 875Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 900L173.205 875L187.639 850L216.506 850L230.94 875L216.506 900L187.639 900Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 925L216.506 900L230.94 875L259.808 875L274.241 900L259.808 925L230.94 925Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 950L259.808 925L274.241 900L303.109 900L317.543 925L303.109 950L274.241 950Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M317.543 975L303.109 950L317.543 925L346.41 925L360.844 950L346.41 975L317.543 975Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M360.844 1000L346.41 975L360.844 950L389.711 950L404.145 975L389.711 1000L360.844 1000Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 850L1.7053e-13 825L14.4338 800L43.3013 800L57.735 825L43.3013 850L14.4338 850Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 875L43.3013 850L57.735 825L86.6025 825L101.036 850L86.6025 875L57.735 875Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 900L86.6025 875L101.036 850L129.904 850L144.338 875L129.904 900L101.036 900Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 925L129.904 900L144.338 875L173.205 875L187.639 900L173.205 925L144.338 925Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 950L173.205 925L187.639 900L216.506 900L230.94 925L216.506 950L187.639 950Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M230.94 975L216.506 950L230.94 925L259.808 925L274.241 950L259.808 975L230.94 975Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M274.241 1000L259.808 975L274.241 950L303.109 950L317.543 975L303.109 1000L274.241 1000Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 900L1.13687e-13 875L14.4338 850L43.3013 850L57.735 875L43.3013 900L14.4338 900Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 925L43.3013 900L57.735 875L86.6025 875L101.036 900L86.6025 925L57.735 925Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 950L86.6025 925L101.036 900L129.904 900L144.338 925L129.904 950L101.036 950Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M144.338 975L129.904 950L144.338 925L173.205 925L187.639 950L173.205 975L144.338 975Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M187.639 1000L173.205 975L187.639 950L216.506 950L230.94 975L216.506 1000L187.639 1000Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 950L0 925L14.4338 900L43.3013 900L57.735 925L43.3013 950L14.4338 950Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M57.735 975L43.3013 950L57.735 925L86.6025 925L101.036 950L86.6025 975L57.735 975Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M101.036 1000L86.6025 975L101.036 950L129.904 950L144.338 975L129.904 1000L101.036 1000Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+        <path d="M14.4338 1000L1.13687e-13 975L14.4338 950L43.3013 950L57.735 975L43.3013 1000L14.4338 1000Z" fill="none" opacity="0.2" stroke="#000000" stroke-linejoin="round" stroke-width="1"/>
+      </svg></div>
+
+      <img id="elecode-img" src="001.png" alt="ECD">
+    </div>
+    <div class="elecode-file1">体重　<span>相对原子质量</span>
+      <div id="elecode-f1">1.0080</div>
+      非识别编码　<span>核外电子排布</span>
+      <div id="elecode-f2">1s¹</div>
+      住址　<span>周期与族</span>
+      <div id="elecode-f3">第一周期 1族</div>
+      所属组织　<span>分类</span>
+      <div id="elecode-f4">s区 非金属 气体</div>
+      结缘之时　<span>发现年代</span>
+      <div id="elecode-f5">1766</div>
+    </div>
+    <div class="elecode-file2">“<div id="elecode-f0">——勿疾行，勿妄言。</div><br>&emsp;&emsp;&emsp;”</div>
+  </div>
+  <script>
+    const elecodes = [{code: "001",img: "ele/001.png",latin: "HYDROGENIUM",color: "#e0ffff",symbol: "H",cn: "氢",jp: "水素",f0: "——勿疾行，勿妄言。",f1:" 1.0080",f2: "1s¹",f3:"第一周期 1族",f4: "s区 非金属 气体",f5: "1766",emo: "ele/e-001.png"},
+{code: "002",img: "ele/002.png",latin: "HELIUM",color: "#ffe4e1",symbol: "He",cn: "氦",jp: "ヘリウム",f0: "我是氦。次位。……有什么需要补充？",f1:" 4.0026",f2: "1s²",f3:"第一周期 18族",f4: "s区 稀有气体 气体",f5: "1868",emo: "ele/e-002.png"},
+{code: "003",img: "ele/003.png",latin: "LITHIUM",color: "#ff1493",symbol: "Li",cn: "锂",jp: "リチウム",f0: "【……】",f1:"6.94",f2: "[He]2s¹",f3:"第二周期 1族",f4: "s区 碱金属 固体",f5: "1817",emo: "ele/e-003.png"},
+{code: "004",img: "ele/004.png",latin: "BERYLLIUM",color: "#40e0d0",symbol: "Be",cn: "铍",jp: "ベリリウム",f0: "我也会飞的。向更高的地方——",f1:"9.0122",f2: "[He]2s²",f3:"第二周期 2族",f4: "s区 碱土金属 固体",f5: "1798",emo: "ele/e-004.png"},
+{code: "005",img: "ele/005.png",latin: "BORUM",color: "#daa520",symbol: "B",cn: "硼",jp: "ホウ素",f0: "还是硼，不上不下，就这样。",f1:"10.81",f2: "[He]2s²2p¹",f3:"第二周期 13族",f4: "p区 类金属 固体",f5: "1787",emo: "ele/e-005.png"},
+{code: "006",img: "ele/006.png",latin: "CARBONEUM",color: "#000000",symbol: "C",cn: "碳",jp: "炭素",f0: "迟也，穷也。迟则变，穷则变。",f1:"12.011",f2: "[He]2s²2p²",f3:"第二周期 14族",f4: "p区 非金属 固体",f5: "公元前26000年",emo: "ele/e-006.png"},
+{code: "007",img: "ele/007.png",latin: "NITROGENIUM",color: "#9400d3",symbol: "N",cn: "氮",jp: "窒素",f0: "氮，我是氮。闪电中降临，随处可见的普通元素。",f1:"14.007",f2: "[He]2s²2p³",f3:"第二周期 15族",f4: "p区 非金属 气体",f5: "1772",emo: "ele/e-007.png"},
+{code: "008",img: "ele/008.png",latin: "OXYGENIUM",color: "#4169e1",symbol: "O",cn: "氧",jp: "酸素",f0: "哦？没错，我就是氧。不会认错吧？",f1:"15.999",f2: "[He]2s²2p⁴",f3:"第二周期 16族",f4: "p区 非金属 气体",f5: "1771",emo: "ele/e-008.png"},
+{code: "009",img: "ele/009.png",latin: "FLUORUM",color: "#f0e68c",symbol: "F",cn: "氟",jp: "フッ素",f0: "为了更强。还远远不够啊。",f1:"18.998",f2: "[He]2s²2p⁵",f3:"第二周期 17族",f4: "p区 卤素 气体",f5: "1771",emo: "ele/e-009.png"},
+{code: "010",img: "ele/010.png",latin: "NEON",color: "#ff7f50",symbol: "Ne",cn: "氖",jp: "ネオン",f0: "拉住我的手吧？……很好，没有带电。",f1:"20.180",f2: "[He]2s²2p⁶",f3:"第二周期 18族",f4: "p区 稀有气体 气体",f5: "1898",emo: "ele/e-010.png"},
+{code: "011",img: "ele/011.png",latin: "NATRIUM",color: "#fffacd",symbol: "Na",cn: "钠",jp: "ナトリウム",f0: "我，钠来了，是时候兴奋起来了！",f1:"22.990",f2: "[Ne]3s¹",f3:"第三周期 1族",f4: "s区 碱金属 固体",f5: "1702",emo: "ele/e-011.png"},
+{code: "012",img: "ele/012.png",latin: "MAGNESIUM",color: "#fffff0",symbol: "Mg",cn: "镁",jp: "マグネシウム",f0: "苦涩，距离甘甜是最近的吧，你怎么想呢？",f1:"24.305",f2: "[Ne]3s²",f3:"第三周期 2族",f4: "s区 碱土金属 固体",f5: "1755",emo: "ele/e-012.png"},
+{code: "013",img: "ele/013.png",latin: "ALUMINIUM",color: "#707070",symbol: "Al",cn: "铝",jp: "アルミニウム",f0: "宣之于口的“优雅”最为简单。",f1:"26.982",f2: "[Ne]3s²3p¹",f3:"第三周期 13族",f4: "p区 金属 固体",f5: "1746",emo: "ele/e-013.png"},
+{code: "014",img: "ele/014.png",latin: "SILICIUM",color: "#00ffff",symbol: "Si",cn: "硅",jp: "ケイ素",f0: "先说好，我只是个文弱的程序员哦？",f1:"28.085",f2: "[Ne]3s²3p²",f3:"第三周期 14族",f4: "p区 类金属 固体",f5: "1739",emo: "ele/e-014.png"},
+{code: "015",img: "ele/015.png",latin: "PHOSPHORUS",color: "#b03060",symbol: "P",cn: "磷",jp: "リン",f0: "【……】",f1:"30.974",f2: "[Ne]3s²3p³",f3:"第三周期 15族",f4: "p区 非金属 固体",f5: "1669",emo: "ele/e-015.png"},
+{code: "016",img: "ele/016.png",latin: "SULFUR",color: "#ffff00",symbol: "S",cn: "硫",jp: "硫黄",f0: "【……】",f1:"32.06",f2: "[Ne]3s²3p⁴",f3:"第三周期 16族",f4: "p区 非金属 固体",f5: "公元前2000年之前",emo: "ele/e-016.png"},
+{code: "017",img: "ele/017.png",latin: "CHLORUM",color: "#9acd32",symbol: "Cl",cn: "氯",jp: "塩素",f0: "【……】",f1:"35.45",f2: "[Ne]3s²3p⁵",f3:"第三周期 17族",f4: "p区 卤素 气体",f5: "1774",emo: "ele/e-017.png"},
+{code: "018",img: "ele/018.png",latin: "ARGON",color: "#6495ed",symbol: "Ar",cn: "氩",jp: "アルゴン",f0: "【……】",f1:"39.95",f2: "[Ne]3s²3p⁶",f3:"第三周期 18族",f4: "p区 稀有气体 气体",f5: "1894",emo: "ele/e-018.png"},
+{code: "019",img: "ele/019.png",latin: "KALIUM",color: "#9370db",symbol: "K",cn: "钾",jp: "カリウム",f0: "【……】",f1:"39.098",f2: "[Ar]4s¹",f3:"第四周期 1族",f4: "s区 碱金属 固体",f5: "1702",emo: "ele/e-019.png"},
+{code: "020",img: "ele/020.png",latin: "CALCIUM",color: "#fff5ee",symbol: "Ca",cn: "钙",jp: "カルシウム",f0: "【……】",f1:"40.078",f2: "[Ar]4s²",f3:"第四周期 2族",f4: "s区 碱土金属 固体",f5: "1739",emo: "ele/e-020.png"},
+{code: "021",img: "ele/021.png",latin: "SCANDIUM",color: "#ffefd5",symbol: "Sc",cn: "钪",jp: "スカンジウム",f0: "【……】",f1:"44.956",f2: "[Ar]3d¹4s²",f3:"第四周期 3族",f4: "d区 过渡金属 固体",f5: "1879",emo: "ele/e-021.png"},
+{code: "022",img: "ele/022.png",latin: "TITANIUM",color: "#fafafa",symbol: "Ti",cn: "钛",jp: "チタン",f0: "【……】",f1:"47.867",f2: "[Ar]3d²4s²",f3:"第四周期 4族",f4: "d区 过渡金属 固体",f5: "1791",emo: "ele/e-022.png"},
+{code: "023",img: "ele/023.png",latin: "VANADIUM",color: "#e6e6fa",symbol: "V",cn: "钒",jp: "バナジウム",f0: "【……】",f1:"50.942",f2: "[Ar]3d³4s²",f3:"第四周期 5族",f4: "d区 过渡金属 固体",f5: "1801",emo: "ele/e-023.png"},
+{code: "024",img: "ele/024.png",latin: "CHROMIUM",color: "#40826d",symbol: "Cr",cn: "铬",jp: "クロム",f0: "【……】",f1:"51.996",f2: "[Ar]3d⁵4s¹",f3:"第四周期 6族",f4: "d区 过渡金属 固体",f5: "1797",emo: "ele/e-024.png"},
+{code: "025",img: "ele/025.png",latin: "MANGANUM",color: "#663399",symbol: "Mn",cn: "锰",jp: "マンガン",f0: "【……】",f1:"54.938",f2: "[Ar]3d⁵4s²",f3:"第四周期 7族",f4: "d区 过渡金属 固体",f5: "1774",emo: "ele/e-025.png"},
+{code: "026",img: "ele/026.png",latin: "FERRUM",color: "#003153",symbol: "Fe",cn: "铁",jp: "鉄",f0: "【……】",f1:"55.845",f2: "[Ar]3d⁶4s²",f3:"第四周期 8族",f4: "d区 过渡金属 固体",f5: "公元前5000年之前",emo: "ele/e-026.png"},
+{code: "027",img: "ele/027.png",latin: "COBALTUM",color: "#0047ab",symbol: "Co",cn: "钴",jp: "コバルト",f0: "【……】",f1:"58.933",f2: "[Ar]3d⁷4s²",f3:"第四周期 9族",f4: "d区 过渡金属 固体",f5: "1735",emo: "ele/e-027.png"},
+{code: "028",img: "ele/028.png",latin: "NICCOLUM",color: "#727472",symbol: "Ni",cn: "镍",jp: "ニッケル",f0: "【……】",f1:"58.693",f2: "[Ar]3d⁸4s²",f3:"第四周期 10族",f4: "d区 过渡金属 固体",f5: "1751",emo: "ele/e-028.png"},
+{code: "029",img: "ele/029.png",latin: "CUPRUM",color: "#b87333",symbol: "Cu",cn: "铜",jp: "銅",f0: "【……】",f1:"63.546",f2: "[Ar]3d¹⁰4s¹",f3:"第四周期 11族",f4: "d区 过渡金属 固体",f5: "公元前9000年",emo: "ele/e-029.png"},
+{code: "030",img: "ele/030.png",latin: "ZINCUM",color: "#b0c4de",symbol: "Zn",cn: "锌",jp: "亜鉛",f0: "【……】",f1:"65.38",f2: "[Ar]3d¹⁰4s²",f3:"第四周期 12族",f4: "d区 过渡金属 固体",f5: "公元前1000年之前",emo: "ele/e-030.png"},
+{code: "031",img: "ele/031.png",latin: "GALLIUM",color: "#191970",symbol: "Ga",cn: "镓",jp: "ガリウム",f0: "【……】",f1:"69.723",f2: "[Ar]3d¹⁰4s²4p¹",f3:"第四周期 13族",f4: "p区 金属 固体",f5: "1875",emo: "ele/e-031.png"},
+{code: "032",img: "ele/032.png",latin: "GERMANIUM",color: "#00ced1",symbol: "Ge",cn: "锗",jp: "ゲルマニウム",f0: "【……】",f1:"72.630",f2: "[Ar]3d¹⁰4s²4p²",f3:"第四周期 14族",f4: "p区 类金属 固体",f5: "1886",emo: "ele/e-032.png"},
+{code: "033",img: "ele/033.png",latin: "ARSENICUM",color: "#ffa500",symbol: "As",cn: "砷",jp: "ヒ素",f0: "【……】",f1:"74.922",f2: "[Ar]3d¹⁰4s²4p³",f3:"第四周期 15族",f4: "p区 类金属 固体",f5: "约300",emo: "ele/e-033.png"},
+{code: "034",img: "ele/034.png",latin: "SELENIUM",color: "#b22222",symbol: "Se",cn: "硒",jp: "セレン",f0: "【……】",f1:"78.971",f2: "[Ar]3d¹⁰4s²4p⁴",f3:"第四周期 16族",f4: "p区 非金属 固体",f5: "1817",emo: "ele/e-034.png"},
+{code: "035",img: "ele/035.png",latin: "BROMUM",color: "#66023c",symbol: "Br",cn: "溴",jp: "臭素",f0: "【……】",f1:"79.904",f2: "[Ar]3d¹⁰4s²4p⁵",f3:"第四周期 17族",f4: "p区 卤素 液体",f5: "1825",emo: "ele/e-035.png"},
+{code: "036",img: "ele/036.png",latin: "KRYPTON",color: "#00bfff",symbol: "Kr",cn: "氪",jp: "クリプトン",f0: "【……】",f1:"83.798",f2: "[Ar]3d¹⁰4s²4p⁶",f3:"第四周期 18族",f4: "p区 稀有气体 气体",f5: "1898",emo: "ele/e-036.png"},
+{code: "037",img: "ele/037.png",latin: "RUBIDIUM",color: "#ba55d3",symbol: "Rb",cn: "铷",jp: "ルビジウム",f0: "【……】",f1:"85.468",f2: "[Kr]5s¹",f3:"第五周期 1族",f4: "s区 碱金属 固体",f5: "1861",emo: "ele/e-037.png"},
+{code: "038",img: "ele/038.png",latin: "STRONTIUM",color: "#dc143c",symbol: "Sr",cn: "锶",jp: "ストロンチウム",f0: "【……】",f1:"87.62",f2: "[Kr]5s²",f3:"第五周期 2族",f4: "s区 碱土金属 固体",f5: "1787",emo: "ele/e-038.png"},
+{code: "039",img: "ele/039.png",latin: "YTTRIUM",color: "#696969",symbol: "Y",cn: "钇",jp: "イットリウム",f0: "【……】",f1:"88.906",f2: "[Kr]4d¹5s²",f3:"第五周期 3族",f4: "d区 过渡金属 固体",f5: "1794",emo: "ele/e-039.png"},
+{code: "040",img: "ele/040.png",latin: "ZIRCONIUM",color: "#ff8c00",symbol: "Zr",cn: "锆",jp: "ジルコニウム",f0: "【……】",f1:"91.224",f2: "[Kr]4d²5s²",f3:"第五周期 4族",f4: "d区 过渡金属 固体",f5: "1789",emo: "ele/e-040.png"},
+{code: "041",img: "ele/041.png",latin: "NIOBIUM",color: "#483d8b",symbol: "Nb",cn: "铌",jp: "ニオブ",f0: "【……】",f1:"92.906",f2: "[Kr]4d⁴5s¹",f3:"第五周期 5族",f4: "d区 过渡金属 固体",f5: "1801",emo: "ele/e-041.png"},
+{code: "042",img: "ele/042.png",latin: "MOLYBDAENUM",color: "#ff6347",symbol: "Mo",cn: "钼",jp: "モリブデン",f0: "【……】",f1:"95.95",f2: "[Kr]4d⁵5s¹",f3:"第五周期 6族",f4: "d区 过渡金属 固体",f5: "1778",emo: "ele/e-042.png"},
+{code: "043",img: "ele/043.png",latin: "TECHNETIUM",color: "#a9a9a9",symbol: "Tc",cn: "锝",jp: "テクネチウム",f0: "【……】",f1:"[97]",f2: "[Kr]4d⁵5s²",f3:"第五周期 7族",f4: "d区 过渡金属 固体",f5: "1937",emo: "ele/e-043.png"},
+{code: "044",img: "ele/044.png",latin: "RUTHENIUM",color: "#a52a2a",symbol: "Ru",cn: "钌",jp: "ルテニウム",f0: "【……】",f1:"101.07",f2: "[Kr]4d⁷5s¹",f3:"第五周期 8族",f4: "d区 过渡金属 固体",f5: "1844",emo: "ele/e-044.png"},
+{code: "045",img: "ele/045.png",latin: "RHODIUM",color: "#ee82ee",symbol: "Rh",cn: "铑",jp: "ロジウム",f0: "【……】",f1:"102.91",f2: "[Kr]4d⁸5s¹",f3:"第五周期 9族",f4: "d区 过渡金属 固体",f5: "1804",emo: "ele/e-045.png"},
+{code: "046",img: "ele/046.png",latin: "PALLADIUM",color: "#d3d3d3",symbol: "Pd",cn: "钯",jp: "パラジウム",f0: "【……】",f1:"106.42",f2: "[Kr]4d¹⁰",f3:"第五周期 10族",f4: "d区 过渡金属 固体",f5: "1802",emo: "ele/e-046.png"},
+{code: "047",img: "ele/047.png",latin: "ARGENTUM",color: "#c0c0c0",symbol: "Ag",cn: "银",jp: "銀",f0: "【……】",f1:"107.87",f2: "[Kr]4d¹⁰5s¹",f3:"第五周期 11族",f4: "d区 过渡金属 固体",f5: "公元前5000年之前",emo: "ele/e-047.png"},
+{code: "048",img: "ele/048.png",latin: "CADMIUM",color: "#e30022",symbol: "Cd",cn: "镉",jp: "カドミウム",f0: "【……】",f1:"112.41",f2: "[Kr]4d¹⁰5s²",f3:"第五周期 12族",f4: "d区 过渡金属 固体",f5: "1817",emo: "ele/e-048.png"},
+{code: "049",img: "ele/049.png",latin: "INDIUM",color: "#4b0082",symbol: "In",cn: "铟",jp: "インジウム",f0: "【……】",f1:"114.82",f2: "[Kr]4d¹⁰5s²5p¹",f3:"第五周期 13族",f4: "p区 金属 固体",f5: "1863",emo: "ele/e-049.png"},
+{code: "050",img: "ele/050.png",latin: "STANNUM",color: "#007ba7",symbol: "Sn",cn: "锡",jp: "スズ",f0: "【……】",f1:"118.71",f2: "[Kr]4d¹⁰5s²5p²",f3:"第五周期 14族",f4: "p区 金属 固体",f5: "公元前3500年",emo: "ele/e-050.png"},
+{code: "051",img: "ele/051.png",latin: "STIBIUM",color: "#800000",symbol: "Sb",cn: "锑",jp: "アンチモン",f0: "【……】",f1:"121.76",f2: "[Kr]4d¹⁰5s²5p³",f3:"第五周期 15族",f4: "p区 类金属 固体",f5: "公元前3000年",emo: "ele/e-051.png"},
+{code: "052",img: "ele/052.png",latin: "TELLURIUM",color: "#ffffe0",symbol: "Te",cn: "碲",jp: "テルル",f0: "【……】",f1:"127.60",f2: "[Kr]4d¹⁰5s²5p⁴",f3:"第五周期 16族",f4: "p区 类金属 固体",f5: "1782",emo: "ele/e-052.png"},
+{code: "053",img: "ele/053.png",latin: "IODUM",color: "#563c5c",symbol: "I",cn: "碘",jp: "ヨウ素",f0: "【……】",f1:"126.90",f2: "[Kr]4d¹⁰5s²5p⁵",f3:"第五周期 17族",f4: "p区 卤素 固体",f5: "1811",emo: "ele/e-053.png"},
+{code: "054",img: "ele/054.png",latin: "XENON",color: "#f5fffa",symbol: "Xe",cn: "氙",jp: "キセノン",f0: "【……】",f1:"131.29",f2: "[Kr]4d¹⁰5s²5p⁶",f3:"第五周期 18族",f4: "p区 稀有气体 气体",f5: "1898",emo: "ele/e-054.png"},
+{code: "055",img: "ele/055.png",latin: "CESIUM",color: "#ffdead",symbol: "Cs",cn: "铯",jp: "セシウム",f0: "【……】",f1:"132.91",f2: "[Xe]6s¹",f3:"第六周期 1族",f4: "s区 碱金属 固体",f5: "1860",emo: "ele/e-055.png"},
+{code: "056",img: "ele/056.png",latin: "BARIUM",color: "#adff2f",symbol: "Ba",cn: "钡",jp: "バリウム",f0: "【……】",f1:"137.33",f2: "[Xe]6s²",f3:"第六周期 2族",f4: "s区 碱土金属 固体",f5: "1772",emo: "ele/e-056.png"},
+{code: "057",img: "ele/057.png",latin: "LANTHANUM",color: "#8b008b",symbol: "La",cn: "镧",jp: "ランタン",f0: "【……】",f1:"138.91",f2: "[Xe]5d¹6s²",f3:"第六周期 3族",f4: "f区 镧系 固体",f5: "1838",emo: "ele/e-057.png"},
+{code: "058",img: "ele/058.png",latin: "CERIUM",color: "#fa8072",symbol: "Ce",cn: "铈",jp: "セリウム",f0: "【……】",f1:"140.12",f2: "[Xe]4f¹5d¹6s²",f3:"第六周期 3族",f4: "f区 镧系 固体",f5: "1803",emo: "ele/e-058.png"},
+{code: "059",img: "ele/059.png",latin: "PRASEODYMIUM",color: "#98fb98",symbol: "Pr",cn: "镨",jp: "プラセオジム",f0: "【……】",f1:"140.91",f2: "[Xe]4f³6s²",f3:"第六周期 3族",f4: "f区 镧系 固体",f5: "1885",emo: "ele/e-059.png"},
+{code: "060",img: "ele/060.png",latin: "NEODYMIUM",color: "#ffc0cb",symbol: "Nd",cn: "钕",jp: "ネオジム",f0: "【……】",f1:"144.24",f2: "[Xe]4f⁴6s²",f3:"第六周期 3族",f4: "f区 镧系 固体",f5: "1841",emo: "ele/e-060.png"},
+{code: "061",img: "ele/061.png",latin: "PROMETHIUM",color: "#7fffd4",symbol: "Pm",cn: "钷",jp: "プロメチウム",f0: "【……】",f1:"[145]",f2: "[Xe]4f⁵6s²",f3:"第六周期 3族",f4: "f区 镧系 固体",f5: "1945",emo: "ele/e-061.png"},
+{code: "062",img: "ele/062.png",latin: "SAMRIUM",color: "#f4a460",symbol: "Sm",cn: "钐",jp: "サマリウム",f0: "【……】",f1:"150.36",f2: "[Xe]4f⁶6s²",f3:"第六周期 3族",f4: "f区 镧系 固体",f5: "1879",emo: "ele/e-062.png"},
+{code: "063",img: "ele/063.png",latin: "EUROPIUM",color: "#c71585",symbol: "Eu",cn: "铕",jp: "ユウロピウム",f0: "【……】",f1:"151.96",f2: "[Xe]4f⁷6s²",f3:"第六周期 3族",f4: "f区 镧系 固体",f5: "1896",emo: "ele/e-063.png"},
+{code: "064",img: "ele/064.png",latin: "GADOLINIUM",color: "#7fff00",symbol: "Gd",cn: "钆",jp: "ガドリニウム",f0: "【……】",f1:"157.25",f2: "[Xe]4f⁷5d¹6s²",f3:"第六周期 3族",f4: "f区 镧系 固体",f5: "1880",emo: "ele/e-064.png"},
+{code: "065",img: "ele/065.png",latin: "TERBIUM",color: "#c1f9a2",symbol: "Tb",cn: "铽",jp: "テルビウム",f0: "【……】",f1:"158.93",f2: "[Xe]4f⁹6s²",f3:"第六周期 3族",f4: "f区 镧系 固体",f5: "1843",emo: "ele/e-065.png"},
+{code: "066",img: "ele/066.png",latin: "DYSPROSIUM",color: "#66cdaa",symbol: "Dy",cn: "镝",jp: "ジスプロシウム",f0: "【……】",f1:"162.50",f2: "[Xe]4f¹⁰6s²",f3:"第六周期 3族",f4: "f区 镧系 固体",f5: "1886",emo: "ele/e-066.png"},
+{code: "067",img: "ele/067.png",latin: "HOLMIUM",color: "#dda0dd",symbol: "Ho",cn: "钬",jp: "ホルミウム",f0: "【……】",f1:"164.93",f2: "[Xe]4f¹¹6s²",f3:"第六周期 3族",f4: "f区 镧系 固体",f5: "1878",emo: "ele/e-067.png"},
+{code: "068",img: "ele/068.png",latin: "ERBIUM",color: "#d8bfd8",symbol: "Er",cn: "铒",jp: "エルビウム",f0: "【……】",f1:"167.26",f2: "[Xe]4f¹²6s²",f3:"第六周期 3族",f4: "f区 镧系 固体",f5: "1843",emo: "ele/e-068.png"},
+{code: "069",img: "ele/069.png",latin: "THULIUM",color: "#d0f0c0",symbol: "Tm",cn: "铥",jp: "ツリウム",f0: "【……】",f1:"168.93",f2: "[Xe]4f¹³6s²",f3:"第六周期 3族",f4: "f区 镧系 固体",f5: "1879",emo: "ele/e-069.png"},
+{code: "070",img: "ele/070.png",latin: "YTTERBIUM",color: "#3cb371",symbol: "Yb",cn: "镱",jp: "イッテルビウム",f0: "【……】",f1:"173.05",f2: "[Xe]4f¹⁴6s²",f3:"第六周期 3族",f4: "f区 镧系 固体",f5: "1878",emo: "ele/e-070.png"},
+{code: "071",img: "ele/071.png",latin: "LUTETIUM",color: "#8a2be2",symbol: "Lu",cn: "镥",jp: "ルテチウム",f0: "【……】",f1:"174.97",f2: "[Xe]4f¹⁴5d¹6s²",f3:"第六周期 3族",f4: "d区 镧系 固体",f5: "1906",emo: "ele/e-071.png"},
+{code: "072",img: "ele/072.png",latin: "HAFNIUM",color: "#d2691e",symbol: "Hf",cn: "铪",jp: "ハフニウム",f0: "【……】",f1:"178.49",f2: "[Xe]4f¹⁴5d²6s²",f3:"第六周期 4族",f4: "d区 过渡金属 固体",f5: "1922",emo: "ele/e-072.png"},
+{code: "073",img: "ele/073.png",latin: "TANTALUM",color: "#708090",symbol: "Ta",cn: "钽",jp: "タンタル",f0: "【……】",f1:"180.95",f2: "[Xe]4f¹⁴5d³6s²",f3:"第六周期 5族",f4: "d区 过渡金属 固体",f5: "1802",emo: "ele/e-073.png"},
+{code: "074",img: "ele/074.png",latin: "WOLFRAMIUM",color: "#0000cd",symbol: "W",cn: "钨",jp: "タングステン",f0: "【……】",f1:"183.84",f2: "[Xe]4f¹⁴5d⁴6s²",f3:"第六周期 6族",f4: "d区 过渡金属 固体",f5: "1781",emo: "ele/e-074.png"},
+{code: "075",img: "ele/075.png",latin: "RHENIUM",color: "#eee8aa",symbol: "Re",cn: "铼",jp: "レニウム",f0: "【……】",f1:"186.21",f2: "[Xe]4f¹⁴5d⁵6s²",f3:"第六周期 7族",f4: "d区 过渡金属 固体",f5: "1908",emo: "ele/e-075.png"},
+{code: "076",img: "ele/076.png",latin: "OSMIUM",color: "#4682b4",symbol: "Os",cn: "锇",jp: "オスミウム",f0: "【……】",f1:"190.23",f2: "[Xe]4f¹⁴5d⁶6s²",f3:"第六周期 8族",f4: "d区 过渡金属 固体",f5: "1803",emo: "ele/e-076.png"},
+{code: "077",img: "ele/077.png",latin: "IRIDIUM",color: "#cd5c5c",symbol: "Ir",cn: "铱",jp: "イリジウム",f0: "【……】",f1:"192.22",f2: "[Xe]4f¹⁴5d⁷6s²",f3:"第六周期 9族",f4: "d区 过渡金属 固体",f5: "1803",emo: "ele/e-077.png"},
+{code: "078",img: "ele/078.png",latin: "PLATINUM",color: "#e5e4e2",symbol: "Pt",cn: "铂",jp: "白金",f0: "【……】",f1:"195.08",f2: "[Xe]4f¹⁴5d⁹6s¹",f3:"第六周期 10族",f4: "d区 过渡金属 固体",f5: "约公元前 600 年",emo: "ele/e-078.png"},
+{code: "079",img: "ele/079.png",latin: "AURUM",color: "#ffd700",symbol: "Au",cn: "金",jp: "金",f0: "【……】",f1:"196.97",f2: "[Xe]4f¹⁴5d¹⁰6s¹",f3:"第六周期 11族",f4: "d区 过渡金属 固体",f5: "公元前6000年之前",emo: "ele/e-079.png"},
+{code: "080",img: "ele/080.png",latin: "HYDRARGYRUM",color: "#e34234",symbol: "Hg",cn: "汞",jp: "水銀",f0: "【……】",f1:"200.59",f2: "[Xe]4f¹⁴5d¹⁰6s²",f3:"第六周期 12族",f4: "d区 过渡金属 液体",f5: "公元前1500年",emo: "ele/e-080.png"},
+{code: "081",img: "ele/081.png",latin: "THALLIUM",color: "#32cd32",symbol: "Tl",cn: "铊",jp: "タリウム",f0: "【……】",f1:"204.38",f2: "[Xe]4f¹⁴5d¹⁰6s²6p¹",f3:"第六周期 13族",f4: "p区 金属 固体",f5: "1861",emo: "ele/e-081.png"},
+{code: "082",img: "ele/082.png",latin: "PLUMBUM",color: "#ff0000",symbol: "Pb",cn: "铅",jp: "鉛",f0: "【……】",f1:"207.2",f2: "[Xe]4f¹⁴5d¹⁰6s²6p²",f3:"第六周期 14族",f4: "p区 金属 固体",f5: "公元前7000年",emo: "ele/e-082.png"},
+{code: "083",img: "ele/083.png",latin: "BISMUTHUM",color: "#ffff54",symbol: "Bi",cn: "铋",jp: "ビスマス",f0: "【……】",f1:"208.98",f2: "[Xe]4f¹⁴5d¹⁰6s²6p³",f3:"第六周期 15族",f4: "p区 金属 固体",f5: "约1500",emo: "ele/e-083.png"},
+{code: "084",img: "ele/084.png",latin: "POLONIUM",color: "#b8860b",symbol: "Po",cn: "钋",jp: "ポロニウム",f0: "【……】",f1:"[209]",f2: "[Xe]4f¹⁴5d¹⁰6s²6p⁴",f3:"第六周期 16族",f4: "p区 类金属 固体",f5: "1898",emo: "ele/e-084.png"},
+{code: "085",img: "ele/085.png",latin: "ASTATIUM",color: "#00008b",symbol: "At",cn: "砹",jp: "アスタチン",f0: "【……】",f1:"[210]",f2: "[Xe]4f¹⁴5d¹⁰6s²6p⁵",f3:"第六周期 17族",f4: "p区 卤素 ",f5: "1940",emo: "ele/e-085.png"},
+{code: "086",img: "ele/086.png",latin: "RADON",color: "#ff4500",symbol: "Rn",cn: "氡",jp: "ラドン",f0: "【……】",f1:"[222]",f2: "[Xe]4f¹⁴5d¹⁰6s²6p⁶",f3:"第六周期 18族",f4: "p区 稀有气体 气体",f5: "1899",emo: "ele/e-086.png"},
+{code: "087",img: "ele/087.png",latin: "FRANCIUM",color: "#8fbc8f",symbol: "Fr",cn: "钫",jp: "フランシウム",f0: "【……】",f1:"[223]",f2: "[Rn]7s¹",f3:"第七周期 1族",f4: "s区 碱金属 ",f5: "1939",emo: "ele/e-087.png"},
+{code: "088",img: "ele/088.png",latin: "RADIUM",color: "#00fa9a",symbol: "Ra",cn: "镭",jp: "ラジウム",f0: "【……】",f1:"[226]",f2: "[Rn]7s²",f3:"第七周期 2族",f4: "s区 碱土金属 固体",f5: "1898",emo: "ele/e-088.png"},
+{code: "089",img: "ele/089.png",latin: "ACTINIUM",color: "#1e90ff",symbol: "Ac",cn: "锕",jp: "アクチニウム",f0: "【……】",f1:"[227]",f2: "[Rn]6d¹7s²",f3:"第七周期 3族",f4: "f区 锕系 固体",f5: "1902",emo: "ele/e-089.png"},
+{code: "090",img: "ele/090.png",latin: "THORIUM",color: "#cd853f",symbol: "Th",cn: "钍",jp: "トリウム",f0: "【……】",f1:"232.04",f2: "[Rn]6d²7s²",f3:"第七周期 3族",f4: "f区 锕系 固体",f5: "1829",emo: "ele/e-090.png"},
+{code: "091",img: "ele/091.png",latin: "PROTACTINIUM",color: "#add8e6",symbol: "Pa",cn: "镤",jp: "プロトアクチニウム",f0: "【……】",f1:"231.04",f2: "[Rn]5f²6d¹7s²",f3:"第七周期 3族",f4: "f区 锕系 固体",f5: "1913",emo: "ele/e-091.png"},
+{code: "092",img: "ele/092.png",latin: "URANIUM",color: "#00ff00",symbol: "U",cn: "铀",jp: "ウラン",f0: "【……】",f1:"238.03",f2: "[Rn]5f³6d¹7s²",f3:"第七周期 3族",f4: "f区 锕系 固体",f5: "1789",emo: "ele/e-092.png"},
+{code: "093",img: "ele/093.png",latin: "NEPTUNIUM",color: "#6b8e23",symbol: "Np",cn: "镎",jp: "ネプツニウム",f0: "【……】",f1:"[237]",f2: "[Rn]5f⁴6d¹7s²",f3:"第七周期 3族",f4: "f区 锕系 固体",f5: "1940",emo: "ele/e-093.png"},
+{code: "094",img: "ele/094.png",latin: "PLUTONIUM",color: "#f08080",symbol: "Pu",cn: "钚",jp: "プルトニウム",f0: "【……】",f1:"[244]",f2: "[Rn] 5f⁶7s²",f3:"第七周期 3族",f4: "f区 锕系 固体",f5: "1941",emo: "ele/e-094.png"},
+{code: "095",img: "ele/095.png",latin: "AMERICIUM",color: "#ff69b4",symbol: "Am",cn: "镅",jp: "アメリシウム",f0: "【……】",f1:"[243]",f2: "[Rn] 5f⁷7s²",f3:"第七周期 3族",f4: "f区 锕系 固体",f5: "1944",emo: "ele/e-095.png"},
+{code: "096",img: "ele/096.png",latin: "CURIUM",color: "#ff00ff",symbol: "Cm",cn: "锔",jp: "キュリウム",f0: "【……】",f1:"[247]",f2: "[Rn] 5f⁷6d¹7s²",f3:"第七周期 3族",f4: "f区 锕系 固体",f5: "1944",emo: "ele/e-096.png"},
+{code: "097",img: "ele/097.png",latin: "BERKELIUM",color: "#808000",symbol: "Bk",cn: "锫",jp: "バークリウム",f0: "【……】",f1:"[247]",f2: "[Rn] 5f⁹7s²",f3:"第七周期 3族",f4: "f区 锕系 固体",f5: "1949",emo: "ele/e-097.png"},
+{code: "098",img: "ele/098.png",latin: "CALIFORNIUM",color: "#008000",symbol: "Cf",cn: "锎",jp: "カリホルニウム",f0: "【……】",f1:"[251]",f2: "[Rn] 5f¹⁰7s²",f3:"第七周期 3族",f4: "f区 锕系 固体",f5: "1950",emo: "ele/e-098.png"},
+{code: "099",img: "ele/099.png",latin: "EINSTEINIUM",color: "#87ceeb",symbol: "Es",cn: "锿",jp: "アインスタイニウム",f0: "【……】",f1:"[252]",f2: "[Rn] 5f¹¹7s²",f3:"第七周期 3族",f4: "f区 锕系 固体",f5: "1952",emo: "ele/e-099.png"},
+{code: "100",img: "ele/100.png",latin: "FERMIUM",color: "#20b2aa",symbol: "Fm",cn: "镄",jp: "フェルミウム",f0: "【……】",f1:"[257]",f2: "[Rn] 5f¹²7s²",f3:"第七周期 3族",f4: "f区 锕系 ",f5: "1953",emo: "ele/e-100.png"},
+{code: "101",img: "ele/101.png",latin: "MENDELEVIUM",color: "#0000ff",symbol: "Md",cn: "钔",jp: "メンデレビウム",f0: "【……】",f1:"[258]",f2: "[Rn] 5f¹³7s²",f3:"第七周期 3族",f4: "f区 锕系 ",f5: "1955",emo: "ele/e-101.png"},
+{code: "102",img: "ele/102.png",latin: "NOBELIUM",color: "#da70d6",symbol: "No",cn: "锘",jp: "ノーベリウム",f0: "【……】",f1:"[259]",f2: "[Rn] 5f¹⁴7s²",f3:"第七周期 3族",f4: "f区 锕系 ",f5: "1966",emo: "ele/e-102.png"},
+{code: "103",img: "ele/103.png",latin: "LAWRENCIUM",color: "#7b68ee",symbol: "Lr",cn: "铹",jp: "ローレンシウム",f0: "【……】",f1:"[266]",f2: "[Rn] 5f¹⁴6d¹7s²",f3:"第七周期 3族",f4: "d区 锕系 ",f5: "1961",emo: "ele/e-103.png"},
+{code: "104",img: "ele/104.png",latin: "RUTHERFORDIUM",color: "#deb887",symbol: "Rf",cn: "𬬻",jp: "ラザホージウム",f0: "【……】",f1:"[267]",f2: "[Rn] 5f¹⁴6d²7s²",f3:"第七周期 4族",f4: "d区 过渡金属 ",f5: "1969",emo: "ele/e-104.png"},
+{code: "105",img: "ele/105.png",latin: "DUBNIUM",color: "#2f4f4f",symbol: "Db",cn: "𬭊",jp: "ドブニウム",f0: "【……】",f1:"[268]",f2: "[Rn] 5f¹⁴6d³7s²",f3:"第七周期 5族",f4: "d区 过渡金属 ",f5: "1970",emo: "ele/e-105.png"},
+{code: "106",img: "ele/106.png",latin: "SEABORGIUM",color: "#008080",symbol: "Sg",cn: "𬭳",jp: "シーボーギウム",f0: "【……】",f1:"[269]",f2: "[Rn] 5f¹⁴6d⁴7s²",f3:"第七周期 6族",f4: "d区 过渡金属 ",f5: "1974",emo: "ele/e-106.png"},
+{code: "107",img: "ele/107.png",latin: "BOHRIUM",color: "#556b2f",symbol: "Bh",cn: "𬭛",jp: "ボーリウム",f0: "【……】",f1:"[270]",f2: "[Rn] 5f¹⁴6d⁵7s²",f3:"第七周期 7族",f4: "d区 过渡金属 ",f5: "1981",emo: "ele/e-107.png"},
+{code: "108",img: "ele/108.png",latin: "HASSIUM",color: "#006400",symbol: "Hs",cn: "𬭶",jp: "ハッシウム",f0: "【……】",f1:"[269]",f2: "[Rn] 5f¹⁴6d⁶7s²",f3:"第七周期 8族",f4: "d区 过渡金属 ",f5: "1984",emo: "ele/e-108.png"},
+{code: "109",img: "ele/109.png",latin: "MEITNERIUM",color: "#bc8f8f",symbol: "Mt",cn: "鿏",jp: "マイトネリウム",f0: "【……】",f1:"[278]",f2: "[Rn] 5f¹⁴6d⁷7s²",f3:"第七周期 9族",f4: "d区 过渡金属 ",f5: "1982",emo: "ele/e-109.png"},
+{code: "110",img: "ele/110.png",latin: "DARMSTADTIUM",color: "#a0522d",symbol: "Ds",cn: "𫟼",jp: "ダームスタチウム",f0: "【……】",f1:"[281]",f2: "[Rn] 5f¹⁴6d⁸7s²",f3:"第七周期 10族",f4: "d区 过渡金属 ",f5: "1994",emo: "ele/e-110.png"},
+{code: "111",img: "ele/111.png",latin: "ROENTGENIUM",color: "#8b4513",symbol: "Rg",cn: "𬬭",jp: "レントゲニウム",f0: "【……】",f1:"[282]",f2: "[Rn] 5f¹⁴6d⁹7s²",f3:"第七周期 11族",f4: "d区 过渡金属 ",f5: "1994",emo: "ele/e-111.png"},
+{code: "112",img: "ele/112.png",latin: "COPERNICIUM",color: "#5f9ea0",symbol: "Cn",cn: "鿔",jp: "コペルニシウム",f0: "【……】",f1:"[285]",f2: "[Rn] 5f¹⁴6d¹⁰7s²",f3:"第七周期 12族",f4: "d区 过渡金属 ",f5: "1996",emo: "ele/e-112.png"},
+{code: "113",img: "ele/113.png",latin: "NIHONIUM",color: "#db7093",symbol: "Nh",cn: "鿭",jp: "ニホニウム",f0: "【……】",f1:"[286]",f2: "[Rn] 5f¹⁴6d¹⁰7s²7p¹",f3:"第七周期 13族",f4: "p区 金属 ",f5: "2003",emo: "ele/e-113.png"},
+{code: "114",img: "ele/114.png",latin: "FLEROVIUM",color: "#ffa07a",symbol: "Fl",cn: "𫓧",jp: "フレロビウム",f0: "【……】",f1:"[289]",f2: "[Rn] 5f¹⁴6d¹⁰7s²7p²",f3:"第七周期 14族",f4: "p区 金属 ",f5: "1999",emo: "ele/e-114.png"},
+{code: "115",img: "ele/115.png",latin: "MOSCOVIUM",color: "#afeeee",symbol: "Mc",cn: "镆",jp: "モスコビウム",f0: "【……】",f1:"[290]",f2: "[Rn] 5f¹⁴6d¹⁰7s²7p³",f3:"第七周期 15族",f4: "p区 金属 ",f5: "2003",emo: "ele/e-115.png"},
+{code: "116",img: "ele/116.png",latin: "LIVERMORIUM",color: "#bdb76b",symbol: "Lv",cn: "𫟷",jp: "リバモリウム",f0: "【……】",f1:"[293]",f2: "[Rn] 5f¹⁴6d¹⁰7s²7p⁴",f3:"第七周期 16族",f4: "p区 金属 ",f5: "2000",emo: "ele/e-116.png"},
+{code: "117",img: "ele/117.png",latin: "TENNESSINE",color: "#6a5acd",symbol: "Ts",cn: "鿬",jp: "テネシン",f0: "【……】",f1:"[294]",f2: "[Rn] 5f¹⁴6d¹⁰7s²7p⁵",f3:"第七周期 17族",f4: "p区 卤素 ",f5: "2009",emo: "ele/e-117.png"},
+{code: "118",img: "ele/118.png",latin: "OGANESSON",color: "#f0f8ff",symbol: "Og",cn: "鿫",jp: "オガネソン",f0: "【……】",f1:"[294]",f2: "[Rn] 5f¹⁴6d¹⁰7s²7p⁶",f3:"第七周期 18族",f4: "p区 稀有气体 ",f5: "2002",emo: "ele/e-118.png"}
+    ];
+
+    let currentIndex = 0; // Index of the current elecode
+    let isAnimating = false;
+
+    const elecodeCode = document.getElementById('elecode-code');
+    const elecodeBg = document.getElementById('elecode-bg');
+    const elecodeLatin = document.getElementById('elecode-latin');
+    const elecodeButtons = document.querySelectorAll('.elecode-button');
+    const elecodeImg = document.getElementById('elecode-img');
+    const elecodeElecode = document.getElementById('elecode-elecode');
+    const elecodeCn = document.getElementById('elecode-cn');
+    const elecodeJp = document.getElementById('elecode-jp');
+    const elecodeSymbol = document.getElementById('elecode-symbol');
+    const elecodeF0 = document.getElementById('elecode-f0');
+    const elecodeF1 = document.getElementById('elecode-f1');
+    const elecodeF2 = document.getElementById('elecode-f2');
+    const elecodeF3 = document.getElementById('elecode-f3');
+    const elecodeF4 = document.getElementById('elecode-f4');
+    const elecodeF5 = document.getElementById('elecode-f5');
+    const elecodeEmo = document.getElementById('elecode-emo');
+    const paths = document.querySelectorAll("svg path");
+
+    function updateElecode() {
+      isAnimating = true;
+
+
+      elecodeBg.style.opacity = 0;
+      elecodeImg.style.opacity = 0;
+
+      setTimeout(() => {
+
+        elecodeBg.src = elecodes[currentIndex].img;
+        elecodeImg.src = elecodes[currentIndex].img;
+        elecodeEmo.src = elecodes[currentIndex].emo;
+        elecodeCode.innerText = elecodes[currentIndex].code;
+        elecodeLatin.innerText = elecodes[currentIndex].latin;
+        elecodeSymbol.innerText = elecodes[currentIndex].symbol;
+        elecodeCn.innerText = elecodes[currentIndex].cn;
+        elecodeJp.innerText = elecodes[currentIndex].jp;
+        elecodeF0.innerText = elecodes[currentIndex].f0;
+        elecodeF1.innerText = elecodes[currentIndex].f1;
+        elecodeF2.innerText = elecodes[currentIndex].f2;
+        elecodeF3.innerText = elecodes[currentIndex].f3;
+        elecodeF4.innerText = elecodes[currentIndex].f4;
+        elecodeF5.innerText = elecodes[currentIndex].f5;
+
+
+        elecodeBg.style.opacity = 0.4;
+        elecodeImg.style.opacity = 1;
+
+        var elecolor = elecodes[currentIndex].color;
+
+        elecodeLatin.style.color = elecolor;
+        elecodeElecode.style.color = elecolor;
+        elecodeSymbol.style.color = elecolor;
+        elecodeF0.style.color = elecolor;
+        elecodeF1.style.color = elecolor;
+        elecodeF2.style.color = elecolor;
+        elecodeF3.style.color = elecolor;
+        elecodeF4.style.color = elecolor;
+        elecodeF5.style.color = elecolor;
+
+        document.body.style.backgroundColor = elecolor;
+
+
+
+        for (const path of paths) {
+          path.style.stroke =elecolor;}
+        isAnimating = false;
+      }, 10);
+      // 反色转换函数
+      function invertColor(elecolor) {
+        return "#" + ("000000" + (0xFFFFFF ^ parseInt(elecolor.substring(1), 16)).toString(16)).slice(-6);
+      }
+
+      // 高亮活动按钮
+      elecodeButtons.forEach((button, index) => {
+        if (index === currentIndex) {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
+        }
+      });
+    }
+
+    function showelecode(index) {
+      if (!isAnimating) {
+        currentIndex = index;
+        updateElecode();
+      }
+    }
+
+    function nextElecode() {
+      if (!isAnimating) {
+        currentIndex = (currentIndex + 1) % elecodes.length;
+        updateElecode();
+      }
+    }
+
+    function prevElecode() {
+      if (!isAnimating) {
+        currentIndex = (currentIndex - 1 + elecodes.length) % elecodes.length;
+        updateElecode();
+      }
+    }
+
+    updateElecode();
+
+    //单击显示元素名称
+    (function() {
+      var a_idx = 0;
+      window.onclick = function(event) {
+        var a = new Array("H", "氢",
+          "He", "氦",
+          "Li", "锂",
+          "Be", "铍",
+          "B", "硼",
+          "C", "碳",
+          "N", "氮",
+          "O", "氧",
+          "F", "氟",
+          "Ne", "氖",
+          "Na", "钠",
+          "Mg", "镁",
+          "Al", "铝",
+          "Si", "硅",
+          "P", "磷",
+          "S", "硫",
+          "Cl", "氯",
+          "Ar", "氩",
+          "K", "钾",
+          "Ca", "钙",
+          "Sc", "钪",
+          "Ti", "钛",
+          "V", "钒",
+          "Cr", "铬",
+          "Mn", "锰",
+          "Fe", "铁",
+          "Co", "钴",
+          "Ni", "镍",
+          "Cu", "铜",
+          "Zn", "锌",
+          "Ga", "镓",
+          "Ge", "锗",
+          "As", "砷",
+          "Se", "硒",
+          "Br", "溴",
+          "Kr", "氪",
+          "Rb", "铷",
+          "Sr", "锶",
+          "Y", "钇",
+          "Zr", "锆",
+          "Nb", "铌",
+          "Mo", "钼",
+          "Tc", "锝",
+          "Ru", "钌",
+          "Rh", "铑",
+          "Pd", "钯",
+          "Ag", "银",
+          "Cd", "镉",
+          "In", "铟",
+          "Sn", "锡",
+          "Sb", "锑",
+          "Te", "碲",
+          "I", "碘",
+          "Xe", "氙",
+          "Cs", "铯",
+          "Ba", "钡",
+          "La", "镧",
+          "Ce", "铈",
+          "Pr", "镨",
+          "Nd", "钕",
+          "Pm", "钷",
+          "Sm", "钐",
+          "Eu", "铕",
+          "Gd", "钆",
+          "Tb", "铽",
+          "Dy", "镝",
+          "Ho", "钬",
+          "Er", "铒",
+          "Tm", "铥",
+          "Yb", "镱",
+          "Lu", "镥",
+          "Hf", "铪",
+          "Ta", "钽",
+          "W", "钨",
+          "Re", "铼",
+          "Os", "锇",
+          "Ir", "铱",
+          "Pt", "铂",
+          "Au", "金",
+          "Hg", "汞",
+          "Tl", "铊",
+          "Pb", "铅",
+          "Bi", "铋",
+          "Po", "钋",
+          "At", "砹",
+          "Rn", "氡",
+          "Fr", "钫",
+          "Ra", "镭",
+          "Ac", "锕",
+          "Th", "钍",
+          "Pa", "镤",
+          "U", "铀",
+          "Np", "镎",
+          "Pu", "钚",
+          "Am", "镅",
+          "Cm", "锔",
+          "Bk", "锫",
+          "Cf", "锎",
+          "Es", "锿",
+          "Fm", "镄",
+          "Md", "钔",
+          "No", "锘",
+          "Lr", "铹",
+          "Rf", "𬬻",
+          "Db", "𬭊",
+          "Sg", "𬭳",
+          "Bh", "𬭛",
+          "Hs", "𬭶",
+          "Mt", "鿏",
+          "Ds", "𫟼",
+          "Rg", "𬬭",
+          "Cn", "鿔",
+          "Nh", "鿭",
+          "Fl", "𫓧",
+          "Mc", "镆",
+          "Lv", "𫟷",
+          "Ts", "鿬",
+          "Og", "鿫");
+
+        var heart = document.createElement("b"); //创建b元素
+        heart.onselectstart = new Function('event.returnValue=false'); //防止拖动
+
+
+      var randomIndex = Math.floor(Math.random() * a.length);// a数组中随机
+
+
+      document.body.appendChild(heart).innerHTML = a[randomIndex];// 将b元素添加到页面上
+
+        a_idx = (a_idx + 1) % a.length;
+        heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
+
+        var f = 12, // 字体大小
+          x = event.clientX - f / 2, // 横坐标
+          y = event.clientY - f, // 纵坐标
+          c = randomColor(), // 随机颜色
+          a = 1, // 透明度
+          s = 1.2; // 放大缩小
+
+        var timer = setInterval(function() { //添加定时器
+          if (a <= 0) {
+            document.body.removeChild(heart);
+            clearInterval(timer);
+          } else {
+            heart.style.cssText = "font-size:12px;font-family:Microsoft YaHei,HonokaGothic;cursor: default;position: fixed;color:" +
+              c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+              s + ");";
+
+            y--;
+            a -= 0.016;
+            s += 0.002;
+          }
+        }, 15)
+
+      }
+      // 随机颜色
+      function randomColor() {
+
+        return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+          .random() * 255)) + ")";
+
+      }
+    }());
+  </script>
+</body>
+
+</html>

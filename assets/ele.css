@@ -1,10 +1,10 @@
 /*调用Honoka字体*/
 @font-face {
   font-family: HonokaGothic;
-  src: url('SourceHanSansElements.eot');
-  src: url('SourceHanSansElements.eot') format('embedded-opentype'),
-    url('SourceHanSansElements.ttf') format('truetype'),
-    url('SourceHanSansElements.svg') format('svg');
+  src: url('fonts/SourceHanSansElements.eot');
+  src: url('fonts/SourceHanSansElements.eot') format('embedded-opentype'),
+    url('fonts/SourceHanSansElements.ttf') format('truetype'),
+    url('fonts/SourceHanSansElements.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
