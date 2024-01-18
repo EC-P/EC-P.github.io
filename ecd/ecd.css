@@ -1,0 +1,392 @@
+/*调用漫黑字体*/
+@font-face {
+  font-family: "LXGW M";
+  src: url('../assets/fonts/SourceHanSansElements.woff');
+  src:url('../assets/fonts/LXGWMarkerGothic-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Tanugo;
+  src: url('../assets/fonts/Tanugo-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: auto;
+}
+
+body {
+  font-family: "LXGW M";
+  text-align: center;
+  transition: background-color 0.5s ease;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: bold;
+}
+svg{
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1;
+}
+
+img {
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+  user-drag: none;
+}
+.svg-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+ padding: 0;
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+#elecode-elecode {
+  position: absolute;
+  transform: rotate(-90deg);
+  right: -268px;
+  top: 222px;
+  font-size: 100px;
+  letter-spacing:31px;
+  text-shadow: 0 -1px 1px white;
+}
+
+#elecode-container {
+  margin: 0 50px;
+  position: relative;
+  height: 570px;
+  overflow: hidden;
+}
+
+#elecode-img,
+#elecode-bg,
+#elecode-symbol,
+#elecode-latin,#elecode-emo
+  {
+  transition: opacity 0.5s ease-in-out;
+}
+
+#elecode-img {
+  position: relative;
+  max-width: 570px;
+  max-height: 570px;
+}
+
+#elecode-bg {
+  position: absolute;
+  height: 1200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-470px, -500px);
+}
+
+#elecode-emo{
+  position: absolute;
+  opacity: 0;
+  top: 360px;
+  left: -4px;
+  height: 120px;
+  z-index: 5;
+}
+#elecode-emo:hover{
+  opacity: 1;
+}
+
+.code {
+  position: absolute;
+  top: -34px;
+  right: 76px;
+  font-size: 90px;
+  font-family: "Microsoft YaHei";
+}
+
+#elecode-code {
+  font-size: 120px;
+}
+
+#elecode-symbol {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(90px, -200px);
+  font-size: 200px;
+  text-shadow: 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white,
+    0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white;
+
+}
+
+#elecode-latin {
+  position: absolute;
+  bottom: -12px;
+  left: -6px;
+  font-size: 100px;
+  text-shadow: 1px -1px 1px white;
+}
+
+#elecode-cn {
+  position: absolute;
+  top: 360px;
+  left: -4px;
+  font-size: 120px;
+  font-family: "LXGW M";
+}
+
+#elecode-jp {
+  position: absolute;
+  top: 405px;
+  left: 150px;
+  font-size: 60px;
+  font-family: Tanugo;
+  white-space: nowrap;
+}
+
+#elecode-buttons {
+  position: relative;
+  margin-top: 10px;
+  white-space: nowrap;
+  max-width: 80%;
+  overflow-x: scroll;
+  display: block;
+  z-index: 9;
+}
+
+.elecode-button {
+  cursor: pointer;
+  margin: 0 5px 1px 5px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: border-color 0.3s ease-in-out;
+  border-color: #000;
+  display: inline-block;
+  background-color: #f0f8ff;
+  color: #000;
+  box-shadow: 1px 1px #000;
+}
+
+.elecode-button:hover,
+.elecode-button.active:hover {
+  background-color: #888;
+}
+
+.elecode-button.active {
+  background-color: #000;
+  color: #f0f8ff;
+}
+
+.elecode-file1,
+.elecode-file2 {
+  font-family: "Microsoft YaHei";
+  text-shadow: 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white,
+    0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white;
+}
+
+.elecode-file1 {
+  font-size: 24px;
+  position: absolute;
+  top: 0;
+  left: 56px;
+  line-height: 1.5;
+  text-align: left;
+  font-family: "LXGW M";
+}
+
+.elecode-file1 span {
+  font-size: 18px;
+}
+
+#elecode-f0,
+#elecode-f1,
+#elecode-f2,
+#elecode-f3,
+#elecode-f4,
+#elecode-f5 {
+  font-weight: normal;
+  font-family: "LXGW M";
+  text-shadow: 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black,
+    0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black,
+    0 0 1px white, 0 0 1px white, 0 0 1px white, 0 0 1px white,
+      0 0 1px white, 0 0 1px white, 0 0 1px white, 0 0 1px white, 0 0 1px white, 0 0 1px white;
+
+}
+
+.elecode-file2 {
+  position: absolute;
+  top: 290px;
+  right: 130px;
+  max-width: 240px;
+  font-size: 60px;
+  text-align: left;
+  line-height: 0.5;
+}
+
+#elecode-f0 {
+  font-size: 20px;
+  line-height: normal;
+}
+
+#elecode-left,
+#elecode-right {
+  z-index: 10;
+  position: fixed;
+  width: 50px;
+  height: 100%;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-size: 50px;
+  top: 50%;
+  transform: translate(0, -50px);
+  text-shadow: 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white,
+    0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white;
+}
+
+#elecode-left {
+  left: 0;
+}
+
+#elecode-right {
+  right: 0;
+}
+
+#para-left,
+#para-right {
+  /* 背景裁切平行四边形的外侧*/
+  position: absolute;
+  width: 4000px;
+  height: 4000px;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+}
+
+#para-left {
+  transform: translate(420px, -2000px) rotate(60deg);
+}
+
+#para-right {
+  transform: translate(-4420px, -2000px) rotate(60deg);
+}
+
+@media only screen and (max-width: 820px) {
+  #elecode-latin {
+    bottom: -1.4vw;
+    left: -0.8vw;
+    font-size: 12vw;
+  }
+
+  #elecode-container {
+    margin: 0;
+  }
+
+  .code {
+    font-size: 10vw;
+    top: -4vw;
+  }
+
+  #elecode-code {
+    font-size: 14vw;
+  }
+
+  #elecode-jp {
+    top: 418px;
+    font-size: 48px;
+    left: 120px;
+  }
+
+  #elecode-symbol {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(12vw, -24vw);
+    font-size: 24vw;
+  }
+
+  .elecode-file1 {
+    position: relative;
+    display: block;
+    float: left;
+    width: 240px;
+    top: 30px;
+    left: 40px;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+  }
+
+  .elecode-file1 span {
+    font-size: 14px;
+  }
+
+  .elecode-file2 {
+    position: relative;
+    display: block;
+    float: right;
+    margin: 30px;
+    top: 10px;
+    right: 10px;
+    width: 240px;
+  }
+
+  #elecode-f0 {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  #elecode-elecode {
+    display: none;
+  }
+
+  #elecode-jp {
+    top: auto;
+    bottom: 7.8vw;
+    font-size: 8vw;
+    left: 0;
+  }
+
+  #elecode-symbol {
+    top: 50%;
+    left: 50%;
+    transform: translate(72px, -144px);
+    font-size: 24vw;
+  }
+
+  .code {
+    right: -0.5vw;
+  }
+
+  .elecode-file1 {
+    max-width: 240px;
+    left: auto;
+    margin: auto;
+    float: none;
+  }
+
+  .elecode-file2 {
+    right: auto;
+    top: 60px;
+    margin: auto;
+    float: none;
+  }
+}
