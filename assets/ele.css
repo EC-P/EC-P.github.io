@@ -685,3 +685,9 @@ span.c118{color: #f0f8ff}
 .btn-emoji:hover {
   background-color: #004D99;
 }
+
+/*像素画动图*/
+.pixgif{
+  float:right;
+  height: 100px
+}

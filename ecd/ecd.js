@@ -76,7 +76,7 @@ const elecodes = [{code: "001",img: "ele/001.png",latin: "HYDROGENIUM",color: "#
 {code: "076",img: "ele/076.png",latin: "OSMIUM",color: "#4682b4",symbol: "Os",cn: "锇",jp: "オスミウム",f0: "【……】",f1:"190.23",f2: "[Xe]4f¹⁴5d⁶6s²",f3:"第六周期 8族",f4: "d区 过渡金属 固体",f5: "1803",emo: "ele/e-076.png"},
 {code: "077",img: "ele/077.png",latin: "IRIDIUM",color: "#cd5c5c",symbol: "Ir",cn: "铱",jp: "イリジウム",f0: "【……】",f1:"192.22",f2: "[Xe]4f¹⁴5d⁷6s²",f3:"第六周期 9族",f4: "d区 过渡金属 固体",f5: "1803",emo: "ele/e-077.png"},
 {code: "078",img: "ele/078.png",latin: "PLATINUM",color: "#e5e4e2",symbol: "Pt",cn: "铂",jp: "白金",f0: "【……】",f1:"195.08",f2: "[Xe]4f¹⁴5d⁹6s¹",f3:"第六周期 10族",f4: "d区 过渡金属 固体",f5: "约公元前 600 年",emo: "ele/e-078.png"},
-{code: "079",img: "ele/079.png",latin: "AURUM",color: "#ffd700",symbol: "Au",cn: "金",jp: "金",f0: "【……】",f1:"196.97",f2: "[Xe]4f¹⁴5d¹⁰6s¹",f3:"第六周期 11族",f4: "d区 过渡金属 固体",f5: "公元前6000年之前",emo: "ele/e-079.png"},
+{code: "079",img: "ele/079.png",latin: "AURUM",color: "#ffd700",symbol: "Au",cn: "金",jp: "金",f0: "七青，八黄，九紫，十赤。无足赤，无完人。",f1:"196.97",f2: "[Xe]4f¹⁴5d¹⁰6s¹",f3:"第六周期 11族",f4: "d区 过渡金属 固体",f5: "公元前6000年之前",emo: "ele/e-079.png"},
 {code: "080",img: "ele/080.png",latin: "HYDRARGYRUM",color: "#e34234",symbol: "Hg",cn: "汞",jp: "水銀",f0: "【……】",f1:"200.59",f2: "[Xe]4f¹⁴5d¹⁰6s²",f3:"第六周期 12族",f4: "d区 过渡金属 液体",f5: "公元前1500年",emo: "ele/e-080.png"},
 {code: "081",img: "ele/081.png",latin: "THALLIUM",color: "#32cd32",symbol: "Tl",cn: "铊",jp: "タリウム",f0: "【……】",f1:"204.38",f2: "[Xe]4f¹⁴5d¹⁰6s²6p¹",f3:"第六周期 13族",f4: "p区 金属 固体",f5: "1861",emo: "ele/e-081.png"},
 {code: "082",img: "ele/082.png",latin: "PLUMBUM",color: "#ff0000",symbol: "Pb",cn: "铅",jp: "鉛",f0: "【……】",f1:"207.2",f2: "[Xe]4f¹⁴5d¹⁰6s²6p²",f3:"第六周期 14族",f4: "p区 金属 固体",f5: "公元前7000年",emo: "ele/e-082.png"},

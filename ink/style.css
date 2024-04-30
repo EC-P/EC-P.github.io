@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700|Quattrocento:700');
+
+body {
+    font-family: 思源黑体,"Microsoft YaHei","PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei";
+    font-weight: normal;
+    background: white;
+    overflow: hidden;
+}
+
+body.switched {
+    transition: color 0.6s, background-color 0.6s;
+}
+
+h1,
+h2 {
+    text-align: center;
+    font-family: 思源黑体,"Microsoft YaHei","PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei";
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 30pt;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 14pt;
+    font-style: italic;
+    font-family: 思源黑体,"Microsoft YaHei","PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei";
+    font-weight: lighter;
+    color: #BBB;
+}
+
+.header {
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+/*
+  Built-in class:
+    # author: Name
+*/
+.byline {
+    font-style: italic;
+}
+
+.head-link {
+    z-index: 3;
+    font-size: 9pt;
+    font-family: 思源黑体,"Microsoft YaHei","PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei";
+    text-align: center;
+    font-weight: 700;
+    position: fixed;
+    display: block;
+    width: 100%;
+    background: white;
+    transition: color 0.6s, background 0.6s;
+    margin: 0;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    height: 14px;
+    top: 0;
+}
+
+/*
+  Enables <iframe> support work on itch.io when using mobile iOS
+*/
+.outerContainer {
+    position: absolute;
+    display: block;
+    margin: 0;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 95%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin-top: 24px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 980px) {
+    .outerContainer {
+        margin-top: 44px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+.container {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 4em;
+    /* background: white; */
+}
+
+.switched .container {
+    transition: background-color 0.6s;
+}
+
+p {
+    font-size: 13pt;
+    color: #888;
+    line-height: 1.7em;
+    font-weight: normal;
+    text-indent: 2em;
+}
+
+a {
+    font-weight: 700;
+    color: #40826d;
+    font-family: 思源黑体,"Microsoft YaHei","PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei";
+    transition: color 0.6s;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    color: black;
+    transition: color 0.1s;
+}
+
+strong {
+    color: black;
+    font-weight: bold;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.container .hide {
+    opacity: 0.0;
+}
+
+.container .invisible {
+    display: none;
+}
+
+.container>* {
+    opacity: 1.0;
+    transition: opacity 1.0s;
+}
+
+/*
+  Class applied to all choices
+  (Will always appear inside <p> element by default.)
+*/
+.choice {
+    text-align: center;
+    line-height: 1.7em;
+}
+
+/*
+  Class applied to first choice
+*/
+:not(.choice)+.choice {
+    padding-top: 1em;
+}
+
+/*
+  Class applied to choice links
+*/
+.choice a {
+    font-size: 15pt;
+}
+
+/*
+  Built-in class:
+    The End # CLASS: end
+*/
+.end {
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#controls {
+    z-index: 4;
+    font-size: 9pt;
+    text-align: center;
+    padding-bottom: 6px;
+    position: fixed;
+    right: 14px;
+    top: 4px;
+    -webkit-user-select: none;
+    user-select: none;
+    /* background: white; */
+    transition: color 0.6s, background 0.6s;
+}
+
+#controls [disabled] {
+    color: #ccc;
+}
+
+#controls>*:not(:last-child):after {
+    content: " | ";
+}
+
+@media screen and (max-width: 980px) {
+    #controls {
+        z-index: 2;
+        padding-top: 24px;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+/*
+  Dark Theme (Added in Inky 0.10.0)
+    # theme: dark
+*/
+
+body.dark {
+    background: black;
+    color: white;
+}
+
+.dark h2 {
+    color: #666;
+}
+
+.dark .container {
+    /* background: black; */
+}
+
+.dark .head-link {
+    background: black;
+}
+
+.dark a {
+    color: #40826d;
+    transition: color 0.6s;
+}
+
+.dark a:hover {
+    color: white;
+}
+
+.dark strong {
+    color: white;
+}
+
+.dark #controls [disabled] {
+    color: #444;
+}
+
+.dark .end {
+    color: white;
+}
+
+.dark #controls {
+    /* background: black; */
+}
+
+/* inky go */
+.modal-overlay {
+    visibility: hidden;
+    position: fixed;
+    /* 使用绝对定位或固定定位 */
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    text-align: center;
+    z-index: 1000;
+    background-color: #000000aa;
+    /* background-color: #66ccff; */
+    /* opacity: 0 */
+    /* 背景半透明 */
+}
+
+/* 模态框样式 */
+.modal-data {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0%;
+    bottom: 0%;
+    width: 400px;
+    height: 450px;
+    max-width: 80%;
+    max-height: 80%;
+    opacity: 1;
+    margin: auto;
+    background-color: #eee;
+    border: 2px solid #000;
+    border-radius: 30px;
+    padding: 15px;
+    z-index: 10000;
+    text-align: center;
+}
+
+.modal-data p {
+    font-family: 思源黑体,"Microsoft YaHei","PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei";
+    font-size: 13pt;
+    color: #666;
+    line-height: 100%;
+    font-weight: normal;
+}
+
+.modal-data .modal-title {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+    font-family: 思源黑体,"Microsoft YaHei","PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei";
+    font-size: 16pt;
+}
+
+
+.modal-sl-point {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 300px;
+    max-width: 100%;
+    height: 50px;
+    max-height: 100%;
+    background-color: #fff;
+    border-width: 1px;
+    border-color: #000;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    cursor: pointer;
+}
+.modal-sl-point p {
+    color: #333;
+}
+.modal-sl-point:hover {
+  background-color: black;
+  color: #999;
+  border-radius: 25px;
+  transition: border-radius 0.1s;
+}
+
+/* 定义keyframe动画，命名为blink */
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* 添加兼容性前缀 */
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* 定义blink类*/
+.blink {
+    /* color: red; */
+    /* font-size: 46px; */
+    animation: blink 1s linear infinite;
+    /* 其它浏览器兼容性前缀 */
+    -webkit-animation: blink 1s linear infinite;
+    -moz-animation: blink 1s linear infinite;
+    -ms-animation: blink 1s linear infinite;
+    -o-animation: blink 1s linear infinite;
+}
+
+/* 背景图 */
+.bg {
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* 自定义样式 */
+.right{
+  text-align: right;
+}
+.ptable{
+  line-height: 6pt;
+  text-align: center;
+  text-indent: 0;
+}
+.r024 {
+  color: #40826d
+}
+.r025 {
+  color: #663399
+}
+.r026{
+  color: #003153
+}
+.r029 {
+  color: #b87333
+}
+.r030 {
+  color: #b0c4de
+}
+.r024, .r025, .r026, .r029, .r030{
+  text-indent: 0;
+  text-shadow: 0 0 0.9px #ccc, 0 0 0.9px #ccc, 0 0 0.9px #ccc, 0 0 0.9px #ccc,
+    0 0 0.9px #ccc, 0 0 0.9px #ccc, 0 0 0.9px #ccc, 0 0 0.9px #ccc, 0 0 0.9px #ccc, 0 0 0.9px #ccc;
+}
