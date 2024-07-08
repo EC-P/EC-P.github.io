@@ -380,9 +380,9 @@
      */
     Docs.prototype._encodeUrl = function (path, type) {
         var url = 'library/';
-        if (typeof AWConfig.libraryPrefix == 'string' && AWConfig.libraryPrefix.length > 0) {
-            url = AWConfig.libraryPrefix.replace(/\\/g, '/').replace(/\/?&/, '/');
-        }
+        //if (typeof AWConfig.libraryPrefix == 'string' && AWConfig.libraryPrefix.length > 0) {
+        //    url = AWConfig.libraryPrefix.replace(/\\/g, '/').replace(/\/?&/, '/');
+        //}
         var paths = [];
         //正常编码
         if (type == 'normal') {
@@ -419,10 +419,6 @@
         var that = this;
         var html = '';
         this.cleanView();
-        //增加"\"符转义功能
-        content = content.replace(/\\(.)/g, function (m, s1) {
-            return '&#' + s1.charCodeAt(0) + ';';
-        });
         //创建脚注
         content = this._setFootnote(content);
         //编译 markdown
