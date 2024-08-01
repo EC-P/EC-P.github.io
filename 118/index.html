@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- 这里替换标题 -->
+    <title>118CHAT ROOM</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/css/118.css">
+
+</head>
+
+<body class="dark">
+    <img alt="" id="bg_img" class="bg" />
+    <div class="outerContainer">
+        <div id="load-dialog" class="modal-overlay">
+            <div class="modal-data">
+                <div class="modal-title">进度读取</div>
+                <div id="load-dialog-point-1" class="modal-sl-point">
+                    <p class="modal-sl-point-content">存档 1</p>
+                </div>
+                <div id="load-dialog-point-2" class="modal-sl-point">
+                    <p id="load-dialog-point-2-content">存档 2</p>
+                </div>
+                <div id="load-dialog-point-3" class="modal-sl-point">
+                    <p id="load-dialog-point-3-content">存档 3</p>
+                </div>
+                <div id="load-dialog-point-4" class="modal-sl-point">
+                    <p id="load-dialog-point-4-content">存档 4</p>
+                </div>
+                <a id="close-load-dialog" title="关闭">关闭</a>
+            </div>
+        </div>
+        <div id="save-dialog" class="modal-overlay">
+            <div class="modal-data">
+                <div class="modal-title">进度保存</div>
+                <div id="save-dialog-point-1" class="modal-sl-point">
+                    <p id="save-dialog-point-1-content">存档 1</p>
+                </div>
+                <div id="save-dialog-point-2" class="modal-sl-point">
+                    <p id="save-dialog-point-2-content">存档 2</p>
+                </div>
+                <div id="save-dialog-point-3" class="modal-sl-point">
+                    <p id="save-dialog-point-3-content">存档 3</p>
+                </div>
+                <div id="save-dialog-point-4" class="modal-sl-point">
+                    <p id="save-dialog-point-4-content">存档 4</p>
+                </div>
+                <a id="close-save-dialog" title="关闭">关闭</a>
+            </div>
+        </div>
+        <div id="controls" class="buttons">
+            <a id="rewind" title="回到118CR主页">118CR</a>
+            <a title="去往CRPM主页" href="pm">CRPM</a>
+            <a id="save" title="保存当前选项进度">进度保存</a>
+            <a id="reload" title="读取已保存的进度">进度读取</a>
+            <a id="theme-switch" title="黑白切换">明暗切换 🌓</a>
+        </div>
+
+        <div id="story" class="container">
+        </div>
+    </div>
+    <script src="../assets/js/ink.js"></script>
+    <script src="../assets/js/118.js"></script>
+    <script src="../assets/js/inkmain.js"></script>
+    <script type="text/javascript" src="../assets/js/common.js"></script>
+</body>
+
+</html>

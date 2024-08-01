@@ -144,6 +144,7 @@ aside .back-top {
   padding: 12px;
   font-size: 16px;
   color: #41555d;
+  text-align: justify;
 }
 
 .markdown-body blockquote p{

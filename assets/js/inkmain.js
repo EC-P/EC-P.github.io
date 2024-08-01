@@ -338,9 +338,6 @@
         // cause the height (and therefore scroll) to jump backwards temporarily.
         storyContainer.style.height = contentBottomEdgeY() + "px";
 
-        if (!firstTime)
-            scrollDown(previousBottomEdge);
-
     }
 
     function restart() {
@@ -364,32 +361,6 @@
     function showAfter(delay, el) {
         el.classList.add("hide");
         setTimeout(function () { el.classList.remove("hide") }, delay);
-    }
-
-    // Scrolls the page down, but no further than the bottom edge of what you could
-    // see previously, so it doesn't go too far.
-    function scrollDown(previousBottomEdge) {
-
-        // Line up top of screen with the bottom of where the previous content ended
-        var target = previousBottomEdge;
-
-        // Can't go further than the very bottom of the page
-        var limit = outerScrollContainer.scrollHeight - outerScrollContainer.clientHeight;
-        if (target > limit) target = limit;
-
-        var start = outerScrollContainer.scrollTop;
-
-        var dist = target - start;
-        var duration = 300 + 300 * dist / 100;
-        var startTime = null;
-        function step(time) {
-            if (startTime == null) startTime = time;
-            var t = (time - startTime) / duration;
-            var lerp = 3 * t * t - 2 * t * t * t; // ease in/out
-            outerScrollContainer.scrollTo(0, (1.0 - lerp) * start + lerp * target);
-            if (t < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
     }
 
     // The Y coordinate of the bottom end of all the story content, used
