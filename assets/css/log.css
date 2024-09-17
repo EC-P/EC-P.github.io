@@ -3,23 +3,42 @@ html{
   -webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 BODY {
-	background-color: white;
 	color: #40826d;
   -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  background: linear-gradient(to right top, #40826d 50%, #fff 50%);
+  background-size: 100% calc(100% - 100vh + 1px);
+  background-repeat: no-repeat;
+  margin: 0;
 }
 
-.daytitle {
+BODY:before{
+    content:'';
+    position: fixed;
+    top: 1px;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    background: white;
+}
+
+.logtitle {
 	background-color: #40826d;
 	color: white;
 	font-weight: bold;
   height: 40px;
 }
 
-.daybody {
-	font-size: small;​
+.logbody {
+	font-size: .9em;​
+  height: 200px;
+  background-image:
+    linear-gradient(to right, rgba(64, 130, 109, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(64, 130, 109, 0.1) 1px, transparent 1px);
+  background-size: 2em 2em;
+  background-position: center center;
 }
 
-td{white-space: pre-wrap;}
+td{white-space: pre-wrap;text-align: justify;line-height: 1.6em;padding:0 15px;}
 
 a {
   color: #40826d;text-decoration: none;
@@ -28,105 +47,196 @@ a:hover {
   font-weight: bold;
 }
 .ecdlink {
-  color: #40826d;font-size: 12px; text-decoration: none;
+  font-size: 10px;margin-right: 16px;
 }
+.ecdlink:hover {
+  font-weight: normal;
+}
+.link{font-size: .9em;​}
 
+img{
+  width: 80%;
+  max-width: 500px;
+  margin: 8px 0;
+}
 /*目录*/
-.menu{
+.contents{
 	color: #40826d;
 	font-weight: bold;
   height: 40px;
   border: 3px solid #40826d;
 }
-.menu th{
+.contents th{
   background-color: #40826d;
   color: white;
   padding:3px;
 }
-.menu td{
+.contents td{
   padding:1px 5px;
+  font-size: .9em;​
 }
 
-@media screen and (min-width: 0px) and (max-device-width: 550px) {
-	table.log { width: 100%; }
+@media screen and (min-width: 0px) and (max-width: 615px) {
+	.log { width: 100%; padding: 0 8px;}
+  .logbody td{padding: 0 16px;}
 }
-@media screen and (min-width: 551px) {
-	table.log { width: 550px; }
+@media screen and (min-width: 616px) {
+	.log { width: 582px; }
+  .logbody td{padding: 0 36px;}
 }
 a { text-decoration:none;color: #40826d; }
 
 
 /*加载旋转原子图案*/
 .atom-spinner, .atom-spinner * {
-      box-sizing: border-box;
-    }
+  box-sizing: border-box;
+}
 
-    .atom-spinner {
-      height: 60px;
-      width: 60px;
-      overflow: hidden;
-    }
+.atom-spinner {
+  height: 60px;
+  width: 60px;
+  overflow: hidden;
+}
 
-    .atom-spinner .spinner-inner {
-      position: relative;
-      display: block;
-      height: 100%;
-      width: 100%;
-    }
+.atom-spinner .spinner-inner {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
 
-    .atom-spinner .spinner-circle {
-      display: block;
-      position: absolute;
-      color: #40826d;
-      font-size: calc(60px * 0.24);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+.atom-spinner .spinner-circle {
+  display: block;
+  position: absolute;
+  color: #40826d;
+  font-size: calc(60px * 0.24);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-    .atom-spinner .spinner-line {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      animation-duration: 1s;
-      border-left-width: calc(60px / 25);
-      border-top-width: calc(60px / 25);
-      border-left-color: #40826d;
-      border-left-style: solid;
-      border-top-style: solid;
-      border-top-color: transparent;
-    }
+.atom-spinner .spinner-line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation-duration: 1s;
+  border-left-width: calc(60px / 25);
+  border-top-width: calc(60px / 25);
+  border-left-color: #40826d;
+  border-left-style: solid;
+  border-top-style: solid;
+  border-top-color: transparent;
+}
 
-    .atom-spinner .spinner-line:nth-child(1) {
-      animation: atom-spinner-animation-1 1s linear infinite;
-      transform: rotateZ(120deg) rotateX(66deg) rotateZ(0deg);
-    }
+.atom-spinner .spinner-line:nth-child(1) {
+  animation: atom-spinner-animation-1 1s linear infinite;
+  transform: rotateZ(120deg) rotateX(66deg) rotateZ(0deg);
+}
 
-    .atom-spinner .spinner-line:nth-child(2) {
-      animation: atom-spinner-animation-2 1s linear infinite;
-      transform: rotateZ(240deg) rotateX(66deg) rotateZ(0deg);
-    }
+.atom-spinner .spinner-line:nth-child(2) {
+  animation: atom-spinner-animation-2 1s linear infinite;
+  transform: rotateZ(240deg) rotateX(66deg) rotateZ(0deg);
+}
 
-    .atom-spinner .spinner-line:nth-child(3) {
-      animation: atom-spinner-animation-3 1s linear infinite;
-      transform: rotateZ(360deg) rotateX(66deg) rotateZ(0deg);
-    }
+.atom-spinner .spinner-line:nth-child(3) {
+  animation: atom-spinner-animation-3 1s linear infinite;
+  transform: rotateZ(360deg) rotateX(66deg) rotateZ(0deg);
+}
 
-    @keyframes atom-spinner-animation-1 {
-      100% {
-        transform: rotateZ(120deg) rotateX(66deg) rotateZ(360deg);
-      }
-    }
+@keyframes atom-spinner-animation-1 {
+  100% {
+    transform: rotateZ(120deg) rotateX(66deg) rotateZ(360deg);
+  }
+}
 
-    @keyframes atom-spinner-animation-2 {
-      100% {
-        transform: rotateZ(240deg) rotateX(66deg) rotateZ(360deg);
-      }
-    }
+@keyframes atom-spinner-animation-2 {
+  100% {
+    transform: rotateZ(240deg) rotateX(66deg) rotateZ(360deg);
+  }
+}
 
-    @keyframes atom-spinner-animation-3 {
-      100% {
-        transform: rotateZ(360deg) rotateX(66deg) rotateZ(360deg);
-      }
-    }
+@keyframes atom-spinner-animation-3 {
+  100% {
+    transform: rotateZ(360deg) rotateX(66deg) rotateZ(360deg);
+  }
+}
+
+/*分割线*/
+HR{color: #40826d;
+border: double;
+border-width: 3px 5px;
+border-color: #40826d transparent;
+height: 1px;
+overflow: visible;
+margin-left: 40px;
+margin-right: 40px;
+position: relative;}
+
+HR:before,
+HR:after {
+content: '';
+position: absolute;
+width: 5px; height: 5px;
+border-width: 0 3px 3px 0;
+border-style: double;
+top: -3px;
+background: radial-gradient(2px at 1px 1px, currentColor 2px, transparent 0) no-repeat;
+}
+
+HR:before {
+transform: rotate(-45deg);
+left: -30px;
+}
+
+HR:after {
+transform: rotate(135deg);
+right: -30px;
+}
+
+/* 提示框 */
+/* 使用例： <span class="tip" tips="告别">再见</span> */
+.tip {
+  position: relative;
+  border-bottom: 1px dotted #40826d;
+}
+
+.tip:before {
+  content: attr(tips);
+  position: absolute;
+  background-color: #40826d;
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  line-height: 1.1;
+  border-radius: 5px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity .5s;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9em;
+  visibility: hidden;
+  white-space: nowrap;
+}
+
+.tip:after {
+  content: "";
+  position: absolute;
+  bottom: 75%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  opacity: 0;
+  transition: opacity .5s;
+  border-color: #40826d transparent transparent transparent;
+  visibility: hidden;
+}
+
+.tip:hover:before,
+.tip:hover:after {
+  opacity: 1;
+  visibility: visible;
+}

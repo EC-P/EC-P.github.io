@@ -102,17 +102,20 @@ function passinit() {
   const loginid = document.getElementById('loginid');
   const body = document.body;
   const header = document.getElementById('header');
+	const link = document.getElementById('childlink');
 
   if (localStorage.getItem('passedExecuted')) {
     passDiv.style.display = 'none';
     view.style.display = 'block';
     searchShow.style.display = 'block';
     footer.style.display = 'block';
+		link.style.display = 'none';
   } else {
     passDiv.style.display = 'block';
     view.style.display = 'none';
     searchShow.style.display = 'none';
     footer.style.display = 'none';
+		link.style.display = 'grid';
   }
 }
 
@@ -124,6 +127,7 @@ if (validPasswords.includes(passInput)) { //该不会是直奔着“pass”来�
 passed();
 localStorage.setItem('passedExecuted', 'true');
 document.getElementById('passDiv').style.display = 'none';
+document.getElementById('childlink').style.display = 'none';
 document.getElementById('view').style.display = 'block';
 document.getElementById('searchShow').style.display = 'block';
 document.getElementById('footer').style.display = 'block';

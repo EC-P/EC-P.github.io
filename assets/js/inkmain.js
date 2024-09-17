@@ -169,7 +169,7 @@
                         storyContainer.appendChild(imageElement);
 
                         showAfter(delay, imageElement);
-                        delay += 200.0;
+                        delay += 200.0;// 显示速度
                     }
                 }
 
@@ -226,7 +226,7 @@
                     storyContainer.appendChild(imageElement);
 
                     showAfter(delay, imageElement);
-                    delay += 200.0;
+                    delay += 200.0;// 图片速度
                 }
 
                 // LINK: url
@@ -285,7 +285,7 @@
 
             // Fade in paragraph after a short delay
             showAfter(delay, paragraphElement);
-            delay += 200.0;
+            delay += 220.0;// 速度
 
             if (IS_SINGLE_SENTENCE_MODE_ENABLED && story.currentChoices.length == 0) {
                 // 中断 continue，等待用户点击
@@ -305,7 +305,7 @@
 
             // Fade choice in after a short delay
             showAfter(delay, choiceParagraphElement);
-            delay += 200.0;
+            delay += 40.0;// 选项速度
 
             // Click on choice
             var choiceAnchorEl = choiceParagraphElement.querySelectorAll("a")[0];
