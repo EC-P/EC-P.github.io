@@ -4,7 +4,14 @@ function init() {
 	'铜的头发是铁亲自拿刀砍短的，第一过渡系的某位信誓旦旦道。',
 	'嘿，那儿的你！知道吗，一个铀饼所含的热量就相当于一个铀饼。',
 	'24号，是过渡金属。身高是169公分，体重是52公斤。',
-	'ᴇʟᴇᴍᴇɴᴛ ᴄᴏᴅᴇ ᴘʀᴏᴊᴇᴄᴛ',
+	'ᴇʟᴇᴄᴏᴅᴇ ᴘʀᴏᴊᴇᴄᴛ',
+	'𝓔𝓛𝓔𝓒𝓞𝓓𝓔 𝓟𝓡𝓞𝓙𝓔𝓒𝓣',
+	'𝐄𝐋𝐄𝐂𝐎𝐃𝐄 𝐏𝐑𝐎𝐉𝐄𝐂𝐓',
+	'🄴🄻🄴🄲🄾🄳🄴 🄿🅁🄾🄹🄴🄲🅃',
+	'ⒺⓁⒺⒸⓄⒹⒺ ⓅⓇⓄⒿⒺⒸⓉ',
+	'🅔🅛🅔🅒🅞🅓🅔 🅟🅡🅞🅙🅔🅒🅣',
+	'𝔼𝕃𝔼ℂ𝕆𝔻𝔼 ℙℝ𝕆𝕁𝔼ℂ𝕋',
+	'𝕰𝕷𝕰𝕮𝕺𝕯𝕰 𝕻𝕽𝕺𝕵𝕰𝕮𝕿',
 	'放射性，放射性的事情，能叫辣眼睛吗……！',
 	'严正声明：砷没有在本栏投稿任何内容。砷不对任何诋毁其他元素的言论负责。',
 	'『没有发现吗？即使是写了本栏怎样怎样，也完全可能是投稿内容。』比如这里就可以写：本栏宣布。',
@@ -90,32 +97,28 @@ function showAnswer() {
 }
 
 //分析登录
-function passed() {
-    console.log("passed() 函数被执行");
-}
-
 function passinit() {
   const passDiv = document.getElementById('passDiv');
   const view = document.getElementById('view');
   const searchShow = document.getElementById('searchShow');
   const footer = document.getElementById('footer');
-  const loginid = document.getElementById('loginid');
-  const body = document.body;
-  const header = document.getElementById('header');
-	const link = document.getElementById('childlink');
+  const sibling = document.querySelector('#mainSibling.on');
+  const link = document.getElementById('childlink');
 
   if (localStorage.getItem('passedExecuted')) {
     passDiv.style.display = 'none';
     view.style.display = 'block';
     searchShow.style.display = 'block';
     footer.style.display = 'block';
-		link.style.display = 'none';
+	link.style.display = 'none';
+	sibling.style.display = 'flex';
   } else {
     passDiv.style.display = 'block';
     view.style.display = 'none';
     searchShow.style.display = 'none';
     footer.style.display = 'none';
-		link.style.display = 'grid';
+	sibling.style.display = 'none';
+	link.style.display = 'grid';
   }
 }
 
@@ -124,11 +127,11 @@ const validPasswords = ['000aaa', '014024', 'vnl370', '118CR', 'yyzip'];
 const passInput = document.getElementById('passBox').value;
 
 if (validPasswords.includes(passInput)) { //该不会是直奔着“pass”来的吧。
-passed();
 localStorage.setItem('passedExecuted', 'true');
 document.getElementById('passDiv').style.display = 'none';
 document.getElementById('childlink').style.display = 'none';
 document.getElementById('view').style.display = 'block';
+document.querySelector('#mainSibling.on').style.display = 'flex';
 document.getElementById('searchShow').style.display = 'block';
 document.getElementById('footer').style.display = 'block';
 
@@ -154,8 +157,8 @@ window.onload = passinit;
 
 
 // 加载动画
-document.addEventListener("DOMContentLoaded", function() {
-            // 网页加载完成时触发的事件处理程序
-            var loadingDiv = document.querySelector('.loading-div');
-            loadingDiv.style.display = 'none'; // 隐藏加载中的 div
-        });
+document.addEventListener("DOMContentLoaded", function () {
+	// 网页加载完成时触发的事件处理程序
+	var loadingDiv = document.querySelector('.loading-div');
+	loadingDiv.style.display = 'none'; // 隐藏加载中的 div
+});

@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: Tanugo;
-  src: url('../fonts/Tanugo-Regular.woff');
+  src: url('../fonts/Tanugo-Regular.woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -19,7 +19,7 @@
 }
 
 body {
-  font-family: "LXGW M";
+  font-family: "LXGW M",sans-serif;
   text-align: center;
   transition: background-color 0.5s ease;
   -webkit-user-select: none;
@@ -27,6 +27,12 @@ body {
   -ms-user-select: none;
   user-select: none;
   font-weight: bold;
+}
+#cards {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 svg{
   position: absolute;
@@ -113,7 +119,7 @@ img {
   top: -34px;
   right: 76px;
   font-size: 90px;
-  font-family: "Microsoft YaHei";
+  font-family: "Microsoft YaHei",sans-serif;
 }
 
 #elecode-code {
@@ -149,7 +155,7 @@ img {
 
 #elecode-jp {
   position: absolute;
-  top: 405px;
+  top: 413px;
   left: 150px;
   font-size: 60px;
   font-family: Tanugo;
@@ -160,10 +166,26 @@ img {
   position: relative;
   margin-top: 10px;
   white-space: nowrap;
-  max-width: 80%;
+  max-width: calc(80% - 30px);
   overflow-x: scroll;
-  display: block;
+  display: inline-block;
   z-index: 9;
+}
+
+#change {
+  position: relative;
+  z-index: 9;
+  top: -6px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0 5px 1px 5px;
+  border: 2px solid transparent;
+  border-color: #000;
+  background-color: #f0f8ff;
+  color: #000;
+  box-shadow: 1px 1px #000;
 }
 
 .elecode-button {
@@ -171,7 +193,7 @@ img {
   margin: 0 5px 1px 5px;
   border: 2px solid transparent;
   border-radius: 5px;
-  transition: border-color 0.3s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
   border-color: #000;
   display: inline-block;
   background-color: #f0f8ff;
@@ -191,7 +213,7 @@ img {
 
 .elecode-file1,
 .elecode-file2 {
-  font-family: "Microsoft YaHei";
+  font-family: "LXGW M";
   text-shadow: 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white,
     0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white, 0 0 0.5px white;
 }
@@ -203,7 +225,6 @@ img {
   left: 56px;
   line-height: 1.5;
   text-align: left;
-  font-family: "LXGW M";
 }
 
 .elecode-file1 span {
@@ -217,7 +238,6 @@ img {
 #elecode-f4,
 #elecode-f5 {
   font-weight: normal;
-  font-family: "LXGW M";
   text-shadow: 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black,
     0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black, 0 0 0.5px black,
     0 0 1px white, 0 0 1px white, 0 0 1px white, 0 0 1px white,
@@ -304,7 +324,7 @@ img {
   }
 
   #elecode-jp {
-    top: 418px;
+    top: 427px;
     font-size: 48px;
     left: 120px;
   }
@@ -352,6 +372,101 @@ img {
 
 }
 
+/*工牌*/
+.card {
+  position: absolute;
+  top: 120px;
+  width: 280px;
+  height: 460px;
+  background-color: #e0deda;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.card:hover {
+  animation: rotate 2s linear infinite;
+  transform-origin: 50% 3%;
+}
+
+#rope{
+  z-index: 8;
+  position: absolute;
+  top: -103px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+#hole{
+  width: 36px;
+  height: 10px;
+  margin: 13px auto;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.5s ease;
+}
+
+.cardbox {/*名片3：5*/
+  width: 240px;
+  height: 400px; 
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#cardtitle {
+  font-size: 36px;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  text-shadow: 1px 1px white;
+  border-radius: 10px 10px 0 0;
+  padding: 5px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3), inset 0 -1px 0 #aaa;
+  background-color: #aaa;
+}
+
+.cardphoto {/*证件照之后考虑改成2：3或者身份证比例*/
+  width: 130px;
+  height: 150px;
+  margin: 20px auto;
+  overflow: hidden;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.cardphoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardinfo {
+  font-size: 20px;
+  width: 160px;
+  margin: 0 auto;
+  font-family:  "Microsoft YaHei",sans-serif;;
+}
+.cardinfo div{
+  padding: 4px;
+}
+.cardinfo span{
+  font-family: "LXGW M";
+  display: inline-block;
+  text-align: center;
+  width: calc(100% - 3em);
+  border-bottom: 2px dashed #aaa;
+}
+
+@keyframes rotate {
+  25% {transform: rotate(3deg);}
+  50% {transform: rotate(0deg);}
+  75% {transform: rotate(-3deg);}
+  100% {transform: rotate(0deg);}
+}
 @media only screen and (max-width: 600px) {
   #elecode-elecode {
     display: none;
@@ -359,7 +474,7 @@ img {
 
   #elecode-jp {
     top: auto;
-    bottom: 7.8vw;
+    bottom: 9vw;
     font-size: 8vw;
     left: 0;
   }

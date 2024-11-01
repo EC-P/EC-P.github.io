@@ -1,0 +1,119 @@
+---
+permalink: /404.html
+---
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素编码-404</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000;
+            -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+        }
+        .notfound {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .row {
+            display: flex;
+            margin: 5px 0;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            margin: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            border-radius: 20%;
+            color: #000;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .cell:hover {
+            font-size: 1em;
+        }
+        .cell:hover .nf {
+            display: none;
+        }
+        .cell:hover .ho {
+            display: block;
+        }
+        .cell:hover .ecd{
+          background:url(assets/logo-2.png);
+          background-size:cover;
+        }
+        .c1 { background-color: #ff8c00; box-shadow: 0 8px #ab5e00; }
+        .c2 { background-color: #40e0d0; box-shadow: 0 8px #27968b; }
+        .c3 { background-color: #da70d6; box-shadow: 0 8px #924a8e; }
+        .c4 { background-color: #e0ffff; box-shadow: 0 8px #96abac; }
+        .c6 { background-color: #f0e68c; box-shadow: 0 8px #a1995d; }
+        .c7 { background-color: #4169e1; box-shadow: 0 8px #2a4497; }
+        .c8 { background-color: #00ff00; box-shadow: 0 8px #00ab00; }
+        .c9 { background-color: #ffc0cb; box-shadow: 0 8px #aa8187; }
+        .c5 {
+          background-color: #fff;
+          cursor:pointer;
+          box-shadow: 0 8px #acacac;
+        }
+        .c5:hover { background-color: #ccc;box-shadow: 0 8px #7a7a7a; }
+        .c5:active {
+          box-shadow: 0 4px #555;
+          transform: translateY(4px);
+        }
+        .nf{
+          font-weight: bold;
+          font-size: 2em;
+        }
+        .ho {
+          display: none;
+          text-align: center
+        }
+        .en {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .ecd{
+          width:80%;
+          height:80%;
+          background:url(assets/logo.png);
+          background-size:cover;
+        }
+        @media screen and (max-width: 450px) {
+          body{font-size:11px;}
+        	.cell{height:64px;width:64px;}
+        }
+    </style>
+</head>
+<body>
+
+<div class="notfound">
+    <div class="row">
+        <div class="cell c1"><div class="nf">40</div><div class="ho"><div>040</div><div class="en">Zr</div><div>锆</div></div></div>
+        <div class="cell c2"><div class="nf">4</div><div class="ho"><div>002</div><div class="en">Be</div><div>铍</div></div></div>
+    </div>
+    <div class="row">
+        <div class="cell c3"><div class="nf">No</div><div class="ho"><div>102</div><div class="en">No</div><div>锘</div></div></div>
+        <div class="cell c4"><div class="nf">T</div><div class="ho"><div>001</div><div class="en">T</div><div>氚</div></div></div>
+        <div class="cell c5"><a class="ecd" href="."></a></div>
+    </div>
+    <div class="row">
+        <div class="cell c6"><div class="nf">F</div><div class="ho"><div>009</div><div class="en">F</div><div>氟</div></div></div>
+        <div class="cell c7"><div class="nf">O</div><div class="ho"><div>008</div><div class="en">O</div><div>氧</div></div></div>
+        <div class="cell c8"><div class="nf">U</div><div class="ho"><div>092</div><div class="en">U</div><div>铀</div></div></div>
+        <div class="cell c9"><div class="nf">Nd</div><div class="ho"><div>060</div><div class="en">Nd</div><div>钕</div></div></div>
+    </div>
+</div>
+
+</body>
+</html>

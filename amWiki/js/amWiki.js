@@ -55,7 +55,7 @@ $(function () {
             if (winW <= threshold) {
                 $container.removeAttr('style');
             } else {
-                $container.height($win.height() - 70 - 15 - 20 * 2);
+                $container.height($win.height() - 64 - 45);
             }
         };
         onResize();
@@ -173,7 +173,8 @@ $(function () {
         //开启滚动条
         $('.scroller').scrollbar();
         $('#backTop').on('click', function () {
-            $mainInner.scrollTop(0);
+            $mainInner.animate({ scrollTop: 0 }, 300);
+            $('html, body').animate({ scrollTop: 0 }, 300);
         });
         //图片放大
 //        $main.imgsView();
@@ -336,21 +337,21 @@ $(function () {
         };
         //设置上下篇目导航
         var setSiblingNav = function (num, $other) {
+            $mainSibling.addClass('on');
             if ($other) {
                 $mainSibling.find('a').eq(num)
                     .attr('href', $other.attr('href'))
                     .text($other.text());
+                $mainSibling.find('a').eq(num).parent().css('visibility', 'visible');
             } else {
                 $mainSibling.find('a').eq(num)
                     .removeAttr('href')
-                    .text('没有了');
+                    .text('无');
+                $mainSibling.find('a').eq(num).parent().css('visibility', 'hidden');
             }
         };
         setSiblingNav(0, getDocLink('prev', $item));
         setSiblingNav(1, getDocLink('next', $item));
-        if (testing && !testing.isOpen()) {
-            $mainSibling.addClass('on');
-        }
     };
 
     //改变导航显示
@@ -359,6 +360,8 @@ $(function () {
             $menuBar.find('h4').addClass('on');
             $menuBar.find('a').removeClass('on');
             changeSibling(null);
+            //修正手机端目录切换不回到顶端的问题
+            $(window).scrollTop(0);
         } else {
             var hsLink = false;
             $menuBar.find('a').each(function () {
@@ -372,6 +375,8 @@ $(function () {
                     showNavParents($prev);
                     //改变上下篇切换
                     changeSibling($this.parent());
+                    //修正手机端目录切换不回到顶端的问题
+                    $(window).scrollTop(0);
                 } else {
                     $this.removeClass('on');
                 }

@@ -221,37 +221,6 @@
     };
 
     /**
-     * 解析流程图
-     * @param {Object} $elm
-     * @private
-     */
-    Docs.prototype._createFlowChart = function ($elm) {
-        var code = $elm.text();
-        $elm.text('');
-        var id = 'flowChart' + parseInt(Math.random() * 500);
-        $elm.attr('id', id);
-        var chart = flowchart.parse(code);
-        chart.drawSVG(id, {
-            'line-width': 1.3,
-            'line-length': 56,
-            'line-color': '#666',
-            'text-margin': 10,
-            'font-size': 12,
-            'font': 'normal',
-            'font-family': 'Helvetica',
-            'font-weight': 'normal',
-            'font-color': 'black',
-            'element-color': '#888',
-            'fill': '#fff',
-            'yes-text': '是',
-            'no-text': '否',
-            'arrow-end': 'block-wide-long',
-            'symbols': {},
-            'flowstate': {}
-        });
-    };
-
-    /**
      * 解析 Markdown 目录
      * @param {String} html
      * @returns {String}
@@ -410,6 +379,26 @@
         return url;
     };
 
+    var _escapes = [
+        '\\',
+        '`',
+        '*',
+        '{',
+        '}',
+        '[',
+        ']',
+        '(',
+        ')',
+        '#',
+        '+',
+        '-',
+        '.',
+        '!',
+        '_',
+        '>',
+        '|'  // 表格中有|会让表格变形
+    ];
+
     /**
      * 渲染文档
      * @param {String} content - 需要渲染的文档内容
@@ -419,6 +408,13 @@
         var that = this;
         var html = '';
         this.cleanView();
+        //增加"\"符转义功能
+        content = content.replace(/\\(.)/g, function (m, s1) {
+            if (_escapes.indexOf(s1) == -1) {
+                return m;
+            }
+            return '&#' + s1.charCodeAt(0) + ';';
+        });
         //创建脚注
         content = this._setFootnote(content);
         //编译 markdown
@@ -433,24 +429,6 @@
         html = this._setRedText(html);
         //填充到页面
         this.$e.view.html(html);
-        //功能化代码块
-        this.$e.view.find('pre code').each(function (i, element) {
-            var $elm = $(element);
-            var className = $elm.attr('class') || '';
-            //创建流程图
-            if (className.indexOf('lang-flow') >= 0) {
-                that._createFlowChart($elm);
-            }
-            //创建语法高亮
-            else if (className.indexOf('lang') >= 0) {
-                hljs.highlightBlock(element);
-            }
-            //创建js注释开关
-            className = $elm.attr('class') || '';
-            if (className.indexOf('javascript') >= 0) {
-                that._setJSCommentDisable($elm);
-            }
-        });
         //设置网页title
         var title = this.$e.view.find('h1').eq(0).text();
         this.$e.title.text(title);

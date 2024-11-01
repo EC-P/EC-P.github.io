@@ -1,10 +1,7 @@
 /*调用Honoka字体*/
 @font-face {
-  font-family: HonokaGothic;
-  src: url('fonts/SourceHanSansElements.eot');
-  src: url('fonts/SourceHanSansElements.eot') format('embedded-opentype'),
-    url('fonts/SourceHanSansElements.ttf') format('truetype'),
-    url('fonts/SourceHanSansElements.svg') format('svg');
+  font-family: XXHEle;
+  src: url('../fonts/LXGWNeoXiHeiElements.woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -17,8 +14,8 @@
   font-style: normal;
 }
 
-aside .contents, .markdown-contents, aside .back-text, .search-box, .header, .container {
-  font-family: Microsoft YaHei, HonokaGothic, STXihei, STHeiti, Verdana, Arial, Helvetica, sans-serif;
+aside .contents, .markdown-contents, aside .back-text, .search-box, .header, .container ,.main .markdown-body{
+  font-family: 'Microsoft YaHei',  Verdana, Arial, Helvetica, sans-serif ,XXHEle;
 }
 
 /*搜索功能*/
@@ -124,7 +121,6 @@ aside .back-top {
 .markdown-body h1 {
   margin-top: 50px;
   font-size: 35px;
-
 }
 
 .markdown-body h2 {
@@ -142,7 +138,7 @@ aside .back-top {
 
 .markdown-body blockquote {
   padding: 12px;
-  font-size: 16px;
+  font-size: 1em;
   color: #41555d;
   text-align: justify;
 }
@@ -154,7 +150,7 @@ aside .back-top {
 .markdown-body code, .markdown-body tt {
   padding: 0;
   font-size: 14px;
-  background-color: #50616d;
+  background-color: #778899;
   color: #ccffff;
   height: 20px;
   margin: 5px 3px;
@@ -196,7 +192,7 @@ aside .back-top {
   overflow: hidden;
   float: right;
   margin: 4%;
-  background-color: #50616d;
+  background-color: #778899;
   border-radius: 50px;
   display: flex;
   justify-content: flex-start;
@@ -282,7 +278,7 @@ t3 {
 
 /*注音（字号）*/
 ruby {
-  font-size: 16px;
+  font-size: 1em;
 }
 
 rt {
@@ -406,7 +402,7 @@ rt {
 }
 
 #chara th {
-  background-color: #000066;
+  background: #003153;
   color: white;
 }
 
@@ -879,15 +875,15 @@ span.aaa::after{content: "- AAA -"}
 /*emoji问答*/
 #question {
 	display: inline;
-        }
+}
 .btn-emoji {
-  background-color: #50616d;
+  background-color: #778899;
   border: none;
   color: white;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1em;
   border-radius: 4px;
 }
 
@@ -905,19 +901,61 @@ span.aaa::after{content: "- AAA -"}
 #view ,#searchShow {
     display: none;
 }
+
+#passBox {
+  width: 180px;
+  padding: 5px; 
+  font-size: 14px; 
+  border: 2px solid #778899;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  outline: none; 
+}
+
+#passDiv button {
+  padding: 5px 10px;
+  font-size: 14px; 
+  background-color: #778899;
+  color: white; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+  transition: background-color 0.3s; 
+}
+
+#passDiv button:hover {
+  background-color: #0047ab;
+}
+
+#passBox::placeholder {
+  color: #999; /* 占位符颜色 */
+}
+
 #passDiv{
   position:fixed;
-  width: 200px;
-  top:26px;
-  left:20px;
+  width: 232px;
+  top:15px;
+  left: 0;
   right:0;
   margin:0 auto;
 }
-@media screen and (max-width:720px){
-  #passDiv{top:100px;}
-#footer{display: none;}
-body{background-color: white}}
 
+
+@media screen and (max-width:720px) {
+  #passDiv {
+    top: 100px;
+  }
+  #footer {
+    display: none;
+  }
+  body {
+    background-color: white
+  }
+  .markdown-body {
+    font-size: 16px
+  }
+}
 
 
 /*加载旋转原子图案*/
@@ -993,35 +1031,46 @@ body{background-color: white}}
 }
 
 /*分割线*/
-.markdown-body hr{color: #ccc;
-border: double;
-border-width: 3px 5px;
-border-color: #ccc transparent;
-height: 1px;
-overflow: visible;
-margin-left: 40px;
-margin-right: 40px;
-position: relative;}
+.markdown-body hr {
+  color: #ccc;
+  border: double;
+  border-width: 3px 5px;
+  border-color: #ccc transparent;
+  height: 1px;
+  overflow: visible;
+  margin-left: 40px;
+  margin-right: 40px;
+  position: relative;
+}
 
-.markdown-body hr:before,
-.markdown-body hr:after {
-content: '';
-position: absolute;
-width: 5px; height: 5px;
-border-width: 0 3px 3px 0;
-border-style: double;
-top: -3px;
-background: radial-gradient(2px at 1px 1px, currentColor 2px, transparent 0) no-repeat;
+.markdown-body hr:before, .markdown-body hr:after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-width: 0 3px 3px 0;
+  border-style: double;
+  top: -3px;
+  background: radial-gradient(2px at 1px 1px, currentColor 2px, transparent 0) no-repeat;
 }
 
 .markdown-body hr:before {
-transform: rotate(-45deg);
-left: -30px;
+  transform: rotate(-45deg);
+  left: -30px;
 }
 
 .markdown-body hr:after {
-transform: rotate(135deg);
-right: -30px;
+  transform: rotate(135deg);
+  right: -30px;
+}
+
+/*引用框类型的对半开格式*/
+.halfboxs {
+  display: grid;
+  margin: 0;
+  background-color: transparent;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
 }
 
 /*子页面跳转*/
@@ -1041,20 +1090,25 @@ right: -30px;
 }
 
 #childlink a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #003153;
-    text-decoration: none;
-    color: white;
-    border-radius: 5px;
-    width: 80px;
-    height: 80px;
-    font-size: 24px;
-    font-weight: bold;
-    transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #003153;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  width: 80px;
+  height: 80px;
+  font-size: 24px;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 #childlink a:hover {
-    background-color: #0047ab;
+  background-color: #0047ab;
+}
+
+/*图标字体相关*/
+.fa-solid{
+  text-indent: 0;
 }

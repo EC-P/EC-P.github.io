@@ -3,9 +3,9 @@ html{
   -webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 BODY {
-	color: #40826d;
+	color: #1c1c1c;
   -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
-  background: linear-gradient(to right top, #40826d 50%, #fff 50%);
+  background: linear-gradient(to right top, #1c1c1c 50%, #fff 50%);
   background-size: 100% calc(100% - 100vh + 1px);
   background-repeat: no-repeat;
   margin: 0;
@@ -22,7 +22,7 @@ BODY:before{
 }
 
 .logtitle {
-	background-color: #40826d;
+	background-color: #1c1c1c;
 	color: white;
 	font-weight: bold;
   height: 40px;
@@ -31,9 +31,9 @@ BODY:before{
 .logbody {
 	font-size: .9em;​
   height: 200px;
-  background-image:
-    linear-gradient(to right, rgba(64, 130, 109, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(64, 130, 109, 0.1) 1px, transparent 1px);
+  background-image:/*铬绿(64, 130, 109, 0.1)*/
+    linear-gradient(to right, rgba(28, 28, 28, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(28, 28, 28, 0.1) 1px, transparent 1px);
   background-size: 2em 2em;
   background-position: center center;
 }
@@ -41,7 +41,7 @@ BODY:before{
 td{white-space: pre-wrap;text-align: justify;line-height: 1.6em;padding:0 15px;}
 
 a {
-  color: #40826d;text-decoration: none;
+  color: #1c1c1c;text-decoration: none;
 }
 a:hover {
   font-weight: bold;
@@ -61,13 +61,13 @@ img{
 }
 /*目录*/
 .contents{
-	color: #40826d;
+	color: #1c1c1c;
 	font-weight: bold;
   height: 40px;
-  border: 3px solid #40826d;
+  border: 3px solid #1c1c1c;
 }
 .contents th{
-  background-color: #40826d;
+  background-color: #1c1c1c;
   color: white;
   padding:3px;
 }
@@ -84,7 +84,7 @@ img{
 	.log { width: 582px; }
   .logbody td{padding: 0 36px;}
 }
-a { text-decoration:none;color: #40826d; }
+a { text-decoration:none;color: #1c1c1c; }
 
 
 /*加载旋转原子图案*/
@@ -108,7 +108,7 @@ a { text-decoration:none;color: #40826d; }
 .atom-spinner .spinner-circle {
   display: block;
   position: absolute;
-  color: #40826d;
+  color: #1c1c1c;
   font-size: calc(60px * 0.24);
   top: 50%;
   left: 50%;
@@ -123,7 +123,7 @@ a { text-decoration:none;color: #40826d; }
   animation-duration: 1s;
   border-left-width: calc(60px / 25);
   border-top-width: calc(60px / 25);
-  border-left-color: #40826d;
+  border-left-color: #1c1c1c;
   border-left-style: solid;
   border-top-style: solid;
   border-top-color: transparent;
@@ -163,10 +163,10 @@ a { text-decoration:none;color: #40826d; }
 }
 
 /*分割线*/
-HR{color: #40826d;
+HR{color: #1c1c1c;
 border: double;
 border-width: 3px 5px;
-border-color: #40826d transparent;
+border-color: #1c1c1c transparent;
 height: 1px;
 overflow: visible;
 margin-left: 40px;
@@ -198,13 +198,13 @@ right: -30px;
 /* 使用例： <span class="tip" tips="告别">再见</span> */
 .tip {
   position: relative;
-  border-bottom: 1px dotted #40826d;
+  border-bottom: 1px dotted #1c1c1c;
 }
 
 .tip:before {
   content: attr(tips);
   position: absolute;
-  background-color: #40826d;
+  background-color: #1c1c1c;
   color: #fff;
   text-align: center;
   padding: 8px;
@@ -231,7 +231,7 @@ right: -30px;
   border-style: solid;
   opacity: 0;
   transition: opacity .5s;
-  border-color: #40826d transparent transparent transparent;
+  border-color: #1c1c1c transparent transparent transparent;
   visibility: hidden;
 }
 
