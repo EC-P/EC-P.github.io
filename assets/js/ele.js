@@ -111,14 +111,18 @@ function passinit() {
     searchShow.style.display = 'block';
     footer.style.display = 'block';
 	link.style.display = 'none';
-	sibling.style.display = 'flex';
+	if (sibling) {
+        sibling.style.display = 'flex';
+    }
   } else {
     passDiv.style.display = 'block';
     view.style.display = 'none';
     searchShow.style.display = 'none';
     footer.style.display = 'none';
 	sibling.style.display = 'none';
-	link.style.display = 'grid';
+	if (sibling) {
+        sibling.style.display = 'grid';
+    }
   }
 }
 

@@ -17,6 +17,16 @@
         <meta name="keywords" content="ELECODE,ECD,元素编码,拟人,oc,ecdwiki,ELECODE PROJECT">
         <meta name="author" content="由野哉">
         <meta name="copyright" content="由野哉">
+        <script>
+            (function(d) {
+                var config = {
+                    kitId: 'typ2mpm',
+                    scriptTimeout: 3000,
+                    async: true
+                },
+                h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+            })(document);
+        </script>
     </head>
 
     <body>
@@ -29,7 +39,7 @@
         <header class="header" id="header">
             <div class="header-inner">
                 <a class="logo" href="?file=home-主界面">
-                    <img src="assets/logo.png" /><i></i>
+                    <img src="assets/logo.png">
                     <b>ELECODE</b>
                     <span id="loginid">ASSAYER</span>
                 </a>

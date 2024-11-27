@@ -16,9 +16,9 @@ const elecodes = [{code: "001",latin: "HYDROGENIUM",color: "#e0ffff",symbol: "H"
 {code: "016",latin: "SULFUR",color: "#ffff00",symbol: "S",cn: "硫",jp: "硫黄",f0: "硫磺，硫酸，就是那个硫啦。",f1:"32.06",f2: "[Ne]3s²3p⁴",f3:"第三周期 16族",f4: "p区 非金属 固体",f5: "公元前2000年之前"},
 {code: "017",latin: "CHLORUM",color: "#9acd32",symbol: "Cl",cn: "氯",jp: "塩素",f0: "这里的打扫和清洁，请交给我吧。",f1:"35.45",f2: "[Ne]3s²3p⁵",f3:"第三周期 17族",f4: "p区 卤素 气体",f5: "1774"},
 {code: "018",latin: "ARGON",color: "#6495ed",symbol: "Ar",cn: "氩",jp: "アルゴン",f0: "……呼……",f1:"39.95",f2: "[Ne]3s²3p⁶",f3:"第三周期 18族",f4: "p区 稀有气体 气体",f5: "1894"},
-{code: "019",latin: "KALIUM",color: "#9370db",symbol: "K",cn: "钾",jp: "カリウム",f0: "【……】",f1:"39.098",f2: "[Ar]4s¹",f3:"第四周期 1族",f4: "s区 碱金属 固体",f5: "1702"},
-{code: "020",latin: "CALCIUM",color: "#fff5ee",symbol: "Ca",cn: "钙",jp: "カルシウム",f0: "【……】",f1:"40.078",f2: "[Ar]4s²",f3:"第四周期 2族",f4: "s区 碱土金属 固体",f5: "1739"},
-{code: "021",latin: "SCANDIUM",color: "#ffefd5",symbol: "Sc",cn: "钪",jp: "スカンジウム",f0: "【……】",f1:"44.956",f2: "[Ar]3d¹4s²",f3:"第四周期 3族",f4: "d区 过渡金属 固体",f5: "1879"},
+{code: "019",latin: "KALIUM",color: "#9370db",symbol: "K",cn: "钾",jp: "カリウム",f0: "哟，有感到心动吗？是玩笑啦——",f1:"39.098",f2: "[Ar]4s¹",f3:"第四周期 1族",f4: "s区 碱金属 固体",f5: "1702"},
+{code: "020",latin: "CALCIUM",color: "#fff5ee",symbol: "Ca",cn: "钙",jp: "カルシウム",f0: "嗯？我真的不是魔术师。",f1:"40.078",f2: "[Ar]4s²",f3:"第四周期 2族",f4: "s区 碱土金属 固体",f5: "1739"},
+{code: "021",latin: "SCANDIUM",color: "#ffefd5",symbol: "Sc",cn: "钪",jp: "スカンジウム",f0: "我只是在这一族、这个位置而已。",f1:"44.956",f2: "[Ar]3d¹4s²",f3:"第四周期 3族",f4: "d区 过渡金属 固体",f5: "1879"},
 {code: "022",latin: "TITANIUM",color: "#fafafa",symbol: "Ti",cn: "钛",jp: "チタン",f0: "【……】",f1:"47.867",f2: "[Ar]3d²4s²",f3:"第四周期 4族",f4: "d区 过渡金属 固体",f5: "1791"},
 {code: "023",latin: "VANADIUM",color: "#e6e6fa",symbol: "V",cn: "钒",jp: "バナジウム",f0: "【……】",f1:"50.942",f2: "[Ar]3d³4s²",f3:"第四周期 5族",f4: "d区 过渡金属 固体",f5: "1801"},
 {code: "024",latin: "CHROMIUM",color: "#40826d",symbol: "Cr",cn: "铬",jp: "クロム",f0: "【……】",f1:"51.996",f2: "[Ar]3d⁵4s¹",f3:"第四周期 6族",f4: "d区 过渡金属 固体",f5: "1797"},
@@ -118,7 +118,7 @@ const elecodes = [{code: "001",latin: "HYDROGENIUM",color: "#e0ffff",symbol: "H"
 {code: "118",latin: "OGANESSON",color: "#f0f8ff",symbol: "Og",cn: "鿫",jp: "オガネソン",f0: "【……】",f1:"[294]",f2: "[Rn] 5f¹⁴6d¹⁰7s²7p⁶",f3:"第七周期 18族",f4: "p区 稀有气体 ",f5: "2002"}
 ];
 
-let currentIndex = 0; // Index of the current elecode
+let currentIndex = 0; 
 let isAnimating = false;
 
 const elecodeCode = document.getElementById('elecode-code');
@@ -137,7 +137,6 @@ const elecodeF3 = document.getElementById('elecode-f3');
 const elecodeF4 = document.getElementById('elecode-f4');
 const elecodeF5 = document.getElementById('elecode-f5');
 const elecodeEmo = document.getElementById('elecode-emo');
-const paths = document.querySelectorAll("svg path");
 
 const avatar = document.getElementById('avatar');
 const hole = document.getElementById("hole");
@@ -150,9 +149,6 @@ const cardadd = document.getElementById("card-add");
 function updateElecode() {
   isAnimating = true;
 
-
-  elecodeBg.style.opacity = 0;
-  elecodeImg.style.opacity = 0;
 
   setTimeout(() => {
 
@@ -171,9 +167,6 @@ function updateElecode() {
     elecodeF4.innerText = elecodes[currentIndex].f4;
     elecodeF5.innerText = elecodes[currentIndex].f5;
 
-
-    elecodeBg.style.opacity = 0.4;
-    elecodeImg.style.opacity = 1;
 
     var elecolor = elecodes[currentIndex].color;
 
@@ -200,9 +193,16 @@ function updateElecode() {
     document.body.style.backgroundColor = elecolor;
 
 
-    for (const path of paths) {
-      path.style.stroke = elecolor;
-    }
+    const svghex = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="69.282" viewBox="0 0 120 69.282">
+      <polyline points="0,0 20,0 40,34.641 20,69.282 0,69.282" style="fill: none; stroke: ${elecolor}; stroke-miterlimit: 10;" />
+      <polyline points="120,69.282 100,69.282 80,34.641 100,0 120,0" style="fill: none; stroke: ${elecolor}; stroke-miterlimit: 10;" />
+      <line x1="40" y1="34.641" x2="80" y2="34.641" style="fill: none; stroke: ${elecolor}; stroke-miterlimit: 10;" />
+    </svg>
+    `;
+    const svgHexUrl = `url("data:image/svg+xml;charset=utf-8,${encodeURIComponent(svghex)}")`;
+    document.querySelector('.svg-box').style.backgroundImage = svgHexUrl;
+
     isAnimating = false;
   }, 10);
     // 反色转换函数

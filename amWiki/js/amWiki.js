@@ -360,8 +360,6 @@ $(function () {
             $menuBar.find('h4').addClass('on');
             $menuBar.find('a').removeClass('on');
             changeSibling(null);
-            //修正手机端目录切换不回到顶端的问题
-            $(window).scrollTop(0);
         } else {
             var hsLink = false;
             $menuBar.find('a').each(function () {
@@ -375,8 +373,6 @@ $(function () {
                     showNavParents($prev);
                     //改变上下篇切换
                     changeSibling($this.parent());
-                    //修正手机端目录切换不回到顶端的问题
-                    $(window).scrollTop(0);
                 } else {
                     $this.removeClass('on');
                 }
@@ -412,6 +408,8 @@ $(function () {
         testing && testing.crawlContent();
         $main.trigger('scrollbar');
         $mainInner.scrollTop(0);  //返回顶部
+        //修正手机端目录切换不回到顶端的问题
+        $(window).scrollTop(0);
         //更新history记录
         if (!withOutPushState && HISTORY_STATE) {
             var path2 = path.replace(/&/g, '%26');  //对带 & 符号的地址特殊处理

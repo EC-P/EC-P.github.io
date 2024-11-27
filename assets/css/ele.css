@@ -1,11 +1,3 @@
-/*调用Honoka字体*/
-@font-face {
-  font-family: XXHEle;
-  src: url('../fonts/LXGWNeoXiHeiElements.woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
 /*调用漫黑字体*/
 @font-face {
   font-family: "LXGW M";
@@ -15,13 +7,13 @@
 }
 
 aside .contents, .markdown-contents, aside .back-text, .search-box, .header, .container ,.main .markdown-body{
-  font-family: 'Microsoft YaHei',  Verdana, Arial, Helvetica, sans-serif ,XXHEle;
+  font-family: "source-han-sans-sc-variable",'Microsoft YaHei',  Verdana, Arial, Helvetica, sans-serif;
+  font-variation-settings: "wght" 400;
 }
 
 /*搜索功能*/
 .search-update input {
   background-color: #eee;
-  font-weight: 300;
   text-decoration: none;
   text-align: center;
   cursor: pointer;
@@ -33,6 +25,7 @@ aside .contents, .markdown-contents, aside .back-text, .search-box, .header, .co
   width: 110px;
   font-size: 14px;
   color: #666;
+  font-variation-settings: "wght" 300;
 }
 
 .search-update input[disabled] {
@@ -57,6 +50,7 @@ aside .contents, .markdown-contents, aside .back-text, .search-box, .header, .co
   padding-left: 3px;
   padding-right: 3px;
   outline: none;
+  font-variation-settings: "wght" 350;
 }
 
 .search-input input[type="button"]:hover {
@@ -71,6 +65,7 @@ aside .contents, .markdown-contents, aside .back-text, .search-box, .header, .co
   border-color: #eee;
   font-size: 14px;
   padding: 11px;
+  font-variation-settings: "wght" 350;
 }
 
 .search-input input[type="text"]:focus {
@@ -453,6 +448,7 @@ rt {
   background: repeating-linear-gradient(to left, #4a4266, #549688);
   border-radius: 20px;
   font-size: 14px;
+  font-family: 'Microsoft YaHei',  Verdana, Arial, Helvetica, sans-serif;
 }
 
 .scrollDiv p {
@@ -547,6 +543,7 @@ span.c115,span.c116,span.c117,span.c118,span.aaa {
   text-shadow: 0 0 0.7px #111,0 0 0.7px #111,0 0 0.7px #111,0 0 0.7px #111,
 	0 0 0.7px #111,0 0 0.7px #111,0 0 0.7px #111,0 0 0.7px #111,0 0 0.7px #111,0 0 0.7px #111;
   position: relative;
+  font-variation-settings: "wght" 450;
 }
 
 span.c003,span.c006,span.c007,span.c008,span.c013,span.c015,span.c018,span.c019,span.c024,
@@ -559,6 +556,7 @@ span.c111,span.c113,span.c117 {
   text-shadow: 0 0 0.7px #999,0 0 0.7px #999,0 0 0.7px #999,0 0 0.7px #999,
 	0 0 0.7px #999,0 0 0.7px #999,0 0 0.7px #999,0 0 0.7px #999,0 0 0.7px #999,0 0 0.7px #999;
   position: relative;
+  font-variation-settings: "wght" 450;
 }
 
 span.c001::after, span.c002::after, span.c003::after, span.c004::after, span.c005::after,

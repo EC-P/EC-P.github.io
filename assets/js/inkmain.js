@@ -285,7 +285,7 @@
 
             // Fade in paragraph after a short delay
             showAfter(delay, paragraphElement);
-            delay += 220.0;// 速度
+            delay += 240.0;// 速度
 
             if (IS_SINGLE_SENTENCE_MODE_ENABLED && story.currentChoices.length == 0) {
                 // 中断 continue，等待用户点击
@@ -305,7 +305,7 @@
 
             // Fade choice in after a short delay
             showAfter(delay, choiceParagraphElement);
-            delay += 40.0;// 选项速度
+            delay += 10.0;// 选项速度
 
             // Click on choice
             var choiceAnchorEl = choiceParagraphElement.querySelectorAll("a")[0];
@@ -486,10 +486,26 @@
         // });
 
         let themeSwitchEl = document.getElementById("theme-switch");
-        if (themeSwitchEl) themeSwitchEl.addEventListener("click", function (event) {
-            document.body.classList.add("switched");
-            document.body.classList.toggle("dark");
-        });
+        //加localStorage存网页黑白
+        window.onload = function() {
+            if (localStorage.getItem('CRdark') === 'true') {
+                document.body.classList.add("dark");
+            } else {
+                document.body.classList.remove("dark");
+            }
+        };
+        if (themeSwitchEl) {
+            themeSwitchEl.addEventListener("click", function () {
+                const darkLoad = document.querySelectorAll('.darkload');
+                darkLoad.forEach(element => element.classList.remove('darkload'));
+                document.body.classList.toggle("dark");
+                if (document.body.classList.contains("dark")) {
+                    localStorage.setItem('CRdark', 'true');
+                } else {
+                    localStorage.setItem('CRdark', 'false');
+                }
+            });
+        }
 
         /* ----- inky go ----- */
         let loadProgressCloseBtn = document.getElementById("close-load-dialog");
