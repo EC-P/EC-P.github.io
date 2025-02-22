@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="a" data-name="图层 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7800 4400">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7800 4400">
   <rect x="1200" y="2400" width="400" height="800" style="fill: #aaa;"/>
   <g>
     <polyline points="7200 400 7200 800 5200 800 5200 1600 1200 1600 1200 800 800 800 800 400" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 3px;"/>

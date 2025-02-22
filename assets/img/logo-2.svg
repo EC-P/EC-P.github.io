@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <path d="m25,5l-11.55,20H1.91L13.45,5h11.55Z" style="fill: blue; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5px;"/>
+  <polygon points="36.55 5 36.55 45 25 45 13.45 25 25 5 36.55 5" style="stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5px;"/>
+  <path d="m25,45h-11.55L1.91,25h11.54l11.55,20Z" style="fill: lime; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5px;"/>
+  <polygon points="48.09 25 36.55 45 36.55 5 48.09 25" style="fill: red; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5px;"/>
+</svg>

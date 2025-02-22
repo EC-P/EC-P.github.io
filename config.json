@@ -1,7 +1,7 @@
 {
     "name": "ELECODE",
     "ver": "assayer",
-     "logo": "/assets/logo.png",
+     "logo": "/assets/img/logo.svg",
      "colour": "#fff",
      "imports": "assets/css/ele.css"
 }

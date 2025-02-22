@@ -349,9 +349,6 @@
      */
     Docs.prototype._encodeUrl = function (path, type) {
         var url = 'library/';
-        //if (typeof AWConfig.libraryPrefix == 'string' && AWConfig.libraryPrefix.length > 0) {
-        //    url = AWConfig.libraryPrefix.replace(/\\/g, '/').replace(/\/?&/, '/');
-        //}
         var paths = [];
         //正常编码
         if (type == 'normal') {

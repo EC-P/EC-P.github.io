@@ -37,7 +37,7 @@ body{position:relative;height:100%;background:#778899;}
 /* ---------- header，头部 ---------- */
 .header{width:100%;height:64px;font-family:"source-han-sans-sc-variable",'Microsoft YaHei',STXihei,STHeiti,Verdana,Arial,Helvetica,sans-serif;background:#242434;border-bottom:#000000 1px solid;}
 .header .header-inner{margin:0 30px;}
-.header .logo{float:left;padding-top:15px;}
+.header .logo{display:block;padding-top:15px;}
 .header .logo img{float:left;margin-left:5px;max-height:32px;}
 .header .logo b{float:left;max-width:470px;height:32px;padding-left:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:24px;font-weight:normal;color:#b0c4de;}
 .header .logo span{float:left;padding:0 3px;margin:1px 0 0 2px;font-size:xx-small;color:#ddd;background:#778899;}
